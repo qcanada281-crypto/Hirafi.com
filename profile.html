@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملف الحرفي - خدمة الحرفيين المغاربة</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.jpeg">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            min-height: 100vh;
+        }
+        
+        .profile-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 8s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .profile-header {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            object-fit: cover;
+        }
+        
+        .profile-info { color: white; flex: 1; }
+        
+        .profile-name {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .verified-badge { font-size: 1.2rem; }
+        
+        .featured-badge {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #1e3a8a;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .badge-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255,255,255,0.25);
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+        
+        .profile-meta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.75rem; }
+        
+        .meta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .profile-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+            width: fit-content;
+        }
+        
+        .profile-stars { color: #1e3a8a; }
+        
+        .profile-actions { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+        
+        .btn-action {
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #1e3a8a;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.5);
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #f0f4ff;
+            transform: translateY(-3px);
+        }
+        
+        .main-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .bio-text { color: #475569; line-height: 1.8; font-size: 1rem; }
+        
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            color: #4338ca;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .portfolio-item {
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            position: relative;
+            background: #f1f5f9;
+        }
+        
+        .portfolio-item img,
+        .portfolio-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover img,
+        .portfolio-item:hover video { transform: scale(1.1); }
+        
+        .portfolio-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 1rem 0.5rem 0.5rem;
+            font-size: 0.85rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .contact-label { font-size: 0.8rem; color: #64748b; margin-bottom: 0.25rem; }
+        
+        .contact-value { font-weight: 600; color: #1e3a8a; font-size: 1rem; }
+        
+        .admin-chat-card {
+            border: 1px solid #bfdbfe;
+            background: linear-gradient(135deg, #eff6ff, #f8fafc);
+            border-radius: 14px;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .admin-chat-card p {
+            margin: 0;
+            color: #334155;
+            line-height: 1.6;
+        }
+        
+        .loading { text-align: center; padding: 3rem; color: #64748b; }
+        .loading i { font-size: 2rem; margin-bottom: 1rem; color: #667eea; }
+        
+        .not-found { text-align: center; padding: 3rem; }
+        .not-found h2 { color: #dc2626; margin-bottom: 1rem; }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .back-link:hover { text-decoration: underline; }
+        
+        .empty-section { text-align: center; padding: 2rem; color: #94a3b8; }
+        .empty-section i { font-size: 2rem; margin-bottom: 0.5rem; }
+        
+        @media (max-width: 768px) {
+            .profile-header { flex-direction: column; text-align: center; }
+            .profile-meta { justify-content: center; }
+            .profile-actions { justify-content: center; }
+            .profile-name { justify-content: center; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="search.html" class="back-link" data-i18n="profile_back_to_search">
+        <i class="fas fa-arrow-right"></i> العودة للبحث
+    </a>
+    
+    <div class="profile-hero">
+        <div class="profile-header">
+            <img src="img/default-avatar.png" alt="" class="profile-avatar" id="avatar">
+            <div class="profile-info">
+                <h1 class="profile-name" id="name">
+                    ...
+                    <span class="verified-badge" id="verifiedBadge" hidden><i class="fas fa-check-circle"></i></span>
+                    <span class="featured-badge" id="featuredBadge" hidden>مميز</span>
+                </h1>
+                <div class="profile-meta" id="metaBadges">
+                    <span class="meta-badge"><i class="fas fa-tools"></i> <span id="profession">...</span></span>
+                    <span class="meta-badge"><i class="fas fa-map-marker-alt"></i> <span id="city">...</span></span>
+                    <span class="meta-badge"><i class="fas fa-briefcase"></i> <span id="experience">0</span> سنوات خبرة</span>
+                    <span class="meta-badge" id="genderBadge" hidden><i class="fas fa-user"></i> <span id="gender">...</span></span>
+                    <span class="badge-tag" id="badgeType" hidden><i class="fas fa-award"></i> <span id="badgeText"></span></span>
+                </div>
+                <div class="profile-rating">
+                    <span class="profile-stars" id="stars"></span>
+                    <span id="rating">0.0</span>
+                    <span style="font-size: 0.85rem; opacity: 0.9;">(<span id="reviews">0</span> تقييم)</span>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn-action btn-primary" onclick="contactCraftsman()">
+                        <i class="fas fa-phone"></i> <span data-i18n="profile_contact_now">تواصل الآن</span>
+                    </button>
+                    <button class="btn-action btn-whatsapp" id="whatsappBtn" onclick="contactWhatsApp()" hidden>
+                        <i class="fab fa-whatsapp"></i> <span data-i18n="profile_whatsapp">واتساب</span>
+                    </button>
+                    <button class="btn-action btn-secondary" onclick="window.location.href='search.html'">
+                        <i class="fas fa-search"></i> بحث حرفيين
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-container" id="mainContent">
+        <div class="content-card" id="excerptCard">
+            <h3 class="section-title" data-i18n="profile_section_desc"><i class="fas fa-info-circle"></i> الوصف</h3>
+            <p class="bio-text" id="excerpt"></p>
+        </div>
+        
+        <div class="content-card" id="bioCard" hidden>
+            <h3 class="section-title" data-i18n="profile_section_bio"><i class="fas fa-user"></i> نبذة عن الحرفي</h3>
+            <p class="bio-text" id="bio"></p>
+        </div>
+        
+        <div class="content-card" id="skillsCard" hidden>
+            <h3 class="section-title" data-i18n="profile_section_skills"><i class="fas fa-cogs"></i> المهارات</h3>
+            <div class="skills-grid" id="skills"></div>
+        </div>
+        
+        <div class="content-card" id="portfolioCard" hidden>
+            <h3 class="section-title" data-i18n="profile_section_portfolio"><i class="fas fa-images"></i> أعمال سابقة</h3>
+            <div class="portfolio-grid" id="portfolio"></div>
+        </div>
+        
+        <div class="content-card" id="noPortfolio" hidden>
+            <div class="empty-section"><i class="fas fa-images"></i><p data-i18n="profile_no_portfolio">لا تتوفر أعمال سابقة حالياً</p></div>
+        </div>
+        
+        <div class="content-card">
+            <h3 class="section-title" data-i18n="profile_section_contact"><i class="fas fa-id-card"></i> معلومات التواصل</h3>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <div class="contact-label">الهاتف</div>
+                        <div class="contact-value" id="phoneValue">...</div>
+                    </div>
+                </div>
+                <div class="contact-item" id="whatsappItem" hidden>
+                    <div class="contact-icon" style="background: linear-gradient(135deg, #25D366, #128C7E);"><i class="fab fa-whatsapp"></i></div>
+                    <div>
+                        <div class="contact-label">WhatsApp</div>
+                        <div class="contact-value" id="whatsappValue">...</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <div class="contact-label">البريد الإلكتروني</div>
+                        <div class="contact-value" id="emailValue">...</div>
+                    </div>
+                </div>
+                <div class="contact-item" id="addressItem" hidden>
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <div class="contact-label">العنوان</div>
+                        <div class="contact-value" id="addressValue">...</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <div class="contact-label">المدينة</div>
+                        <div class="contact-value" id="cityValue">...</div>
+                    </div>
+                </div>
+                <div class="contact-item" id="workingHoursItem" hidden>
+                    <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <div class="contact-label">أوقات العمل</div>
+                        <div class="contact-value" id="workingHoursValue">...</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div>
+                        <div class="contact-label">تاريخ التسجيل</div>
+                        <div class="contact-value" id="joinDate">...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h3 class="section-title" data-i18n="profile_section_admin_chat"><i class="fas fa-comments"></i> مراسلة الإدارة</h3>
+            <div class="admin-chat-card">
+                <p data-i18n="profile_admin_chat_desc">إذا كنت حرفي وتحتاج تتواصل مع الإدارة، استعمل الشات المحلي باش تصيفط رسالتك وتتبع الردود.</p>
+                <button class="btn-action btn-secondary" onclick="openAdminLocalChat()">
+                    <i class="fas fa-paper-plane"></i> <span data-i18n="profile_admin_chat_btn">افتح شات الإدارة</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="loading" id="loading">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p data-i18n="profile_loading">جارٍ تحميل الملف...</p>
+    </div>
+    
+    <div class="not-found" id="notFound" hidden>
+        <h2><i class="fas fa-exclamation-circle"></i> <span data-i18n="profile_not_found">الحرفي غير موجود</span></h2>
+        <p data-i18n="profile_not_found_desc">عذراً، لم يتم العثور على هذا الحرفي</p>
+        <a href="search.html" class="btn-action btn-primary" style="display: inline-block; margin-top: 1rem;">
+            <i class="fas fa-search"></i> <span data-i18n="profile_btn_search">بحث عن حرفيين</span>
+        </a>
+    </div>
+    
+    <script>
+        function getCraftsmanId() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id') || '';
+        }
+        
+        function buildStars(rating) {
+            const safe = Math.max(0, Math.min(5, Number(rating) || 0));
+            const full = Math.floor(safe);
+            const half = safe - full >= 0.5;
+            const empty = 5 - full - (half ? 1 : 0);
+            return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(Math.max(0, empty));
+        }
+        
+        function formatDate(dateStr) {
+            if (!dateStr) return 'غير محدد';
+            const d = new Date(dateStr);
+            return d.toLocaleDateString('ar-MA', { year: 'numeric', month: 'long' });
+        }
+        
+        function getGenderLabel(gender) {
+            if (gender === 'male') return 'ذكر';
+            if (gender === 'female') return 'أنثى';
+            return null;
+        }
+        
+        function escapeHtml(text) {
+            if (!text) return '';
+            return String(text)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+        
+        function contactCraftsman() {
+            const phone = document.getElementById('phoneValue').textContent;
+            if (phone && phone.length > 3 && phone !== 'غير متوفر') {
+                window.open('tel:' + phone);
+            }
+        }
+        
+        function contactWhatsApp() {
+            let whatsapp = document.getElementById('whatsappValue').textContent;
+            if (whatsapp && whatsapp.length > 3) {
+                whatsapp = whatsapp.replace(/[^0-9]/g, '');
+                if (!whatsapp.startsWith('212')) {
+                    whatsapp = '212' + whatsapp;
+                }
+                window.open('https://wa.me/' + whatsapp);
+            }
+        }
+        
+        async function loadProfile() {
+            const id = getCraftsmanId();
+            if (!id) {
+                document.getElementById('loading').hidden = true;
+                document.getElementById('notFound').hidden = false;
+                return;
+            }
+            
+            try {
+                const res = await fetch('backend/get_craftsman.php?id=' + id);
+                const data = await res.json();
+                
+                document.getElementById('loading').hidden = true;
+                
+                if (!data.success || !data.craftsman) {
+                    document.getElementById('notFound').hidden = false;
+                    return;
+                }
+                
+                const c = data.craftsman;
+                document.title = c.name + ' - ملف الحرفي';
+                
+                // Avatar
+                document.getElementById('avatar').src = c.profile_image || c.avatar || 'img/default-avatar.png';
+                document.getElementById('name').innerHTML = escapeHtml(c.name || 'حرفي');
+                
+                // Badges
+                if (c.documents_verified === 1) document.getElementById('verifiedBadge').hidden = false;
+                if (c.is_featured === 1) document.getElementById('featuredBadge').hidden = false;
+                if (c.badge_type) {
+                    document.getElementById('badgeType').hidden = false;
+                    document.getElementById('badgeText').textContent = c.badge_type;
+                }
+                
+                // Basic info
+                document.getElementById('profession').textContent = c.profession || '';
+                document.getElementById('city').textContent = c.city || '';
+                document.getElementById('experience').textContent = c.experience_years || 0;
+                document.getElementById('rating').textContent = Number(c.rating || 0).toFixed(1);
+                document.getElementById('reviews').textContent = c.total_reviews || 0;
+                document.getElementById('stars').textContent = buildStars(c.rating);
+                
+                const genderLabel = getGenderLabel(c.gender);
+                if (genderLabel) {
+                    document.getElementById('genderBadge').hidden = false;
+                    document.getElementById('gender').textContent = genderLabel;
+                }
+                
+                // Excerpt
+                document.getElementById('excerpt').textContent = c.excerpt || 'لا يوجد وصف';
+                
+                // Contact info
+                document.getElementById('phoneValue').textContent = c.phone || 'غير متوفر';
+                
+                if (c.whatsapp) {
+                    document.getElementById('whatsappValue').textContent = c.whatsapp;
+                    document.getElementById('whatsappItem').hidden = false;
+                    document.getElementById('whatsappBtn').hidden = false;
+                }
+                
+                document.getElementById('emailValue').textContent = c.email || 'غير محدد';
+                
+                if (c.address) {
+                    document.getElementById('addressValue').textContent = c.address;
+                    document.getElementById('addressItem').hidden = false;
+                }
+                
+                document.getElementById('cityValue').textContent = c.city || 'غير محددة';
+                
+                if (c.working_hours) {
+                    document.getElementById('workingHoursValue').textContent = c.working_hours;
+                    document.getElementById('workingHoursItem').hidden = false;
+                }
+                
+                document.getElementById('joinDate').textContent = formatDate(c.created_at);
+                
+                // Bio
+                if (c.bio) {
+                    document.getElementById('bio').textContent = c.bio;
+                    document.getElementById('bioCard').hidden = false;
+                }
+                
+                // Skills
+                if (c.skills) {
+                    const skills = c.skills.split(',').map(s => s.trim()).filter(s => s);
+                    if (skills.length > 0) {
+                        document.getElementById('skills').innerHTML = skills.map(s => 
+                            `<span class="skill-tag">${escapeHtml(s)}</span>`
+                        ).join('');
+                        document.getElementById('skillsCard').hidden = false;
+                    }
+                }
+                
+                // Portfolio - from multiple sources
+                const portfolioEl = document.getElementById('portfolio');
+                let hasPortfolio = false;
+                
+                // From portfolio_items table
+                if (c.portfolio_items && c.portfolio_items.length > 0) {
+                    hasPortfolio = true;
+                    c.portfolio_items.forEach(item => {
+                        if (item.media_type === 'image') {
+                            portfolioEl.innerHTML += `
+                                <div class="portfolio-item">
+                                    <img src="${escapeHtml(item.media_url)}" alt="${escapeHtml(item.title || 'عمل سابق')}" loading="lazy">
+                                    ${item.title ? '<div class="portfolio-caption">' + escapeHtml(item.title) + '</div>' : ''}
+                                </div>
+                            `;
+                        } else if (item.media_type === 'video') {
+                            portfolioEl.innerHTML += `
+                                <div class="portfolio-item">
+                                    <video controls preload="metadata">
+                                        <source src="${escapeHtml(item.media_url)}" type="video/mp4">
+                                    </video>
+                                </div>
+                            `;
+                        }
+                    });
+                }
+                
+                // From portfolio_images JSON field
+                if (c.portfolio_images && c.portfolio_images.length > 0) {
+                    hasPortfolio = true;
+                    c.portfolio_images.forEach(img => {
+                        portfolioEl.innerHTML += `
+                            <div class="portfolio-item">
+                                <img src="${escapeHtml(img)}" alt="عمل سابق" loading="lazy">
+                            </div>
+                        `;
+                    });
+                }
+                
+                // From portfolio_videos JSON field
+                if (c.portfolio_videos && c.portfolio_videos.length > 0) {
+                    hasPortfolio = true;
+                    c.portfolio_videos.forEach(vid => {
+                        portfolioEl.innerHTML += `
+                            <div class="portfolio-item">
+                                <video controls preload="metadata">
+                                    <source src="${escapeHtml(vid)}" type="video/mp4">
+                                </video>
+                            </div>
+                        `;
+                    });
+                }
+                
+                if (hasPortfolio) {
+                    document.getElementById('portfolioCard').hidden = false;
+                } else {
+                    document.getElementById('noPortfolio').hidden = false;
+                }
+                
+            } catch (e) {
+                console.error('Error loading profile:', e);
+                document.getElementById('loading').hidden = true;
+                document.getElementById('notFound').hidden = false;
+            }
+        }
+
+        async function openAdminLocalChat() {
+            try {
+                const res = await fetch('backend/check_session.php');
+                const session = await res.json();
+
+                if (!session.logged_in) {
+                    const goLogin = confirm('باش تراسل الإدارة خاصك تسجل الدخول كحرفي. واش نمشيو لصفحة تسجيل الدخول؟');
+                    if (goLogin) {
+                        window.location.href = 'hirafi_login.html';
+                    }
+                    return;
+                }
+
+                if (session.user_type !== 'craftsman' && session.user_type !== 'admin') {
+                    alert('هاد الخاصية متاحة للحرفيين والإدارة فقط.');
+                    return;
+                }
+
+                window.location.href = 'backend/messages_center.php';
+            } catch (e) {
+                alert('وقع مشكل أثناء التحقق من الجلسة. حاول مرة أخرى.');
+            }
+        }
+        
+        loadProfile();
+    </script>
+    <script src="lang_dict.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

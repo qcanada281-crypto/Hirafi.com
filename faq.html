@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسئلة الشائعة - خدمة الحرفيين المغاربة</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Readex+Pro:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.jpeg">
+    <style>
+        :root {
+            --bg: #f5f8fc;
+            --ink: #10233f;
+            --muted: #5f748d;
+            --line: rgba(148, 163, 184, 0.24);
+            --panel: rgba(255,255,255,0.92);
+            --blue: #1d4ed8;
+            --navy: #0f1d33;
+            --teal: #0f766e;
+            --gold: #d4a63a;
+            --shadow: 0 22px 48px rgba(15, 23, 42, 0.12);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Cairo", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top right, rgba(29, 78, 216, 0.14), transparent 30%),
+                radial-gradient(circle at bottom left, rgba(15, 118, 110, 0.12), transparent 24%),
+                linear-gradient(180deg, #f9fbff 0%, #eef4fa 46%, #f5f8fc 100%);
+        }
+        .container {
+            width: min(1140px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(249, 251, 255, 0.84);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.64);
+        }
+        .topbar-inner {
+            min-height: 74px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+        }
+        .brand,
+        .nav a {
+            text-decoration: none;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--navy);
+            font-family: "Readex Pro", sans-serif;
+            font-weight: 700;
+        }
+        .brand-badge {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--blue), #0ea5e9);
+            box-shadow: 0 14px 28px rgba(29, 78, 216, 0.24);
+        }
+        .nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .nav a {
+            color: var(--muted);
+            font-weight: 700;
+            padding: 10px 14px;
+            border-radius: 999px;
+            transition: 0.2s ease;
+        }
+        .nav a:hover,
+        .nav a.active {
+            color: var(--navy);
+            background: #fff;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+        }
+        .hero {
+            padding: 54px 0 24px;
+        }
+        .hero-card {
+            position: relative;
+            overflow: hidden;
+            padding: 34px;
+            border-radius: 30px;
+            color: #f8fbff;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(212,166,58,0.18), transparent 28%),
+                linear-gradient(135deg, #0f1d33, #133d73 52%, #0f766e 100%);
+            box-shadow: 0 28px 56px rgba(15, 23, 42, 0.22);
+        }
+        .hero-card::after {
+            content: "";
+            position: absolute;
+            inset: auto auto -90px -40px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 68%);
+        }
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            font-weight: 800;
+        }
+        h1, h2, h3 {
+            font-family: "Readex Pro", sans-serif;
+        }
+        .hero-card h1 {
+            margin: 16px 0 12px;
+            font-size: clamp(2rem, 4vw, 3.3rem);
+            line-height: 1.2;
+        }
+        .hero-card p {
+            margin: 0;
+            max-width: 60ch;
+            color: rgba(226,232,240,0.92);
+            line-height: 1.9;
+        }
+        .hero-stats {
+            margin-top: 22px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+        .hero-stat {
+            padding: 16px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .hero-stat strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1.25rem;
+        }
+        .hero-stat span {
+            color: rgba(226,232,240,0.82);
+            font-size: 0.9rem;
+        }
+        .section {
+            padding: 24px 0;
+        }
+        .filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+        .filter-btn {
+            border: 1px solid rgba(148, 163, 184, 0.24);
+            background: rgba(255,255,255,0.92);
+            color: var(--muted);
+            border-radius: 999px;
+            padding: 10px 14px;
+            font: inherit;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+        .filter-btn.active,
+        .filter-btn:hover {
+            color: var(--navy);
+            border-color: rgba(29, 78, 216, 0.2);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+        }
+        .layout {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 22px;
+            align-items: start;
+        }
+        .side-card,
+        .faq-panel,
+        .support-card {
+            background: var(--panel);
+            border: 1px solid rgba(255,255,255,0.9);
+            border-radius: 26px;
+            box-shadow: var(--shadow);
+        }
+        .side-card,
+        .support-card {
+            padding: 24px;
+        }
+        .side-card h2,
+        .support-card h3 {
+            margin: 0 0 12px;
+            color: var(--navy);
+        }
+        .side-card p,
+        .support-card p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.85;
+        }
+        .info-list {
+            margin: 16px 0 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+        .info-list li {
+            display: flex;
+            gap: 10px;
+            align-items: start;
+            color: var(--muted);
+        }
+        .info-list i {
+            color: var(--blue);
+            margin-top: 6px;
+        }
+        .faq-panel {
+            padding: 12px;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--line);
+        }
+        .faq-item:last-child {
+            border-bottom: 0;
+        }
+        .faq-item[hidden] {
+            display: none;
+        }
+        details {
+            padding: 8px 0;
+        }
+        summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 18px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-weight: 800;
+            color: var(--navy);
+            border-radius: 18px;
+            transition: background 0.2s ease;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary,
+        summary:hover {
+            background: #f5f9ff;
+        }
+        .summary-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            min-width: 0;
+        }
+        .summary-badge {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(29,78,216,0.12), rgba(14,165,233,0.14));
+            color: var(--blue);
+            flex-shrink: 0;
+        }
+        .summary-title {
+            min-width: 0;
+        }
+        .summary-title small {
+            display: block;
+            margin-top: 2px;
+            color: var(--muted);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        .summary-arrow {
+            color: var(--gold);
+            transition: transform 0.2s ease;
+        }
+        details[open] .summary-arrow {
+            transform: rotate(-90deg);
+        }
+        .faq-content {
+            padding: 0 16px 18px 68px;
+            color: var(--muted);
+            line-height: 1.9;
+        }
+        .faq-content p {
+            margin: 0;
+        }
+        .support-card {
+            margin-top: 22px;
+            background:
+                radial-gradient(circle at top left, rgba(212,166,58,0.14), transparent 26%),
+                linear-gradient(145deg, rgba(255,255,255,0.96), rgba(244,248,252,0.92));
+        }
+        .support-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            border-radius: 16px;
+            padding: 12px 16px;
+            font-weight: 800;
+        }
+        .btn-primary {
+            color: #fff;
+            background: linear-gradient(135deg, var(--blue), #0284c7);
+            box-shadow: 0 16px 30px rgba(29, 78, 216, 0.2);
+        }
+        .btn-secondary {
+            color: var(--navy);
+            background: #fff;
+            border: 1px solid rgba(148, 163, 184, 0.24);
+        }
+        .footer-lite {
+            padding: 18px 0 42px;
+        }
+        .footer-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding-top: 20px;
+            border-top: 1px solid rgba(148,163,184,0.24);
+            color: var(--muted);
+        }
+        .footer-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 700;
+        }
+        @media (max-width: 980px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 720px) {
+            .topbar-inner {
+                padding: 12px 0;
+                align-items: start;
+                flex-direction: column;
+            }
+            .hero-card {
+                padding: 24px;
+            }
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+            .faq-content {
+                padding: 0 16px 18px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-badge"><i class="fas fa-hands-helping"></i></span>
+                <span data-i18n="faq_brand_text">خدمة الحرفيين المغاربة</span>
+            </a>
+            <nav class="nav">
+                <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+                <a href="search.html" data-i18n="nav_search">البحث عن حرفي</a>
+                <a href="hirafi_register.html" data-i18n="nav_register">تسجيل حرفي</a>
+                <a href="contact.html" data-i18n="nav_contact">اتصل بنا</a>
+                <a href="blog.html" data-i18n="nav_blog">المدونة</a>
+                <a class="active" href="faq.html" data-i18n="nav_faq">الأسئلة الشائعة</a>
+                <a href="cities.html" data-i18n="nav_cities">المدن</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-card">
+                    <span class="eyebrow"><i class="fas fa-circle-question"></i> <span data-i18n="faq_hero_title">أجوبة سريعة وواضحة</span></span>
+                    <h1 data-i18n="faq_hero_subtitle">كلشي اللي كيتسول عليه الزبون أو الحرفي لقا ليه جواب مرتب ومهني.</h1>
+                    <p>
+                        جمعنا أكثر الأسئلة اللي كتوصلنا حول البحث، التسجيل، التسعير، الثقة، والمراسلة.
+                        الهدف هو نخلي الطريق واضح ونقصو التردد قبل ما تبدأ الخدمة أو تبني البروفايل ديالك.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <strong>12</strong>
+                            <span>سؤال مهم ومكرر</span>
+                        </div>
+                        <div class="hero-stat">
+                            <strong>4</strong>
+                            <span>محاور منظمة</span>
+                        </div>
+                        <div class="hero-stat">
+                            <strong>دعم مباشر</strong>
+                            <span>إلا ما لقيتيش جوابك</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">الكل</button>
+                    <button class="filter-btn" data-filter="client">أسئلة الزبناء</button>
+                    <button class="filter-btn" data-filter="craftsman">أسئلة الحرفيين</button>
+                    <button class="filter-btn" data-filter="pricing" id="pricing">الثمن والجودة</button>
+                    <button class="filter-btn" data-filter="support">الدعم والمراسلة</button>
+                </div>
+
+                <div class="layout">
+                    <aside class="side-card">
+                        <h2>كيف تستعمل هاد الصفحة؟</h2>
+                        <p>اختار المحور اللي كيعنيك من الفلاتر، وفتح السؤال اللي باغي الجواب ديالو. الجوابات مكتوبة باختصار مفيد وبلغة واضحة.</p>
+                        <ul class="info-list">
+                            <li><i class="fas fa-check-circle"></i><span>أسئلة الزبناء: كيفاش نختار ونتواصل ونقارن.</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>أسئلة الحرفيين: كيفاش نسجل ونقوي البروفايل ديالي.</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>الثمن والجودة: كيفاش نوازن بين الميزانية والنتيجة.</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>الدعم: فين تمشي إلا بغيتي مساعدة مباشرة.</span></li>
+                        </ul>
+                    </aside>
+
+                    <div>
+                        <div class="faq-panel" id="faqList">
+                            <div class="faq-item" data-group="client">
+                                <details open>
+                                    <summary>
+                                        <div class="summary-meta">
+                                            <span class="summary-badge"><i class="fas fa-user"></i></span>
+                                            <span class="summary-title">كيفاش نختار الحرفي المناسب؟<small>للزبناء</small></span>
+                                        </div>
+                                        <i class="fas fa-chevron-left summary-arrow"></i>
+                                    </summary>
+                                    <div class="faq-content"><p>شوف جودة الصور، وضوح الوصف، التخصص الحقيقي، والتقييمات إذا كانت موجودة. من بعد قارن بين أكثر من بروفايل قبل ما تراسل.</p></div>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-group="client support">
+                                <details>
+                                    <summary>
+                                        <div class="summary-meta">
+                                            <span class="summary-badge"><i class="fas fa-comments"></i></span>
+                                            <span class="summary-title">فين يمكن ليا نراسل الإدارة أو الحرفي؟<small>الدعم والمراسلة</small></span>
+                                        </div>
+                                        <i class="fas fa-chevron-left summary-arrow"></i>
+                                    </summary>
+                                    <div class="faq-content"><p>الزوار يقدرو يبداو من صفحة <strong>اتصل بنا</strong>. الحرفيين والإدارة عندهم مركز رسائل داخلي منظم كيقبل النصوص والملفات باش التواصل يكون أوضح.</p></div>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-group="client pricing">
+                                <details>
+                                    <summary>
+                                        <div class="summary-meta">
+                                            <span class="summary-badge"><i class="fas fa-coins"></i></span>
+                                            <span class="summary-title">كيفاش نعرف واش الثمن مناسب؟<small>الثمن والجودة</small></span>
+                                        </div>
+                                        <i class="fas fa-chevron-left summary-arrow"></i>
+                                    </summary>
+                                    <div class="faq-content"><p>ما تقارنش بالسعر فقط. شوف شنو داخل فالعرض: المواد، المدة، التشطيب، والتزامات الحرفي. أرخص عرض ماشي دائماً هو الأحسن.</p></div>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-group="craftsman">
+                                <details>
+                                    <summary>
+                                        <div class="summary-meta">
+                                            <span class="summary-badge"><i class="fas fa-id-card"></i></span>
+                                            <span class="summary-title">شنو خاصني باش نسجل كحرفي؟<small>للحرفيين</small></span>
+                                        </div>
+                                        <i class="fas fa-chevron-left summary-arrow"></i>
+                                    </summary>
+                                    <div class="faq-content"><p>الاسم، التخصص، المدينة، وسائل التواصل، ووصف واضح للخدمة. وكلما زدت صور وأعمال سابقة مرتبة، كلما كان البروفايل أقوى.</p></div>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-group="craftsman">
+                                <details>
+                                    <summary>
+                                        <div class="summary-meta">
+                                            <span class="summary-badge"><i class="fas fa-image"></i></span>
+                                            <span class="summary-title">علاش الصور مهمة بزاف فالبروفايل؟<small>للحرفيين</small></span>
+                                        </div>
+                                        <i class="fas fa-chevron-left summary-arrow"></i>
+                                    </summary>
+                                    <div class="faq-content"><p>حيت الصورة الجيدة كتسرّع القرار. الزبون كيبغي يشوف الخدمة قبل ما يتواصل، والصور المنظمة كتبين الجدية والاحتراف.</p></div>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-group="client support">
+                                <details>
+                                    <summary>
+                                        <div class="summary-meta">
+                                            <span class="summary-badge"><i class="fas fa-file-pdf"></i></span>
+                                            <span class="summary-title">واش يمكن نرسل صور أو PDF فالمراسلة؟<small>الدعم والمراسلة</small></span>
+                                        </div>
+                                        <i class="fas fa-chevron-left summary-arrow"></i>
+                                    </summary>
+                                    <div class="faq-content"><p>نعم، مركز الرسائل الداخلي دابا كيدعم إرسال النصوص، الصور، وملفات PDF باش الشرح، القياسات، أو النماذج يكونو واضحين.</p></div>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-group="pricing client">
+                                <details>
+                                    <summary>
+                                        <div class="summary-meta">
+                                            <span class="summary-badge"><i class="fas fa-scale-balanced"></i></span>
+                                            <span class="summary-title">كيفاش نفاوض بدون ما نخسر الجودة؟<small>الثمن والجودة</small></span>
+                                        </div>
+                                        <i class="fas fa-chevron-left summary-arrow"></i>
+                                    </summary>
+                                    <div class="faq-content"><p>اطلب توضيح شنو داخل فالثمن، شنو نوع المواد، واش كاين التزام بالمدة، ومن بعد ناقش التفاصيل بدل ما تطلب فقط تخفيض مباشر.</p></div>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-group="craftsman support">
+                                <details>
+                                    <summary>
+                                        <div class="summary-meta">
+                                            <span class="summary-badge"><i class="fas fa-shield-check"></i></span>
+                                            <span class="summary-title">كيفاش نزيد ثقة الزبون فبروفايلي؟<small>للحرفيين</small></span>
+                                        </div>
+                                        <i class="fas fa-chevron-left summary-arrow"></i>
+                                    </summary>
+                                    <div class="faq-content"><p>وصف دقيق، صور نظيفة، تخصص واضح، وردود محترمة وسريعة. التنظيم هو أول علامة ديال الثقة قبل أي اتفاق.</p></div>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-group="client">
+                                <details>
+                                    <summary>
+                                        <div class="summary-meta">
+                                            <span class="summary-badge"><i class="fas fa-location-dot"></i></span>
+                                            <span class="summary-title">واش نقدر نبحث حسب المدينة؟<small>للزبناء</small></span>
+                                        </div>
+                                        <i class="fas fa-chevron-left summary-arrow"></i>
+                                    </summary>
+                                    <div class="faq-content"><p>أكيد. صفحة البحث كتسمح لك تختار المدينة والتخصص وحتى الحد الأدنى للتقييم، وكتقدر توصل مباشرة للملف المناسب.</p></div>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-group="craftsman">
+                                <details>
+                                    <summary>
+                                        <div class="summary-meta">
+                                            <span class="summary-badge"><i class="fas fa-pen-ruler"></i></span>
+                                            <span class="summary-title">شنو أحسن طريقة نكتب بها الخدمة ديالي؟<small>للحرفيين</small></span>
+                                        </div>
+                                        <i class="fas fa-chevron-left summary-arrow"></i>
+                                    </summary>
+                                    <div class="faq-content"><p>كتب شنو كتقدم بالضبط، شكون كيتعامل معاك، شحال من سنة ديال التجربة عندك، وفين كتركز أكثر: تركيب، تشطيب، صيانة، أو تصميم.</p></div>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-group="support">
+                                <details>
+                                    <summary>
+                                        <div class="summary-meta">
+                                            <span class="summary-badge"><i class="fas fa-life-ring"></i></span>
+                                            <span class="summary-title">إلى ما لقيتش الجواب اللي باغي، شنو ندير؟<small>الدعم</small></span>
+                                        </div>
+                                        <i class="fas fa-chevron-left summary-arrow"></i>
+                                    </summary>
+                                    <div class="faq-content"><p>تقدر تمشي لصفحة التواصل، أو تستعمل مركز الرسائل إلى كنت مسجل. الإدارة كتراجع الرسائل وكتجاوب حسب نوع الطلب.</p></div>
+                                </details>
+                            </div>
+
+                            <div class="faq-item" data-group="pricing craftsman">
+                                <details>
+                                    <summary>
+                                        <div class="summary-meta">
+                                            <span class="summary-badge"><i class="fas fa-chart-line"></i></span>
+                                            <span class="summary-title">كيفاش نعرض الثمن بطريقة مهنية كحرفي؟<small>الثمن والجودة</small></span>
+                                        </div>
+                                        <i class="fas fa-chevron-left summary-arrow"></i>
+                                    </summary>
+                                    <div class="faq-content"><p>فسّر شنو داخل فالثمن: اليد العاملة، المواد، مدة التنفيذ، وخيارات إضافية إذا كانت. العرض الواضح كينقص سوء الفهم وكيزيد فرص الاتفاق.</p></div>
+                                </details>
+                            </div>
+                        </div>
+
+                        <div class="support-card">
+                            <h3 data-i18n="faq_support_title">ما لقيتيش الجواب اللي كيريحك؟</h3>
+                            <p data-i18n="faq_support_desc">إلى كان عندك سؤال خاص، أو بغيتي توجيه مباشر على حالة معينة، الإدارة ديال المنصة تقدر تواكبك عبر صفحة التواصل أو مركز الرسائل.</p>
+                            <div class="support-actions">
+                                <a class="btn btn-primary" href="contact.html"><i class="fas fa-headset"></i> <span data-i18n="faq_support_btn1">تواصل مع الإدارة</span></a>
+                                <a class="btn btn-secondary" href="search.html"><i class="fas fa-magnifying-glass"></i> <span data-i18n="faq_support_btn2">جرب البحث الآن</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <footer class="footer-lite">
+        <div class="container footer-line">
+            <span data-i18n="faq_footer_text">© 2026 خدمة الحرفيين المغاربة - أجوبة واضحة ومسار أكثر احترافية.</span>
+            <div class="footer-links">
+                <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+                <a href="blog.html" data-i18n="nav_blog">المدونة</a>
+                <a href="cities.html" data-i18n="nav_cities">المدن الرئيسية</a>
+                <a href="hirafi_register.html" data-i18n="nav_register">تسجيل حرفي</a>
+                <a href="contact.html" data-i18n="nav_contact">اتصل بنا</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        filterButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                const value = this.dataset.filter || 'all';
+
+                filterButtons.forEach(function (btn) {
+                    btn.classList.toggle('active', btn === button);
+                });
+
+                faqItems.forEach(function (item) {
+                    if (value === 'all') {
+                        item.hidden = false;
+                        return;
+                    }
+
+                    const groups = (item.dataset.group || '').split(' ');
+                    item.hidden = groups.indexOf(value) === -1;
+                });
+            });
+        });
+    </script>
+    <script src="lang_dict.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

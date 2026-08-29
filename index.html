@@ -1,0 +1,3331 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> HIRAFI.COM</title>
+    <meta name="description"
+        content="منصة متخصصة في الربط بين الحرفيين المغاربة والعملاء في جميع أنحاء المملكة المغربية">
+    <meta name="keywords" content="حرفيون مغاربة, نجارون, سباكون, كهربائيون, بناء, خدمات منزلية, المغرب">
+
+    <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="starfield.css">
+
+    <!-- مكتبة Font Awesome للرموز -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- خط Google Fonts للعربية -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- مكتبة Animate.css للحركات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        .trust-premium {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trust-premium::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(124, 58, 237, 0.18), transparent 26%),
+                radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.14), transparent 24%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .trust-premium .container,
+        .trust-premium .section-header,
+        .trust-premium .trust-grid {
+            position: relative;
+            z-index: 1;
+        }
+
+        .trust-premium .section-header {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .trust-premium.visible .section-header {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .trust-premium .trust-item {
+            opacity: 0;
+            transform: translateY(36px) scale(0.98);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .trust-premium.visible .trust-item:nth-child(1) {
+            transition-delay: 0.12s;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .trust-premium.visible .trust-item:nth-child(2) {
+            transition-delay: 0.18s;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .trust-premium.visible .trust-item:nth-child(3) {
+            transition-delay: 0.24s;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .trust-premium.visible .trust-item:nth-child(4) {
+            transition-delay: 0.30s;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .trust-premium .trust-item:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 28px 70px rgba(124, 58, 237, 0.12);
+        }
+
+        .trust-premium .trust-icon {
+            transition: transform 0.4s ease;
+        }
+
+        .trust-premium .trust-item:hover .trust-icon {
+            transform: translateY(-4px) rotate(360deg);
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.jpeg">
+</head>
+
+<body>
+    <!-- ========== بداية تأثيرات الخلفية المتحركة ========== -->
+    <div class="background-effects">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+
+        <div class="floating-shape shape-5"></div>
+    </div>
+    <!-- ========== نهاية تأثيرات الخلفية المتحركة ========== -->
+
+    <!-- ========== بداية شريط التنقل العلوي ========== -->
+    <header class="navbar">
+        <div class="container">
+            <nav class="nav-container">
+                <!-- شعار الموقع -->
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <img src="img/favicon.jpeg" alt="Hirafi.ma" class="logo-img">
+                    </div>
+                    <div class="logo-text">
+                        <h1 data-i18n="brand_title">Service des artisans marocains</h1>
+                        <p data-i18n="brand_subtitle">Plateforme de mise en relation artisan-client</p>
+                    </div>
+                </a>
+
+                <!-- روابط التنقل الرئيسية -->
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">
+                            <i class="fas fa-home"></i>
+                            <span data-i18n="nav_home">Accueil</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="search.html" class="nav-link">
+                            <i class="fas fa-search"></i>
+                            <span data-i18n="nav_search">Rechercher un artisan</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="hirafi_register.html" class="nav-link">
+                            <i class="fas fa-user-plus"></i>
+                            <span data-i18n="nav_register">Inscription artisan</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                            <span data-i18n="nav_contact">Contactez-nous</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="hirafi_login.html" class="nav-link btn-login">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span data-i18n="nav_login">Connexion</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- زر القائمة المتنقلة للهواتف -->
+                <button class="hamburger-menu" id="hamburgerMenu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+    <!-- ========== نهاية شريط التنقل العلوي ========== -->
+
+    <!-- ========== بداية القسم الرئيسي ========== -->
+    <main class="main-content">
+        <!-- قسم الهيرو -->
+        <section class="hero-section">
+            <div class="hero-image-full">
+                <img src="img/professions.png" alt="حرفيون مغاربة محترفون يعملون" loading="lazy">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <!-- نص الترحيب -->
+                    <div class="hero-text animate__animated animate__fadeInUp">
+                        <h2 class="hero-title" data-i18n="hero_title" data-i18n-html="true">
+                            <span class="text-primary">Les meilleurs artisans</span> marocains à votre service
+                        </h2>
+                        <p class="hero-subtitle" data-i18n="hero_subtitle">
+                            Plus de professionnels à travers tout le Royaume du Maroc prêts à vous aider avec qualité et
+                            prix adaptés
+                        </p>
+
+                        <!-- أزرار الإجراءات -->
+                        <div class="hero-actions">
+                            <a href="search.html" class="btn btn-primary btn-lg" data-i18n="hero_btn_search">
+                                <i class="fas fa-search"></i>
+                                Trouvez un artisan
+                            </a>
+                            <a href="hirafi_register.html" class="btn btn-outline btn-lg" data-i18n="hero_btn_register">
+                                <i class="fas fa-user-plus"></i>
+                                Inscrivez-vous comme professionnel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Badge de confiance -->
+            <a href="client_register.html" class="hero-badge" style="text-decoration: none; cursor: pointer;">
+                <i class="fas fa-user-plus"></i>
+                <span data-i18n="hero_btn_client_register">التسجيل كعميل</span>
+            </a>
+        </section>
+
+        <!-- شريط الإحصائيات المتحرك -->
+        <div class="marquee-section">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span class="marquee-item">2000 artisans inscrits</span>
+                    <span class="marquee-separator">|</span>
+                    <span class="marquee-item">120 villes marocaines</span>
+                    <span class="marquee-separator">|</span>
+                    <span class="marquee-item">50 avis positifs</span>
+                    <span class="marquee-separator">|</span>
+                    <span class="marquee-item">2000 حرفي مسجل</span>
+                    <span class="marquee-separator">|</span>
+                    <span class="marquee-item">120 مدينة مغربية</span>
+                    <span class="marquee-separator">|</span>
+                    <span class="marquee-item">50 تقييم إيجابي</span>
+                    <span class="marquee-separator">|</span>
+                </div>
+            </div>
+        </div>
+        <!-- قسم البحث السريع -->
+        <section class="quick-search-section">
+            <div class="container">
+                <div class="search-container">
+                    <h3 class="section-title" data-i18n="quick_search_title">
+                        <i class="fas fa-search"></i>
+                        Recherchez un artisan dans votre ville
+                    </h3>
+
+
+                    <form action="search.html" method="get" class="search-box">
+                        <div class="search-inputs">
+                            <!-- حقل البحث عن المهنة -->
+                            <div class="search-field">
+                                <label for="jobSearch" data-i18n="quick_search_service_label">
+                                    <i class="fas fa-briefcase"></i>
+                                    Quel service recherchez-vous ?
+                                </label>
+                                <div class="custom-select">
+                                    <select id="jobSearch" name="profession" class="search-select">
+                                        <option value="" data-i18n="quick_search_service_select">Choisissez un métier
+                                        </option>
+                                        <option value="نجارة" data-i18n="idx_prof_carpentry">Menuiserie</option>
+                                        <option value="سباكة" data-i18n="idx_prof_plumbing">Plomberie</option>
+                                        <option value="كهرباء" data-i18n="idx_prof_electricity">Électricité</option>
+                                        <option value="بناء" data-i18n="idx_prof_building">Construction</option>
+                                        <option value="صباغة" data-i18n="idx_prof_painting">Peinture</option>
+                                        <option value="حدادة" data-i18n="idx_prof_blacksmith">Ferronnerie</option>
+                                        <option value="خياطة" data-i18n="idx_prof_tailoring">Couture</option>
+                                        <option value="تصميم" data-i18n="idx_prof_design">Design</option>
+                                        <option value="تصوير" data-i18n="idx_prof_photography">Photographie</option>
+                                        <option value="الطبخ" data-i18n="idx_prof_cooking">Cuisine</option>
+                                        <option value="زراعة" data-i18n="idx_prof_farming">Agriculture</option>
+                                        <option value="تنظيم الحفلات" data-i18n="idx_prof_events">Organisation
+                                            d'événements</option>
+                                        <option value="صيانة السيارات" data-i18n="idx_prof_mechanic">Mécanique</option>
+                                        <option value="حرف اخرى" data-i18n="idx_prof_other">Autres métiers</option>
+                                    </select>
+                                    <div class="select-arrow">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- حقل البحث عن المدينة -->
+                            <div class="search-field">
+                                <label for="citySearch" data-i18n="quick_search_city_label">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Dans quelle ville ?
+                                </label>
+                                <div class="custom-select">
+                                    <select id="citySearch" name="city" class="search-select">
+                                        <option value="" data-i18n="quick_search_city_select">Choisissez une ville
+                                        </option>
+                                        <!-- principales villes du Maroc -->
+                                        <optgroup label="Régions principales" data-i18n-label="idx_regions_major">
+                                            <option value="الدار البيضاء" data-i18n="idx_city_casablanca">Casablanca
+                                            </option>
+                                            <option value="الرباط" data-i18n="idx_city_rabat">Rabat</option>
+                                            <option value="فاس" data-i18n="idx_city_fes">Fès</option>
+                                            <option value="مراكش" data-i18n="idx_city_marrakech">Marrakech</option>
+                                            <option value="شيشاوة" data-i18n="idx_city_chichaoua">Chichaoua</option>
+                                            <option value="طنجة" data-i18n="idx_city_tangier">Tanger</option>
+                                            <option value="مكناس" data-i18n="idx_city_meknes">Meknès</option>
+                                            <option value="أكادير" data-i18n="idx_city_agadir">Agadir</option>
+                                        </optgroup>
+                                        <optgroup label="Autres villes" data-i18n-label="idx_regions_other">
+                                            <option value="تطوان" data-i18n="idx_city_tetouan">Tétouan</option>
+                                            <option value="وجدة" data-i18n="idx_city_oujda">Oujda</option>
+                                            <option value="القنيطرة" data-i18n="idx_city_kenitra">Kénitra</option>
+                                            <option value="المحمدية" data-i18n="idx_city_mohammedia">Mohammédia</option>
+                                            <option value="بني ملال" data-i18n="idx_city_beni_mellal">Béni Mellal
+                                            </option>
+                                            <option value="آسفي" data-i18n="idx_city_safi">Safi</option>
+                                            <option value="الجديدة" data-i18n="idx_city_eljadida">El Jadida</option>
+                                            <option value="تازة" data-i18n="idx_city_taza">Taza</option>
+                                            <option value="العرائش" data-i18n="idx_city_larache">Larache</option>
+                                            <option value="خريبكة" data-i18n="idx_city_khouribga">Khouribga</option>
+                                            <option value="تمارة" data-i18n="idx_city_temara">Témara</option>
+                                            <option value="سلا" data-i18n="idx_city_sale">Salé</option>
+                                            <option value="بن جرير" data-i18n="idx_city_benguerir">Ben Guerir</option>
+                                            <option value="ورزازات" data-i18n="idx_city_ouarzazate">Ouarzazate</option>
+                                            <option value="الداخلة" data-i18n="idx_city_dakhla">Dakhla</option>
+                                            <option value="العيون" data-i18n="idx_city_laayoune">Laâyoune</option>
+                                        </optgroup>
+                                    </select>
+                                    <div class="select-arrow">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- زر البحث -->
+                            <div class="search-field">
+                                <label>&nbsp;</label>
+                                <button type="submit" class="btn btn-primary btn-search" data-i18n="quick_search_btn">
+                                    <i class="fas fa-search"></i>
+                                    Rechercher maintenant
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- المهن الشائعة -->
+                        <div class="popular-jobs">
+                            <p class="popular-title" data-i18n="idx_popular_jobs_title">Métiers populaires :</p>
+                            <div class="job-tags">
+                                <a href="search.html?profession=نجارة" class="job-tag">
+                                    <i class="fas fa-hammer"></i>
+                                    <span data-i18n="idx_job_carpenter">Menuisier</span>
+                                </a>
+                                <a href="search.html?profession=سباكة" class="job-tag">
+                                    <i class="fas fa-toolbox"></i>
+                                    <span data-i18n="idx_job_plumber">Plombier</span>
+                                </a>
+                                <a href="search.html?profession=كهرباء" class="job-tag">
+                                    <i class="fas fa-bolt"></i>
+                                    <span data-i18n="idx_job_electrician">Électricien</span>
+                                </a>
+                                <a href="search.html?profession=صباغة" class="job-tag">
+                                    <i class="fas fa-paint-roller"></i>
+                                    <span data-i18n="idx_job_painter">Peintre</span>
+                                </a>
+                                <a href="search.html?profession=بناء" class="job-tag">
+                                    <i class="fas fa-tools"></i>
+                                    <span data-i18n="idx_job_builder">Maçon</span>
+                                </a>
+                                <a href="search.html?profession=صيانة السيارات" class="job-tag">
+                                    <i class="fas fa-car"></i>
+                                    <span data-i18n="idx_job_mechanic">Mécanicien</span>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم المهن الرئيسية -->
+        <section class="professions-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="professions_title">
+                        <i class="fas fa-tools"></i>
+                        Métiers et services disponibles
+                    </h2>
+                    <p class="section-subtitle" data-i18n="professions_subtitle">
+                        Découvrez une large sélection d’artisans professionnels dans divers domaines
+                    </p>
+                </div>
+
+                <div class="profession-gallery-wrap">
+                    <div class="profession-gallery" role="region" aria-label="Galerie des métiers principaux">
+                        <button type="button" class="gallery-item active" tabindex="0"
+                            aria-label="Plomberie professionnelle">
+                            <img src="img/plumber.png" alt="سباك مغربي يصلح مواسير" loading="lazy">
+                            <div class="gallery-meta">
+                                <span class="gallery-tag"><i class="fas fa-toolbox"></i> <span
+                                        data-i18n="prof_plumber">سباكة</span></span>
+                                <h3 data-i18n="gallery_plumber_title">سباكة محترفة</h3>
+                                <p data-i18n="gallery_plumber_desc">إصلاح سريع ودقيق لجميع أنظمة المياه</p>
+                            </div>
+                        </button>
+                        <button type="button" class="gallery-item" tabindex="0" aria-label="Électricité domestique">
+                            <img src="img/Electricite  2.jpeg" alt="كهربائي مغربي يعمل على أسلاك" loading="lazy">
+                            <div class="gallery-meta">
+                                <span class="gallery-tag"><i class="fas fa-bolt"></i> <span
+                                        data-i18n="prof_electrician">كهرباء</span></span>
+                                <h3 data-i18n="gallery_electrician_title">كهرباء منزلية</h3>
+                                <p data-i18n="gallery_electrician_desc">تركيب وصيانة الدوائر الكهربائية بأمان تام</p>
+                            </div>
+                        </button>
+                        <button type="button" class="gallery-item" tabindex="0"
+                            aria-label="Menuiserie et mobilier sur mesure">
+                            <img src="img/menuisier 1.webp" alt="نجار يصنع أثاثًا خشبيًا" loading="lazy">
+                            <div class="gallery-meta">
+                                <span class="gallery-tag"><i class="fas fa-hammer"></i> <span
+                                        data-i18n="prof_carpenter">نجارة</span></span>
+                                <h3 data-i18n="gallery_carpenter_title">نجارة فاخرة</h3>
+                                <p data-i18n="gallery_carpenter_desc">تصميم الأثاث الخشبي وفق أعلى المعايير</p>
+                            </div>
+                        </button>
+                        <button type="button" class="gallery-item" tabindex="0" aria-label="Peinture professionnelle">
+                            <img src="img/artisan_painter.png" alt="رسام يقوم بطلاء جدار" loading="lazy">
+                            <div class="gallery-meta">
+                                <span class="gallery-tag"><i class="fas fa-paint-roller"></i> <span
+                                        data-i18n="prof_painter">دهان</span></span>
+                                <h3 data-i18n="gallery_painter_title">دهان احترافي</h3>
+                                <p data-i18n="gallery_painter_desc">تشطيبات ألوان أنيقة لجدران عصرية</p>
+                            </div>
+                        </button>
+                        <button type="button" class="gallery-item" tabindex="0" aria-label="Soudure métallique">
+                            <img src="img/artisan_welder.png" alt="عامل لحام يعمل على معدن" loading="lazy">
+                            <div class="gallery-meta">
+                                <span class="gallery-tag"><i class="fas fa-fire"></i> <span
+                                        data-i18n="prof_welder">حدادة</span></span>
+                                <h3 data-i18n="gallery_welder_title">لحام دقيق</h3>
+                                <p data-i18n="gallery_welder_desc">تجميعات معدنية قوية بجودة عالية</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </section>
+
+        <!-- LATEST CLIENT JOB REQUESTS MARKETPLACE -->
+        <section class="latest-job-requests-section" id="marketplace">
+            <style>
+                .latest-job-requests-section {
+                    padding: 6rem 0;
+                    background: var(--bg);
+                    position: relative;
+                    overflow: hidden;
+                    font-family: 'Cairo', sans-serif;
+                }
+
+                .latest-job-requests-section::before {
+                    content: '';
+                    position: absolute;
+                    top: -100px;
+                    left: -100px;
+                    width: 500px;
+                    height: 500px;
+                    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
+                    pointer-events: none;
+                }
+
+                .latest-job-requests-section::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -150px;
+                    right: -150px;
+                    width: 600px;
+                    height: 600px;
+                    background: radial-gradient(circle, rgba(29, 78, 216, 0.08) 0%, transparent 70%);
+                    pointer-events: none;
+                }
+
+                .marketplace-header {
+                    text-align: center;
+                    margin-bottom: 3.5rem;
+                    position: relative;
+                    z-index: 2;
+                }
+
+                .mp-eyebrow {
+                    display: inline-block;
+                    padding: 6px 14px;
+                    background: rgba(14, 165, 233, 0.1);
+                    color: #0ea5e9;
+                    border-radius: 20px;
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    border: 1px solid rgba(14, 165, 233, 0.2);
+                    margin-bottom: 1rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+
+                .mp-title {
+                    font-size: clamp(2rem, 4vw, 2.75rem);
+                    font-weight: 900;
+                    color: var(--ink, #0f172a);
+                    margin-bottom: 1rem;
+                }
+
+                [dir="rtl"] .mp-title {
+                    letter-spacing: 0;
+                }
+
+                .mp-subtitle {
+                    color: var(--muted, #64748b);
+                    max-width: 600px;
+                    margin: 0 auto 1.5rem;
+                    line-height: 1.6;
+                    font-size: 1.05rem;
+                }
+
+                /* HERO CTAS (Brown Cards Redesign) */
+                .mp-hero-ctas {
+                    display: flex;
+                    justify-content: center;
+                    gap: 30px;
+                    margin-bottom: 3rem;
+                    flex-wrap: wrap;
+                }
+
+                .mp-cta-card {
+                    background: linear-gradient(135deg, rgba(88, 47, 14, 0.95) 0%, rgba(45, 21, 5, 0.98) 100%);
+                    border: 1px solid rgba(217, 119, 6, 0.25);
+                    border-radius: 24px;
+                    padding: 35px 30px;
+                    width: 350px;
+                    min-height: 250px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .mp-cta-card::before {
+                    content: '';
+                    position: absolute;
+                    inset: -50%;
+                    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+                    transform: scale(0);
+                    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+                    pointer-events: none;
+                }
+
+                .mp-cta-card .cta-card-img {
+                    width: 90px;
+                    height: 90px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    border: 3px solid rgba(251, 191, 36, 0.25);
+                    margin-bottom: 16px;
+                    display: inline-block;
+                    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
+                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                }
+
+                .mp-cta-card.client-card .cta-card-img {
+                    border-color: rgba(16, 185, 129, 0.25);
+                }
+
+                .mp-cta-card:hover .cta-card-img {
+                    transform: scale(1.15) rotate(3deg);
+                    border-color: rgba(251, 191, 36, 0.7);
+                }
+
+                .mp-cta-card.client-card:hover .cta-card-img {
+                    border-color: rgba(16, 185, 129, 0.7);
+                }
+
+                .mp-cta-card:hover::before {
+                    transform: scale(2.2);
+                }
+
+                .mp-cta-card:hover {
+                    transform: translateY(-8px) scale(1.02);
+                }
+
+                /* Custom aura glows per role */
+                .mp-cta-card.artisan-card:hover {
+                    box-shadow: 0 30px 60px rgba(217, 119, 6, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+                    border-color: rgba(217, 119, 6, 0.7);
+                }
+
+                .mp-cta-card.client-card:hover {
+                    box-shadow: 0 30px 60px rgba(16, 185, 129, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+                    border-color: rgba(16, 185, 129, 0.6);
+                }
+
+                [dir="rtl"] .mp-cta-card {
+                    text-align: center;
+                }
+
+
+
+                .mp-cta-card .cta-content {
+                    margin-bottom: 24px;
+                }
+
+                .mp-cta-card .cta-content h4 {
+                    font-size: 1.4rem;
+                    font-weight: 800;
+                    color: #ffffff;
+                    margin: 0 0 8px;
+                    letter-spacing: 0.5px;
+                }
+
+                .mp-cta-card.artisan-card .cta-content h4 {
+                    color: #fbbf24;
+                }
+
+                .mp-cta-card.client-card .cta-content h4 {
+                    color: #34d399;
+                }
+
+                .mp-cta-card .cta-content p {
+                    font-size: 0.9rem;
+                    color: rgba(243, 244, 246, 0.8);
+                    margin: 0;
+                    line-height: 1.5;
+                    font-weight: 500;
+                }
+
+                /* Button Groups inside cards */
+                .card-btn-group {
+                    display: flex;
+                    gap: 12px;
+                    width: 100%;
+                    margin-top: auto;
+                    position: relative;
+                    z-index: 2;
+                }
+
+                .card-btn {
+                    flex: 1;
+                    padding: 12px 14px;
+                    border-radius: 12px;
+                    font-size: 0.85rem;
+                    font-weight: 800;
+                    cursor: pointer;
+                    text-decoration: none;
+                    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                    text-align: center;
+                    border: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    white-space: nowrap;
+                }
+
+                /* Primary Buttons */
+                .artisan-card .primary-btn {
+                    background: linear-gradient(135deg, #d97706, #b45309);
+                    color: #ffffff;
+                    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+                }
+
+                .artisan-card .primary-btn:hover {
+                    background: linear-gradient(135deg, #b45309, #92400e);
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 20px rgba(217, 119, 6, 0.4);
+                }
+
+                .client-card .primary-btn {
+                    background: linear-gradient(135deg, #10b981, #059669);
+                    color: #ffffff;
+                    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+                }
+
+                .client-card .primary-btn:hover {
+                    background: linear-gradient(135deg, #059669, #047857);
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+                }
+
+                /* Secondary Buttons */
+                .mp-cta-card .secondary-btn {
+                    background: rgba(255, 255, 255, 0.08);
+                    color: #ffffff;
+                    border: 1px solid rgba(255, 255, 255, 0.15);
+                }
+
+                .mp-cta-card .secondary-btn:hover {
+                    background: rgba(255, 255, 255, 0.15);
+                    border-color: rgba(255, 255, 255, 0.3);
+                    transform: translateY(-2px);
+                }
+
+                @media (max-width: 768px) {
+                    .mp-hero-ctas {
+                        flex-direction: column;
+                        align-items: stretch;
+                        padding: 0 1rem;
+                    }
+
+                    .mp-cta-btn {
+                        justify-content: center;
+                        text-align: center;
+                    }
+
+                    [dir="rtl"] .mp-cta-btn {
+                        text-align: center;
+                    }
+                }
+
+                .mp-view-all {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
+                    color: white;
+                    padding: 10px 24px;
+                    border-radius: 99px;
+                    font-weight: 700;
+                    text-decoration: none;
+                    transition: transform 0.3s, box-shadow 0.3s;
+                    box-shadow: 0 4px 14px rgba(29, 78, 216, 0.3);
+                }
+
+                .mp-view-all:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 20px rgba(29, 78, 216, 0.4);
+                }
+
+                /* Filter Bar */
+                .mp-filters {
+                    position: relative;
+                    z-index: 2;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.25rem;
+                    margin-bottom: 3rem;
+                    background: rgba(255, 255, 255, 0.8);
+                    backdrop-filter: blur(12px);
+                    -webkit-backdrop-filter: blur(12px);
+                    border: 1px solid rgba(0, 0, 0, 0.05);
+                    padding: 1.5rem;
+                    border-radius: 16px;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+                }
+
+                .mp-categories {
+                    display: flex;
+                    gap: 12px;
+                    overflow-x: auto;
+                    padding-bottom: 8px;
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+
+                .mp-categories::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .mp-category-btn {
+                    white-space: nowrap;
+                    padding: 8px 18px;
+                    background: #f1f5f9;
+                    border: 1px solid transparent;
+                    border-radius: 20px;
+                    color: #475569;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                }
+
+                .mp-category-btn:hover {
+                    background: #e2e8f0;
+                }
+
+                .mp-category-btn.active {
+                    background: #1d4ed8;
+                    color: white;
+                    box-shadow: 0 4px 10px rgba(29, 78, 216, 0.2);
+                }
+
+                .mp-tools {
+                    display: flex;
+                    gap: 12px;
+                    align-items: center;
+                    flex-wrap: wrap;
+                }
+
+                .mp-search {
+                    flex: 1;
+                    min-width: 250px;
+                    position: relative;
+                }
+
+                .mp-search i {
+                    position: absolute;
+                    left: 14px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: #94a3b8;
+                }
+
+                [dir="rtl"] .mp-search i {
+                    left: auto;
+                    right: 14px;
+                }
+
+                .mp-search input {
+                    width: 100%;
+                    padding: 12px 20px 12px 40px;
+                    border: 1px solid #cbd5e1;
+                    border-radius: 12px;
+                    outline: none;
+                    font-family: inherit;
+                    transition: border-color 0.2s;
+                }
+
+                [dir="rtl"] .mp-search input {
+                    padding: 12px 40px 12px 20px;
+                }
+
+                .mp-search input:focus {
+                    border-color: #0ea5e9;
+                }
+
+                .mp-dropdown {
+                    padding: 12px 30px 12px 14px;
+                    border: 1px solid #cbd5e1;
+                    border-radius: 12px;
+                    background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") no-repeat right 12px center / 16px 16px;
+                    appearance: none;
+                    outline: none;
+                    font-family: inherit;
+                    font-weight: 500;
+                    color: #334155;
+                    cursor: pointer;
+                }
+
+                [dir="rtl"] .mp-dropdown {
+                    padding: 12px 14px 12px 30px;
+                    background-position: left 12px center;
+                }
+
+                /* Grid Layout */
+                .mp-grid {
+                    position: relative;
+                    z-index: 2;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                    gap: 1.5rem;
+                }
+
+                @media (min-width: 1200px) {
+                    .mp-grid {
+                        grid-template-columns: repeat(4, 1fr);
+                    }
+                }
+
+                /* Job Card */
+                .mp-card {
+                    background: #ffffff;
+                    border-radius: 16px;
+                    overflow: hidden;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+                    border: 1px solid rgba(0, 0, 0, 0.04);
+                    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .mp-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+                }
+
+                .mp-card.featured {
+                    border: 2px solid #fbbf24;
+                }
+
+                /* Image Area */
+                .mp-card-img {
+                    position: relative;
+                    height: 180px;
+                    overflow: hidden;
+                    background: #f8fafc;
+                }
+
+                .mp-card-img img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                }
+
+                .mp-card:hover .mp-card-img img {
+                    transform: scale(1.08);
+                }
+
+                /* Overlays */
+                .mp-badges {
+                    position: absolute;
+                    top: 12px;
+                    left: 12px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                    z-index: 2;
+                    align-items: flex-start;
+                }
+
+                [dir="rtl"] .mp-badges {
+                    left: auto;
+                    right: 12px;
+                    align-items: flex-start;
+                }
+
+                .mp-badge {
+                    padding: 4px 10px;
+                    border-radius: 6px;
+                    font-size: 0.75rem;
+                    font-weight: 800;
+                    letter-spacing: 0.5px;
+                    backdrop-filter: blur(4px);
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                }
+
+                .mp-badge.category {
+                    background: rgba(15, 23, 42, 0.8);
+                    color: white;
+                }
+
+                .mp-badge.featured-bg {
+                    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+                    color: #78350f;
+                }
+
+                .mp-badge.urgency-high {
+                    background: rgba(239, 68, 68, 0.9);
+                    color: white;
+                }
+
+                .mp-fav {
+                    position: absolute;
+                    top: 12px;
+                    right: 12px;
+                    z-index: 2;
+                    background: white;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #cbd5e1;
+                    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+                    cursor: pointer;
+                    transition: all 0.2s;
+                }
+
+                [dir="rtl"] .mp-fav {
+                    right: auto;
+                    left: 12px;
+                }
+
+                .mp-fav:hover,
+                .mp-fav.active {
+                    color: #ef4444;
+                }
+
+                .mp-ribbon {
+                    position: absolute;
+                    top: 15px;
+                    left: -35px;
+                    background: #10b981;
+                    color: white;
+                    padding: 4px 35px;
+                    font-size: 0.75rem;
+                    font-weight: bold;
+                    transform: rotate(-45deg);
+                    z-index: 2;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                }
+
+                [dir="rtl"] .mp-ribbon {
+                    left: auto;
+                    right: -35px;
+                    transform: rotate(45deg);
+                }
+
+                /* Card Body */
+                .mp-body {
+                    padding: 16px;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .mp-stats {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 0.75rem;
+                    color: #64748b;
+                    margin-bottom: 8px;
+                    font-weight: 600;
+                }
+
+                .mp-stats span {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                }
+
+                .mp-job-title {
+                    font-size: 1.15rem;
+                    font-weight: 800;
+                    color: #0f172a;
+                    margin: 0 0 8px 0;
+                    line-height: 1.4;
+                    line-clamp: 2;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+
+                .mp-job-desc {
+                    font-size: 0.9rem;
+                    color: #475569;
+                    line-height: 1.5;
+                    margin: 0 0 12px 0;
+                    display: -webkit-box;
+                    line-clamp: 2;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    flex: 1;
+                }
+
+                .mp-meta-row {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 14px;
+                    padding-bottom: 14px;
+                    border-bottom: 1px solid #f1f5f9;
+                }
+
+                .mp-location {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    color: #64748b;
+                    font-size: 0.85rem;
+                    font-weight: 500;
+                }
+
+                .mp-budget {
+                    color: #10b981;
+                    font-weight: 800;
+                    font-size: 1.05rem;
+                }
+
+                /* Card Footer */
+                .mp-footer {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                .mp-client {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+
+                .mp-client img {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                .mp-client-info {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .mp-client-name {
+                    font-size: 0.85rem;
+                    font-weight: 700;
+                    color: #1e293b;
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                }
+
+                .mp-client-name i {
+                    color: #0ea5e9;
+                    font-size: 0.75rem;
+                }
+
+                .mp-time-ago {
+                    font-size: 0.7rem;
+                    color: #94a3b8;
+                }
+
+                .mp-cta {
+                    background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+                    color: white;
+                    border: none;
+                    padding: 8px 16px;
+                    border-radius: 8px;
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    cursor: pointer;
+                    transition: transform 0.2s, box-shadow 0.2s;
+                }
+
+                .mp-cta:hover {
+                    box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);
+                    transform: scale(1.03);
+                }
+
+                /* Skeletons & Empty State */
+                .mp-skeleton {
+                    background: #f1f5f9;
+                    animation: pulse 1.5s infinite ease-in-out;
+                    border-radius: 4px;
+                }
+
+                @keyframes pulse {
+                    0% {
+                        opacity: 0.6;
+                    }
+
+                    50% {
+                        opacity: 1;
+                    }
+
+                    100% {
+                        opacity: 0.6;
+                    }
+                }
+
+                .mp-empty {
+                    grid-column: 1 / -1;
+                    text-align: center;
+                    padding: 4rem 2rem;
+                    background: white;
+                    border-radius: 16px;
+                    border: 1px dashed #cbd5e1;
+                }
+
+                .mp-empty i {
+                    color: #cbd5e1;
+                    font-size: 4rem;
+                    margin-bottom: 1rem;
+                }
+
+                .mp-empty h3 {
+                    color: #334155;
+                    font-size: 1.4rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                .mp-load-more {
+                    text-align: center;
+                    margin-top: 3rem;
+                    position: relative;
+                    z-index: 2;
+                }
+
+                .mp-load-btn {
+                    background: white;
+                    color: #1e293b;
+                    border: 1px solid #cbd5e1;
+                    padding: 10px 30px;
+                    border-radius: 99px;
+                    font-weight: 700;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+                }
+
+                .mp-load-btn:hover {
+                    background: #f8fafc;
+                    border-color: #94a3b8;
+                }
+            </style>
+
+            <div class="container">
+                <div class="marketplace-header">
+                    <span class="mp-eyebrow" data-i18n="mp_eyebrow">Nouvelles Opportunités</span>
+                    <h2 class="mp-title" data-i18n="mp_title">Dernières Demandes Clients</h2>
+                    <p class="mp-subtitle" data-i18n="mp_subtitle">Découvrez les derniers projets publiés par les
+                        clients et soumettez votre proposition pour gagner de nouvelles opportunités.</p>
+
+                    <div class="mp-hero-ctas">
+                        <!-- Artisan Card -->
+                        <div class="mp-cta-card artisan-card">
+                            <img src="img/artisan_card.png" class="cta-card-img" alt="Espace Artisan">
+                            <div class="cta-content">
+                                <h4 data-i18n="mp_artisan_card_title">Espace Artisan</h4>
+                                <p data-i18n="mp_artisan_card_sub">Trouvez de nouveaux projets et développez vos
+                                    compétences.</p>
+                            </div>
+                            <div class="card-btn-group">
+                                <a href="hirafi_register.html" class="card-btn primary-btn"
+                                    data-i18n="mp_btn_creer_compte">Créer un compte</a>
+                                <button onclick="handleArtisanCta()" class="card-btn secondary-btn"
+                                    data-i18n="mp_btn_deja_artisan">Déjà Artisan</button>
+                            </div>
+                        </div>
+
+                        <!-- Client Card -->
+                        <div class="mp-cta-card client-card">
+                            <img src="img/client_card.png" class="cta-card-img" alt="Espace Client">
+                            <div class="cta-content">
+                                <h4 data-i18n="mp_client_card_title">Espace Client</h4>
+                                <p data-i18n="mp_client_card_sub">Publiez vos projets et trouvez le professionnel idéal.
+                                </p>
+                            </div>
+                            <div class="card-btn-group">
+                                <a href="client_register.html" class="card-btn primary-btn"
+                                    data-i18n="mp_btn_creer_compte">Créer un compte</a>
+                                <button onclick="handleClientCta()" class="card-btn secondary-btn"
+                                    data-i18n="mp_btn_deja_client">Déjà Client</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </section>
+        <!-- قسم الحرفيين المميزين -->
+        <section class="featured-craftsmen">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="idx_featured_title">
+                        <i class="fas fa-crown"></i>
+                        Artisans vedettes
+                    </h2>
+                    <p class="section-subtitle" data-i18n="idx_featured_subtitle">
+                        Découvrez les meilleurs artisans les mieux notés sur notre plateforme
+                    </p>
+                </div>
+
+                <div class="craftsmen-slider">
+                    <!-- حرفي مميز 1 -->
+                    <div class="craftsman-card">
+                        <div class="craftsman-badge">
+                            <i class="fas fa-award"></i>
+                            <span data-i18n="idx_feat_badge_req">Le plus demandé</span>
+                        </div>
+                        <div class="craftsman-avatar">
+                            <img src="img/man.webp" alt="عمر العلوي">
+                        </div>
+                        <h3 class="craftsman-name">عمر العلوي</h3>
+                        <p class="craftsman-profession">
+                            <i class="fas fa-hammer"></i>
+                            <span data-i18n="idx_feat_prof_carp">Menuisier professionnel</span>
+                        </p>
+                        <div class="craftsman-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-i18n="idx_city_casablanca">Casablanca</span>
+                        </div>
+                        <div class="craftsman-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-number">4.7</span>
+                            <span class="reviews" data-i18n="idx_feat_review_1">(128 avis)</span>
+                        </div>
+                        <div class="craftsman-experience">
+                            <i class="fas fa-briefcase"></i>
+                            <span data-i18n="idx_feat_exp_12">Expérience : 12 ans</span>
+                        </div>
+                        <a href="search.html" class="btn btn-outline btn-sm">
+                            <i class="fas fa-eye"></i>
+                            <span data-i18n="idx_feat_btn_view">Voir le profil</span>
+                        </a>
+                    </div>
+
+                    <!-- حرفي مميز 2 -->
+                    <div class="craftsman-card">
+                        <div class="craftsman-badge">
+                            <i class="fas fa-bolt"></i>
+                            <span data-i18n="idx_feat_badge_fast">Réponse la plus rapide</span>
+                        </div>
+                        <div class="craftsman-avatar">
+                            <img src="img/man 1.webp" alt="محمد بناني">
+                        </div>
+                        <h3 class="craftsman-name">محمد بناني</h3>
+                        <p class="craftsman-profession">
+                            <i class="fas fa-bolt"></i>
+                            <span data-i18n="idx_feat_prof_elec">Électricien résidentiel</span>
+                        </p>
+                        <div class="craftsman-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-i18n="idx_city_rabat">Rabat</span>
+                        </div>
+                        <div class="craftsman-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-number">5.0</span>
+                            <span class="reviews" data-i18n="idx_feat_review_2">(94 avis)</span>
+                        </div>
+                        <div class="craftsman-experience">
+                            <i class="fas fa-briefcase"></i>
+                            <span data-i18n="idx_feat_exp_8">Expérience : 8 ans</span>
+                        </div>
+                        <a href="search.html" class="btn btn-outline btn-sm">
+                            <i class="fas fa-eye"></i>
+                            <span data-i18n="idx_feat_btn_view">Voir le profil</span>
+                        </a>
+                    </div>
+
+                    <!-- حرفي مميز 3 -->
+                    <div class="craftsman-card">
+                        <div class="craftsman-badge">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span data-i18n="idx_feat_badge_top">Le mieux noté</span>
+                        </div>
+                        <div class="craftsman-avatar">
+                            <img src="img/man 2.webp" alt="حسن الصقلي">
+                        </div>
+                        <h3 class="craftsman-name">حسن الصقلي</h3>
+                        <p class="craftsman-profession">
+                            <i class="fas fa-toolbox"></i>
+                            <span data-i18n="idx_feat_prof_plumb">Plombier professionnel</span>
+                        </p>
+                        <div class="craftsman-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-i18n="idx_city_marrakech">Marrakech</span>
+                        </div>
+                        <div class="craftsman-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-number">5.0</span>
+                            <span class="reviews" data-i18n="idx_feat_review_3">(76 avis)</span>
+                        </div>
+                        <div class="craftsman-experience">
+                            <i class="fas fa-briefcase"></i>
+                            <span data-i18n="idx_feat_exp_15">Expérience : 15 ans</span>
+                        </div>
+                        <a href="search.html" class="btn btn-outline btn-sm">
+                            <i class="fas fa-eye"></i>
+                            <span data-i18n="idx_feat_btn_view">Voir le profil</span>
+                        </a>
+                    </div>
+
+                    <!-- حرفي مميز 4 -->
+                    <div class="craftsman-card">
+                        <div class="craftsman-badge">
+                            <i class="fas fa-gem"></i>
+                            <span data-i18n="idx_feat_badge_exp">Expert certifié</span>
+                        </div>
+                        <div class="craftsman-avatar">
+                            <img src="img/man 3.webp" alt="إبراهيم المراكشي">
+                        </div>
+                        <h3 class="craftsman-name">إبراهيم المراكشي</h3>
+                        <p class="craftsman-profession">
+                            <i class="fas fa-tools"></i>
+                            <span data-i18n="idx_feat_prof_build">Construction et entrepreneur</span>
+                        </p>
+                        <div class="craftsman-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-i18n="idx_city_fes">Fès</span>
+                        </div>
+                        <div class="craftsman-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-number">4.8</span>
+                            <span class="reviews" data-i18n="idx_feat_review_4">(203 avis)</span>
+                        </div>
+                        <div class="craftsman-experience">
+                            <i class="fas fa-briefcase"></i>
+                            <span data-i18n="idx_feat_exp_20">Expérience : 20 ans</span>
+                        </div>
+                        <a href="search.html" class="btn btn-outline btn-sm">
+                            <i class="fas fa-eye"></i>
+                            <span data-i18n="idx_feat_btn_view">Voir le profil</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Proposal Modal -->
+<div id="proposalModal" class="premium-modal" style="display:none;">
+    <div class="modal-panel">
+        <button class="modal-close" onclick="closeProposalModal()">×</button>
+        <h3 id="pmTitle">تقديم عرض</h3>
+        <div class="modal-body">
+            <input type="hidden" id="pmRequestId">
+            <label>السعر المقترح (درهم)</label>
+            <input id="pmPrice" type="number" min="0" step="0.01" placeholder="مثال: 350">
+            <label>المدة التقديرية</label>
+            <input id="pmDuration" type="text" placeholder="مثال: أسبوعين">
+            <label>التوفر</label>
+            <input id="pmAvailability" type="text" placeholder="مثال: متاح بعد 3 أيام">
+            <label>رسالة للعميل (اختياري)</label>
+            <textarea id="pmMessage" rows="4" placeholder="اكتب رسالتك هنا..."></textarea>
+        </div>
+        <div class="modal-footer">
+            <button class="card-btn secondary-btn" onclick="closeProposalModal()">إلغاء</button>
+            <button class="card-btn primary-btn" onclick="submitProposal()">إرسال العرض</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Marketplace client-side integration
+async function checkSession() {
+    try {
+        const res = await fetch('backend/check_session.php');
+        return await res.json();
+    } catch (e) { return {logged_in:false}; }
+}
+
+function createJobCard(job) {
+    const el = document.createElement('div');
+    el.className = 'mp-job-card';
+    el.innerHTML = `
+        <h4 class="mp-job-title">${escapeHtml(job.title)}</h4>
+        <p class="mp-job-desc">${escapeHtml(job.description || '')}</p>
+        <div class="mp-job-meta">
+            <span class="mp-badge">${escapeHtml(job.category)}</span>
+            <span class="mp-badge">${escapeHtml(job.city)}</span>
+            <span class="mp-urgency">${escapeHtml(job.urgency || '')}</span>
+        </div>
+        <div class="mp-job-footer">
+            <div class="mp-client">${escapeHtml(job.client_name || '')}</div>
+            <div class="mp-cta">
+                ${job.my_proposal_id ? '<button class="mp-prop-btn" disabled>عرض مقدم</button>' : '<button class="mp-prop-btn" onclick="openProposal('+job.id+')">تقديم عرض</button>'}
+                <button class="mp-contact-btn" onclick="contactClient(${job.id})">مراسلة</button>
+                <a class="mp-view-btn" href="backend/job_requests.php?action=detail&id=${job.id}">تفاصيل</a>
+            </div>
+        </div>
+    `;
+    return el;
+}
+
+function escapeHtml(s){ if(!s) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+async function loadMarketplace(page=1) {
+    const grid = document.getElementById('mpGrid');
+    grid.innerHTML = 'جارٍ التحميل...';
+    try {
+        const sess = await checkSession();
+        let endpoint;
+        if(sess.logged_in && sess.user_type === 'craftsman') {
+            endpoint = 'backend/job_requests.php?action=list_for_artisan&page='+encodeURIComponent(page);
+        } else {
+            endpoint = 'backend/get_latest_jobs.php?page='+encodeURIComponent(page);
+        }
+        const res = await fetch(endpoint);
+        const data = await res.json();
+        grid.innerHTML = '';
+        const items = data.requests || data.jobs || [];
+        if(items.length === 0) { grid.innerHTML = '<div class="mp-empty">لا توجد طلبات حالياً</div>'; return; }
+        for(const r of items) {
+            grid.appendChild(createJobCard(r));
+        }
+    } catch(e){ grid.innerHTML = '<div class="mp-empty">خطأ في التحميل</div>'; }
+}
+
+function openProposal(requestId){
+    checkSession().then(sess=>{
+        if(!sess.logged_in || sess.user_type!=='craftsman'){
+            // open artisan login/register overlay if exists
+            if(typeof openArtisanLogin === 'function') return openArtisanLogin();
+            alert('يرجى تسجيل الدخول كحرفي لتقديم عرض');
+            return;
+        }
+        document.getElementById('pmRequestId').value = requestId;
+        document.getElementById('pmPrice').value = '';
+        document.getElementById('pmDuration').value = '';
+        document.getElementById('pmAvailability').value = '';
+        document.getElementById('pmMessage').value = '';
+        document.getElementById('proposalModal').style.display = 'block';
+    });
+}
+
+function closeProposalModal(){ document.getElementById('proposalModal').style.display='none'; }
+
+async function submitProposal(){
+    const request_id = parseInt(document.getElementById('pmRequestId').value||0);
+    const proposed_price = parseFloat(document.getElementById('pmPrice').value||0);
+    const estimated_duration = document.getElementById('pmDuration').value.trim();
+    const availability = document.getElementById('pmAvailability').value.trim();
+    const message = document.getElementById('pmMessage').value.trim();
+    if(request_id<=0 || proposed_price<=0 || !estimated_duration){ alert('يرجى ملء الحقول المطلوبة'); return; }
+    try{
+        const res = await fetch('backend/proposals.php?action=submit',{
+            method:'POST', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({request_id, proposed_price, estimated_duration, availability, message})
+        });
+        const data = await res.json();
+        if(data.success){ closeProposalModal(); alert(data.message || 'تم الإرسال'); loadMarketplace(); }
+        else alert(data.message || 'خطأ');
+    }catch(e){ alert('خطأ في الاتصال'); }
+}
+
+async function contactClient(requestId){
+    try{
+        const sess = await checkSession();
+        if(!sess.logged_in || sess.user_type !== 'craftsman'){
+            if(typeof openArtisanLogin === 'function') return openArtisanLogin();
+            alert('يرجى تسجيل الدخول كحرفي لمراسلة العميل');
+            return;
+        }
+        const res = await fetch('backend/proposals.php?action=contact', {
+            method: 'POST', headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({request_id: requestId})
+        });
+        const data = await res.json();
+        if(!data.success) return alert(data.message || 'تعذّر إنشاء المحادثة');
+        // redirect to chat
+        if(data.chat_url) window.location.href = data.chat_url;
+        else if(data.conversation_id) window.location.href = 'chat.php?conv=' + data.conversation_id;
+    } catch(e){ alert('خطأ في الاتصال'); }
+}
+
+// init
+document.addEventListener('DOMContentLoaded', ()=>{
+    loadMarketplace();
+});
+</script>
+
+        <!-- section d'appel à l'inscription -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-container">
+                    <div class="cta-content">
+                        <h2 class="cta-title" data-i18n="idx_cta_title">Vous êtes artisan professionnel ?</h2>
+                        <p class="cta-text" data-i18n="idx_cta_text">
+                            Rejoignez notre plateforme et augmentez vos opportunités avec des milliers de clients
+                            potentiels à travers tout le Royaume du Maroc
+                        </p>
+                        <div class="cta-features">
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span data-i18n="idx_cta_feat1">Accès à des milliers de nouveaux clients</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span data-i18n="idx_cta_feat2">Profil professionnel avec galerie de réalisations</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span data-i18n="idx_cta_feat3">Avis et évaluations renforçant votre crédibilité</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span data-i18n="idx_cta_feat4">Gestion simple des commandes et des messages</span>
+                            </div>
+                        </div>
+                        <div class="cta-actions">
+                            <a href="hirafi_register.html" class="btn btn-primary btn-lg">
+                                <i class="fas fa-user-plus"></i>
+                                <span data-i18n="idx_cta_btn1">Inscrivez-vous en tant que professionnel</span>
+                            </a>
+                            <a href="#" class="btn btn-outline btn-lg">
+                                <i class="fas fa-question-circle"></i>
+                                <span data-i18n="idx_cta_btn2">Comment ça marche ?</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cta-image">
+                        <div class="flip-single" data-back="img/different-style.png">
+                            <img class="flip-front" src="img/cratstmen 5.png" alt="حرفيون مغاربة يعملون معاً"
+                                loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== قسم معرض أعمال الحرفيين - الكاروسيل المميز ========== -->
+        <section class="artisan-showcase-section" id="artisan-showcase">
+            <style>
+                /* ===== Artisan Showcase Section ===== */
+                .artisan-showcase-section {
+                    padding: 6rem 0 5rem;
+                    background: #E3DAC9;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .artisan-showcase-section::before {
+                    content: '';
+                    position: absolute;
+                    width: 700px;
+                    height: 700px;
+                    background: radial-gradient(circle, rgba(193, 154, 107, 0.16) 0%, transparent 70%);
+                    top: -200px;
+                    right: -200px;
+                    pointer-events: none;
+                }
+
+                .artisan-showcase-section::after {
+                    content: '';
+                    position: absolute;
+                    width: 500px;
+                    height: 500px;
+                    background: radial-gradient(circle, rgba(236, 72, 153, 0.10) 0%, transparent 70%);
+                    bottom: -100px;
+                    left: -100px;
+                    pointer-events: none;
+                }
+
+                /* Section Header */
+                .showcase-header {
+                    text-align: center;
+                    margin-bottom: 4rem;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .showcase-eyebrow {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    background: rgba(139, 92, 246, 0.15);
+                    border: 1px solid rgba(139, 92, 246, 0.3);
+                    color: #c084fc;
+                    padding: 0.4rem 1.2rem;
+                    border-radius: 50px;
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    letter-spacing: 0.05em;
+                    margin-bottom: 1.25rem;
+                }
+
+                .showcase-title {
+                    font-size: clamp(1.8rem, 4vw, 2.8rem);
+                    font-weight: 900;
+                    color: #fff;
+                    line-height: 1.25;
+                    margin-bottom: 1rem;
+                }
+
+                .showcase-title span {
+                    background: linear-gradient(90deg, #a855f7, #ec4899);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                }
+
+                .showcase-subtitle {
+                    color: rgba(255, 255, 255, 0.55);
+                    font-size: 1.05rem;
+                    max-width: 520px;
+                    margin: 0 auto;
+                    line-height: 1.7;
+                }
+
+                /* Fan Carousel Container */
+                .fan-carousel-wrapper {
+                    position: relative;
+                    z-index: 1;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 0 64px;
+                    /* room for side buttons */
+                }
+
+                .fan-carousel-track {
+                    display: flex;
+                    gap: 1.5rem;
+                    overflow-x: auto;
+                    scroll-snap-type: x mandatory;
+                    scroll-behavior: smooth;
+                    padding: 2rem 1rem 3rem;
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                    cursor: grab;
+                }
+
+                .fan-carousel-track::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .fan-carousel-track:active {
+                    cursor: grabbing;
+                }
+
+                /* Artisan Card */
+                .artisan-porto-card {
+                    flex: 0 0 260px;
+                    scroll-snap-align: center;
+                    background: rgba(153, 101, 21, 0.22);
+                    backdrop-filter: blur(14px);
+                    -webkit-backdrop-filter: blur(14px);
+                    border: 1px solid rgba(153, 101, 21, 0.35);
+                    border-radius: 20px;
+                    overflow: hidden;
+                    transition: transform 0.4s cubic-bezier(.25, .8, .25, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+                    position: relative;
+                    cursor: pointer;
+                }
+
+                .artisan-porto-card:hover {
+                    transform: translateY(-10px) scale(1.03);
+                    box-shadow: 0 24px 60px rgba(153, 101, 21, 0.35), 0 0 0 1px rgba(153, 101, 21, 0.4);
+                    border-color: rgba(153, 101, 21, 0.55);
+                }
+
+                .artisan-porto-card::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 3px;
+                    background: linear-gradient(90deg, #996515, #b8874e);
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+
+                .artisan-porto-card:hover::before {
+                    opacity: 1;
+                }
+
+                /* Card Image */
+                .card-image-wrap {
+                    position: relative;
+                    height: 220px;
+                    overflow: hidden;
+                }
+
+                .card-image-wrap img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                }
+
+                .artisan-porto-card:hover .card-image-wrap img {
+                    transform: scale(1.08);
+                }
+
+                .card-profession-badge {
+                    position: absolute;
+                    top: 14px;
+                    right: 14px;
+                    background: rgba(139, 92, 246, 0.88);
+                    backdrop-filter: blur(8px);
+                    color: #fff;
+                    font-size: 0.72rem;
+                    font-weight: 700;
+                    padding: 0.3rem 0.7rem;
+                    border-radius: 50px;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.3rem;
+                    letter-spacing: 0.03em;
+                }
+
+                .card-verified-badge {
+                    position: absolute;
+                    top: 14px;
+                    left: 14px;
+                    background: rgba(16, 185, 129, 0.85);
+                    backdrop-filter: blur(8px);
+                    color: #fff;
+                    font-size: 0.68rem;
+                    padding: 0.25rem 0.6rem;
+                    border-radius: 50px;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.25rem;
+                }
+
+                /* Card Body */
+                .card-body-porto {
+                    padding: 1.25rem;
+                }
+
+                .artisan-name-porto {
+                    font-size: 1rem;
+                    font-weight: 800;
+                    color: #000;
+                    margin-bottom: 0.3rem;
+                }
+
+                .artisan-service-title {
+                    font-size: 0.8rem;
+                    color: rgba(0, 0, 0, 0.85);
+                    margin-bottom: 0.7rem;
+                    line-height: 1.4;
+                }
+
+                .rating-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.4rem;
+                    margin-bottom: 1rem;
+                }
+
+                .rating-stars {
+                    color: #f59e0b;
+                    font-size: 0.75rem;
+                    display: flex;
+                    gap: 2px;
+                }
+
+                .rating-val {
+                    font-size: 0.8rem;
+                    font-weight: 700;
+                    color: #000;
+                }
+
+                .rating-count {
+                    font-size: 0.72rem;
+                    color: rgba(0, 0, 0, 0.65);
+                }
+
+                .card-cta-btn {
+                    display: block;
+                    width: 100%;
+                    padding: 0.65rem;
+                    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.15));
+                    border: 1px solid rgba(139, 92, 246, 0.35);
+                    border-radius: 10px;
+                    color: #c084fc;
+                    font-size: 0.82rem;
+                    font-weight: 700;
+                    text-align: center;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+                }
+
+                .card-cta-btn:hover {
+                    background: linear-gradient(135deg, rgba(139, 92, 246, 0.45), rgba(236, 72, 153, 0.35));
+                    color: #fff;
+                    border-color: rgba(168, 85, 247, 0.6);
+                    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+                }
+
+                /* Nav Controls - Side Arrows */
+                .carousel-side-btn {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    background: rgba(20, 10, 40, 0.75);
+                    border: 1px solid rgba(168, 85, 247, 0.4);
+                    color: #fff;
+                    font-size: 1.1rem;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease;
+                    backdrop-filter: blur(12px);
+                    z-index: 10;
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+                }
+
+                .carousel-side-btn:hover {
+                    background: linear-gradient(135deg, #8b5cf6, #ec4899);
+                    border-color: transparent;
+                    transform: translateY(-50%) scale(1.12);
+                    box-shadow: 0 8px 28px rgba(139, 92, 246, 0.5);
+                }
+
+                .carousel-side-btn.prev-btn {
+                    right: 8px;
+                }
+
+                .carousel-side-btn.next-btn {
+                    left: 8px;
+                }
+
+                /* Dots Row */
+                .carousel-dots-row {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 6px;
+                    margin-top: 1.5rem;
+                }
+
+                .carousel-dots {
+                    display: flex;
+                    gap: 6px;
+                    align-items: center;
+                }
+
+                .carousel-dot {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.25);
+                    border: none;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    padding: 0;
+                }
+
+                .carousel-dot.active {
+                    width: 22px;
+                    border-radius: 4px;
+                    background: linear-gradient(90deg, #8b5cf6, #ec4899);
+                }
+
+                /* Responsive */
+                @media (max-width: 768px) {
+                    .artisan-porto-card {
+                        flex: 0 0 220px;
+                    }
+
+                    .artisan-showcase-section {
+                        padding: 4rem 0 3rem;
+                    }
+
+                    .fan-carousel-wrapper {
+                        padding: 0 52px;
+                    }
+
+                    .carousel-side-btn {
+                        width: 40px;
+                        height: 40px;
+                        font-size: 0.9rem;
+                    }
+                }
+            </style>
+
+            <div class="container">
+                <div class="showcase-header">
+                    <div class="showcase-eyebrow">
+                        <i class="fas fa-award"></i>
+                        <span data-i18n="showcase_eyebrow">Artisans certifiés et de confiance</span>
+                    </div>
+                    <h2 class="showcase-title">
+                        <span data-i18n="showcase_title_1">Découvrez les meilleurs artisans</span>
+                        <br>
+                        <span data-i18n="showcase_title_2">et leurs réalisations</span>
+                    </h2>
+                    <p class="showcase-subtitle" data-i18n="showcase_subtitle" style="color: #6b7280;">
+                        Exemples réels de travaux d'artisans professionnels dans diverses spécialités — qualité
+                        exceptionnelle et savoir-faire fiable
+                    </p>
+                </div>
+
+                <div class="fan-carousel-wrapper">
+                    <div class="fan-carousel-track" id="artisanTrack">
+
+                        <!-- Card 1 - Carpenter -->
+                        <div class="artisan-porto-card">
+                            <div class="card-image-wrap">
+                                <img src="img/artisan_carpenter.png" alt="Menuisier" loading="lazy">
+                                <span class="card-profession-badge"><i class="fas fa-ruler-combined"></i> <span
+                                        data-i18n="prof_carpenter">Menuiserie</span></span>
+                                <span class="card-verified-badge" data-i18n="search_verified"><i
+                                        class="fas fa-check-circle"></i> Vérifié</span>
+                            </div>
+                            <div class="card-body-porto">
+                                <h3 class="artisan-name-porto">يوسف الأمين</h3>
+                                <p class="artisan-service-title" data-i18n="showcase_serv_carpenter">تصميم وتنفيذ أثاث
+                                    خشبي عصري وتقليدي</p>
+                                <div class="rating-row">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-val">5.0</span>
+                                    <span class="rating-count">(312 <span
+                                            data-i18n="showcase_review_label">avis</span>)</span>
+                                </div>
+                                <a href="search.html" class="card-cta-btn"><i class="fas fa-eye"></i> <span
+                                        data-i18n="showcase_btn_view">Voir le profil</span></a>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 - Plumber -->
+                        <div class="artisan-porto-card">
+                            <div class="card-image-wrap">
+                                <img src="img/artisan_plumber.png" alt="سباك" loading="lazy">
+                                <span class="card-profession-badge"><i class="fas fa-faucet"></i> <span
+                                        data-i18n="prof_plumber">Plomberie</span></span>
+                                <span class="card-verified-badge" data-i18n="search_verified"><i
+                                        class="fas fa-check-circle"></i> Vérifié</span>
+                            </div>
+                            <div class="card-body-porto">
+                                <h3 class="artisan-name-porto">عمر بنعلي</h3>
+                                <p class="artisan-service-title" data-i18n="showcase_serv_plumber">إصلاح وتركيب أنظمة
+                                    السباكة والمياه</p>
+                                <div class="rating-row">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-val">4.7</span>
+                                    <span class="rating-count">(198 <span
+                                            data-i18n="showcase_review_label">avis</span>)</span>
+                                </div>
+                                <a href="search.html" class="card-cta-btn"><i class="fas fa-eye"></i> <span
+                                        data-i18n="showcase_btn_view">Voir le profil</span></a>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 - Tailor -->
+                        <div class="artisan-porto-card">
+                            <div class="card-image-wrap">
+                                <img src="img/artisan_tailor.png" alt="خياطة" loading="lazy">
+                                <span class="card-profession-badge"><i class="fas fa-scissors"></i> <span
+                                        data-i18n="prof_tailor">Tailoring</span></span>
+                                <span class="card-verified-badge" data-i18n="search_verified"><i
+                                        class="fas fa-check-circle"></i> Vérifié</span>
+                            </div>
+                            <div class="card-body-porto">
+                                <h3 class="artisan-name-porto">سارة المريني</h3>
+                                <p class="artisan-service-title" data-i18n="showcase_serv_tailor_2">تفصيل وتصميم ملابس
+                                    حرفية مريحة وأنيقة</p>
+                                <div class="rating-row">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-val">4.9</span>
+                                    <span class="rating-count">(264 <span
+                                            data-i18n="showcase_review_label">avis</span>)</span>
+                                </div>
+                                <a href="search.html" class="card-cta-btn"><i class="fas fa-eye"></i> <span
+                                        data-i18n="showcase_btn_view">Voir le profil</span></a>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 - Painter -->
+                        <div class="artisan-porto-card">
+                            <div class="card-image-wrap">
+                                <img src="img/fatim zahra.jpg" alt="Peintre" loading="lazy">
+                                <span class="card-profession-badge"><i class="fas fa-paint-roller"></i> <span
+                                        data-i18n="prof_painter">Peinture</span></span>
+                                <span class="card-verified-badge" data-i18n="search_verified"><i
+                                        class="fas fa-check-circle"></i> Vérifié</span>
+                            </div>
+                            <div class="card-body-porto">
+                                <h3 class="artisan-name-porto">فاطمة الزهراني</h3>
+                                <p class="artisan-service-title" data-i18n="showcase_serv_painter">Peinture décorative
+                                    murale et finition professionnelle avec couleurs distinctives</p>
+                                <div class="rating-row">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-val">4.8</span>
+                                    <span class="rating-count">(154 <span
+                                            data-i18n="showcase_review_label">avis</span>)</span>
+                                </div>
+                                <a href="search.html" class="card-cta-btn"><i class="fas fa-eye"></i> <span
+                                        data-i18n="showcase_btn_view">Voir le profil</span></a>
+                            </div>
+                        </div>
+
+                        <!-- Card 5 - Welder -->
+                        <div class="artisan-porto-card">
+                            <div class="card-image-wrap">
+                                <img src="img/artisan_welder.png" alt="Soudeur" loading="lazy">
+                                <span class="card-profession-badge"><i class="fas fa-fire"></i> <span
+                                        data-i18n="prof_welder">Soudure</span></span>
+                                <span class="card-verified-badge" data-i18n="search_verified"><i
+                                        class="fas fa-check-circle"></i> Vérifié</span>
+                            </div>
+                            <div class="card-body-porto">
+                                <h3 class="artisan-name-porto">مصطفى الكبير</h3>
+                                <p class="artisan-service-title" data-i18n="showcase_serv_welder">Fabrication de portes
+                                    et fenêtres en fer avec motifs marocains</p>
+                                <div class="rating-row">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-val">5.0</span>
+                                    <span class="rating-count">(221 <span
+                                            data-i18n="showcase_review_label">avis</span>)</span>
+                                </div>
+                                <a href="search.html" class="card-cta-btn"><i class="fas fa-eye"></i> <span
+                                        data-i18n="showcase_btn_view">Voir le profil</span></a>
+                            </div>
+                        </div>
+
+                        <!-- Card 6 - Tailor -->
+                        <div class="artisan-porto-card">
+                            <div class="card-image-wrap">
+                                <img src="img/tailler_women.png" alt="Tailleur" loading="lazy">
+                                <span class="card-profession-badge"><i class="fas fa-cut"></i> <span
+                                        data-i18n="prof_tailor">Tailoring</span></span>
+                                <span class="card-verified-badge" data-i18n="search_verified"><i
+                                        class="fas fa-check-circle"></i> Vérifié</span>
+                            </div>
+                            <div class="card-body-porto">
+                                <h3 class="artisan-name-porto">حليمة الناصري</h3>
+                                <p class="artisan-service-title" data-i18n="showcase_serv_tailor">Confection de
+                                    djellabas et caftans au style marocain traditionnel</p>
+                                <div class="rating-row">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-val">4.9</span>
+                                    <span class="rating-count">(176 <span
+                                            data-i18n="showcase_review_label">avis</span>)</span>
+                                </div>
+                                <a href="search.html" class="card-cta-btn"><i class="fas fa-eye"></i> <span
+                                        data-i18n="showcase_btn_view">Voir le profil</span></a>
+                            </div>
+                        </div>
+                        <!-- Card 10 - Fashion Tailor -->
+                        <div class="artisan-porto-card">
+                            <div class="card-image-wrap">
+                                <img src="img/tatriz_moderne.png" alt="Artisan premium" loading="lazy">
+                                <span class="card-profession-badge"><i class="fas fa-cut"></i> <span
+                                        data-i18n="prof_tailor">Tailoring</span></span>
+                                <span class="card-verified-badge" data-i18n="search_verified"><i
+                                        class="fas fa-check-circle"></i> Vérifié</span>
+                            </div>
+                            <div class="card-body-porto">
+                                <h3 class="artisan-name-porto">مريم بوزيان</h3>
+                                <p class="artisan-service-title" data-i18n="showcase_serv_tailor_3">Confection de
+                                    vêtements professionnels et abayas avec broderies élégantes</p>
+                                <div class="rating-row">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-val">4.9</span>
+                                    <span class="rating-count">(221 <span
+                                            data-i18n="showcase_review_label">avis</span>)</span>
+                                </div>
+                                <a href="search.html" class="card-cta-btn"><i class="fas fa-eye"></i> <span
+                                        data-i18n="showcase_btn_view">Voir le profil</span></a>
+                            </div>
+                        </div>
+
+                        <!-- Card 7 - Decorator -->
+                        <div class="artisan-porto-card">
+                            <div class="card-image-wrap">
+                                <img src="img/menuisier 1.webp" alt="مصمم ديكور" loading="lazy">
+                                <span class="card-profession-badge"><i class="fas fa-couch"></i> <span
+                                        data-i18n="prof_decorator">Décoration</span></span>
+                                <span class="card-verified-badge" data-i18n="search_verified"><i
+                                        class="fas fa-check-circle"></i> Vérifié</span>
+                            </div>
+                            <div class="card-body-porto">
+                                <h3 class="artisan-name-porto">مصطفى بوهات</h3>
+                                <p class="artisan-service-title" data-i18n="showcase_serv_decorator">Conception et
+                                    décoration intérieure au style marocain contemporain</p>
+                                <div class="rating-row">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-val">5.0</span>
+                                    <span class="rating-count">(143 <span
+                                            data-i18n="showcase_review_label">avis</span>)</span>
+                                </div>
+                                <a href="search.html" class="card-cta-btn"><i class="fas fa-eye"></i> <span
+                                        data-i18n="showcase_btn_view">Voir le profil</span></a>
+                            </div>
+                        </div>
+
+                        <!-- Card 8 - Traditional Crafts -->
+                        <div class="artisan-porto-card">
+                            <div class="card-image-wrap">
+                                <img src="img/jaliz_morroco.png" alt="زليج مغربي" loading="lazy">
+                                <span class="card-profession-badge"><i class="fas fa-mosque"></i> <span
+                                        data-i18n="prof_traditional">Artisanat traditionnel</span></span>
+                                <span class="card-verified-badge" data-i18n="search_verified"><i
+                                        class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <div class="card-body-porto">
+                                <h3 class="artisan-name-porto">إدريس الشرقاوي</h3>
+                                <p class="artisan-service-title" data-i18n="showcase_serv_traditional">Zellige,
+                                    sculpture et travaux patrimoniaux marocains authentiques</p>
+                                <div class="rating-row">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-val">4.8</span>
+                                    <span class="rating-count">(265 <span
+                                            data-i18n="showcase_review_label">avis</span>)</span>
+                                </div>
+                                <a href="search.html" class="card-cta-btn"><i class="fas fa-eye"></i> <span
+                                        data-i18n="showcase_btn_view">Voir le profil</span></a>
+                            </div>
+                        </div>
+
+                        <!-- Card 9 - Interior Designer -->
+                        <div class="artisan-porto-card">
+                            <div class="card-image-wrap">
+                                <img src="img/jardini.png" alt="حديقة وزراعة" loading="lazy">
+                                <span class="card-profession-badge"><i class="fas fa-couch"></i> <span
+                                        data-i18n="prof_decorator">Design d'intérieur</span></span>
+                                <span class="card-verified-badge" data-i18n="search_verified"><i
+                                        class="fas fa-check-circle"></i> Vérifié</span>
+                            </div>
+                            <div class="card-body-porto">
+                                <h3 class="artisan-name-porto">ليلى الهاشمي</h3>
+                                <p class="artisan-service-title" data-i18n="showcase_serv_decorator_2">Aménagement et
+                                    rénovation d'espaces domestiques élégants et confortables</p>
+                                <div class="rating-row">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-val">5.0</span>
+                                    <span class="rating-count">(198 <span
+                                            data-i18n="showcase_review_label">avis</span>)</span>
+                                </div>
+                                <a href="search.html" class="card-cta-btn"><i class="fas fa-eye"></i> <span
+                                        data-i18n="showcase_btn_view">Voir le profil</span></a>
+                            </div>
+                        </div>
+
+
+                        <!-- Card 11 - Electrician -->
+                        <div class="artisan-porto-card">
+                            <div class="card-image-wrap">
+                                <img src="img/electicite_moderne.png" alt="Électricien" loading="lazy">
+                                <span class="card-profession-badge"><i class="fas fa-bolt"></i> <span
+                                        data-i18n="prof_electrician">Électricité</span></span>
+                                <span class="card-verified-badge" data-i18n="search_verified"><i
+                                        class="fas fa-check-circle"></i> Vérifié</span>
+                            </div>
+                            <div class="card-body-porto">
+                                <h3 class="artisan-name-porto">يوسف الوردي</h3>
+                                <p class="artisan-service-title" data-i18n="showcase_serv_electrician_2">Inspection et
+                                    installation de tableaux électriques sécurisés et éclairés</p>
+                                <div class="rating-row">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-val">4.8</span>
+                                    <span class="rating-count">(178 <span
+                                            data-i18n="showcase_review_label">avis</span>)</span>
+                                </div>
+                                <a href="search.html" class="card-cta-btn"><i class="fas fa-eye"></i> <span
+                                        data-i18n="showcase_btn_view">Voir le profil</span></a>
+                            </div>
+                        </div>
+
+                        <!-- Card 12 - Carpenter -->
+                        <div class="artisan-porto-card">
+                            <div class="card-image-wrap">
+                                <img src="img/premium_photo-.avif" alt="Menuisier" loading="lazy">
+                                <span class="card-profession-badge"><i class="fas fa-ruler-combined"></i> <span
+                                        data-i18n="prof_carpenter">Menuiserie</span></span>
+                                <span class="card-verified-badge" data-i18n="search_verified"><i
+                                        class="fas fa-check-circle"></i> Vérifié</span>
+                            </div>
+                            <div class="card-body-porto">
+                                <h3 class="artisan-name-porto">هند المريني</h3>
+                                <p class="artisan-service-title" data-i18n="showcase_serv_carpenter_2">Conception de
+                                    mobilier sur mesure et restauration d'objets en bois avec finitions précises</p>
+                                <div class="rating-row">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-val">4.9</span>
+                                    <span class="rating-count">(238 <span
+                                            data-i18n="showcase_review_label">avis</span>)</span>
+                                </div>
+                                <a href="search.html" class="card-cta-btn"><i class="fas fa-eye"></i> <span
+                                        data-i18n="showcase_btn_view">Voir le profil</span></a>
+                            </div>
+                        </div>
+
+                    </div><!-- end track -->
+
+                    <!-- Side Navigation Buttons -->
+                    <button class="carousel-side-btn prev-btn" id="artisanPrev" aria-label="السابق">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="carousel-side-btn next-btn" id="artisanNext" aria-label="التالي">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <!-- Dots below -->
+                    <div class="carousel-dots-row">
+                        <div class="carousel-dots" id="artisanDots"></div>
+                    </div>
+                </div><!-- end wrapper -->
+            </div><!-- end container -->
+
+            <script>
+                (function () {
+                    var track = document.getElementById('artisanTrack');
+                    var cards = track ? track.querySelectorAll('.artisan-porto-card') : [];
+                    var dotsContainer = document.getElementById('artisanDots');
+                    var prevBtn = document.getElementById('artisanPrev');
+                    var nextBtn = document.getElementById('artisanNext');
+                    var currentIndex = 0;
+                    var visibleCount = 3;
+
+                    // Build dots
+                    if (dotsContainer && cards.length) {
+                        for (var i = 0; i < cards.length; i++) {
+                            var dot = document.createElement('button');
+                            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                            dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                            (function (idx) {
+                                dot.addEventListener('click', function () { scrollToCard(idx); });
+                            })(i);
+                            dotsContainer.appendChild(dot);
+                        }
+                    }
+
+                    function updateDots() {
+                        var dots = dotsContainer ? dotsContainer.querySelectorAll('.carousel-dot') : [];
+                        dots.forEach(function (d, i) {
+                            d.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+                        });
+                    }
+
+                    function scrollToCard(idx) {
+                        if (!track || !cards.length) return;
+                        currentIndex = Math.max(0, Math.min(idx, cards.length - 1));
+                        var card = cards[currentIndex];
+                        var wrapperWidth = track.parentElement.offsetWidth;
+                        var cardWidth = card.offsetWidth + 24; // gap
+                        var offset = card.offsetLeft - (wrapperWidth / 2) + (card.offsetWidth / 2);
+                        track.scrollTo({ left: offset, behavior: 'smooth' });
+                        updateDots();
+                    }
+
+                    if (nextBtn) nextBtn.addEventListener('click', function () { scrollToCard(currentIndex + 1); resetAutoScroll(); });
+                    if (prevBtn) prevBtn.addEventListener('click', function () { scrollToCard(currentIndex - 1); resetAutoScroll(); });
+
+                    var autoScrollTimer = null;
+                    var autoScrollDelay = 2000;
+
+                    function startAutoScroll() {
+                        if (!track || !cards.length) return;
+                        stopAutoScroll();
+                        autoScrollTimer = setInterval(function () {
+                            scrollToCard(currentIndex + 1);
+                        }, autoScrollDelay);
+                    }
+
+                    function stopAutoScroll() {
+                        if (autoScrollTimer) {
+                            clearInterval(autoScrollTimer);
+                            autoScrollTimer = null;
+                        }
+                    }
+
+                    function resetAutoScroll() {
+                        stopAutoScroll();
+                        startAutoScroll();
+                    }
+
+                    // Start the carousel marquee behavior after init
+                    startAutoScroll();
+
+                    // Drag to scroll
+                    if (track) {
+                        var isDown = false, startX, scrollLeft;
+                        track.addEventListener('mousedown', function (e) {
+                            isDown = true; track.style.cursor = 'grabbing';
+                            startX = e.pageX - track.offsetLeft;
+                            scrollLeft = track.scrollLeft;
+                        });
+                        track.addEventListener('mouseleave', function () { isDown = false; track.style.cursor = 'grab'; });
+                        track.addEventListener('mouseup', function () { isDown = false; track.style.cursor = 'grab'; });
+                        track.addEventListener('mousemove', function (e) {
+                            if (!isDown) return;
+                            e.preventDefault();
+                            var x = e.pageX - track.offsetLeft;
+                            var walk = (x - startX) * 1.5;
+                            track.scrollLeft = scrollLeft - walk;
+                        });
+
+                        // Update active dot on scroll
+                        track.addEventListener('scroll', function () {
+                            if (!cards.length) return;
+                            var center = track.scrollLeft + track.offsetWidth / 2;
+                            var closest = 0, minDist = Infinity;
+                            cards.forEach(function (c, i) {
+                                var dist = Math.abs((c.offsetLeft + c.offsetWidth / 2) - center);
+                                if (dist < minDist) { minDist = dist; closest = i; }
+                            });
+                            if (closest !== currentIndex) { currentIndex = closest; updateDots(); }
+                        });
+                    }
+
+                    // Entry animation using IntersectionObserver
+                    if ('IntersectionObserver' in window) {
+                        var observer = new IntersectionObserver(function (entries) {
+                            entries.forEach(function (entry) {
+                                if (entry.isIntersecting) {
+                                    var _cards = entry.target.querySelectorAll('.artisan-porto-card');
+                                    _cards.forEach(function (c, i) {
+                                        c.style.opacity = '0';
+                                        c.style.transform = 'translateY(40px)';
+                                        setTimeout(function () {
+                                            c.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                                            c.style.opacity = '1';
+                                            c.style.transform = 'translateY(0)';
+                                        }, i * 80);
+                                    });
+                                    observer.unobserve(entry.target);
+                                }
+                            });
+                        }, { threshold: 0.1 });
+                        if (track) observer.observe(track);
+                    }
+                })();
+            </script>
+        </section>
+        <!-- ========== نهاية قسم معرض الحرفيين ========== -->
+
+    </main>
+    <!-- ========== نهاية القسم الرئيسي ========== -->
+
+    <!-- ========== Platform Highlights Section ========== -->
+    <section class="platform-highlights-section"
+        style="padding: 4rem 0; background: linear-gradient(180deg, #f8f6ff 0%, #ffffff 100%);">
+        <div class="container">
+            <div class="section-header" style="max-width: 840px; margin: 0 auto 2.5rem; text-align: center;">
+                <span
+                    style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.55rem 1rem; border-radius: 999px; background: rgba(124, 58, 237, 0.12); color: #6d28d9; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.03em; margin-bottom: 1rem;">
+                    <i class="fas fa-globe"></i> <span data-i18n="digital_platform_badge">منصة رقمية للحرفيين</span>
+                </span>
+                <h2 style="font-size: 2.4rem; line-height: 1.1; color: var(--color-gray-900); margin-bottom: 1rem;"
+                    data-i18n="digital_platform_title">جرب منصة حرفية تقدم تجربة عالمية</h2>
+                <p style="font-size: 1.05rem; color: var(--color-gray-600); line-height: 1.8;"
+                    data-i18n="digital_platform_subtitle">بحث ذكي، تقييمات حقيقية، حجز ثابت ودعم محلي؛ كل ذلك في واجهة
+                    نظيفة وسريعة تشعر بها مثل أكبر المنصات العالمية.</p>
+            </div>
+
+            <div class="highlights-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
+                <div
+                    style="background: white; border-radius: 24px; padding: 1.75rem; box-shadow: 0 24px 60px rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.1); transition: transform 0.3s ease;">
+                    <div
+                        style="width: 56px; height: 56px; display: grid; place-items: center; background: rgba(124, 58, 237, 0.12); color: #7c3aed; border-radius: 16px; margin-bottom: 1rem; font-size: 1.25rem;">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--color-gray-900);"
+                        data-i18n="digital_platform_search_title">بحث ذكي وسريع</h3>
+                    <p style="color: var(--color-gray-600); line-height: 1.75;"
+                        data-i18n="digital_platform_search_desc">استخدم الفلترة حسب المدينة والمهنة لعرض النتائج الأكثر
+                        دقة بسرعة.</p>
+                </div>
+                <div
+                    style="background: white; border-radius: 24px; padding: 1.75rem; box-shadow: 0 24px 60px rgba(14, 165, 233, 0.08); border: 1px solid rgba(14, 165, 233, 0.1); transition: transform 0.3s ease;">
+                    <div
+                        style="width: 56px; height: 56px; display: grid; place-items: center; background: rgba(14, 165, 233, 0.12); color: #0ea5e9; border-radius: 16px; margin-bottom: 1rem; font-size: 1.25rem;">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--color-gray-900);"
+                        data-i18n="digital_platform_profiles_title">ملفات موثوقة</h3>
+                    <p style="color: var(--color-gray-600); line-height: 1.75;"
+                        data-i18n="digital_platform_profiles_desc">حرفيون مع تقييمات وصور واضحة ومعلومات كاملة تضمن
+                        اختيارك بثقة.</p>
+                </div>
+                <div
+                    style="background: white; border-radius: 24px; padding: 1.75rem; box-shadow: 0 24px 60px rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.1); transition: transform 0.3s ease;">
+                    <div
+                        style="width: 56px; height: 56px; display: grid; place-items: center; background: rgba(16, 185, 129, 0.12); color: #10b981; border-radius: 16px; margin-bottom: 1rem; font-size: 1.25rem;">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--color-gray-900);"
+                        data-i18n="digital_platform_booking_title">حجز آمن وسهل</h3>
+                    <p style="color: var(--color-gray-600); line-height: 1.75;"
+                        data-i18n="digital_platform_booking_desc">جدولة الخدمة والتواصل مع الحرفي بطريقة واضحة ومرنة.
+                    </p>
+                </div>
+                <div
+                    style="background: white; border-radius: 24px; padding: 1.75rem; box-shadow: 0 24px 60px rgba(236, 72, 153, 0.08); border: 1px solid rgba(236, 72, 153, 0.1); transition: transform 0.3s ease;">
+                    <div
+                        style="width: 56px; height: 56px; display: grid; place-items: center; background: rgba(236, 72, 153, 0.12); color: #ec4899; border-radius: 16px; margin-bottom: 1rem; font-size: 1.25rem;">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--color-gray-900);"
+                        data-i18n="digital_platform_support_title">دعم محلي مباشر</h3>
+                    <p style="color: var(--color-gray-600); line-height: 1.75;"
+                        data-i18n="digital_platform_support_desc">فريقنا جاهز للرد على أسئلتك وإرشادك لتحقيق الخدمة
+                        الأفضل.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 2.5rem; text-align: center;">
+                <a href="search.html"
+                    style="display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem 1.7rem; background: linear-gradient(135deg, #7c3aed, #ec4899); color: white; border-radius: 999px; text-decoration: none; font-weight: 700; box-shadow: 0 18px 40px rgba(124, 58, 237, 0.18);"><span
+                        data-i18n="digital_platform_btn">ابدأ بحثك الآن</span> <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Trust Elements Section ========== -->
+    <section class="trust-section trust-premium" style="padding: 4rem 0; background: var(--color-gray-50);">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                <h2 class="section-title" style="font-size: 2rem; font-weight: 800; color: var(--color-gray-900);"
+                    data-i18n="trust_section_title">
+                    <i class="fas fa-shield-alt" style="color: var(--color-primary);"></i>
+                    Pourquoi choisir notre plateforme ?
+                </h2>
+                <p class="section-subtitle"
+                    style="font-size: 1.1rem; color: var(--color-gray-600); max-width: 600px; margin: 0 auto;"
+                    data-i18n="trust_subtitle">
+                    Une plateforme fiable avec des milliers d'artisans vérifiés à travers tout le Royaume du Maroc
+                </p>
+            </div>
+
+            <div class="trust-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <!-- Trust Item 1 -->
+                <div class="trust-item"
+                    style="text-align: center; padding: 2rem; background: white; border-radius: var(--border-radius-xl); box-shadow: var(--shadow-md); transition: var(--transition-normal);">
+                    <div class="trust-icon"
+                        style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white; box-shadow: var(--shadow-glow);">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--color-gray-900); margin-bottom: 1rem;"
+                        data-i18n="idx_trust_t1">Artisans certifiés</h3>
+                    <p style="color: var(--color-gray-600); line-height: 1.6;" data-i18n="idx_trust_d1">Tous les
+                        artisans passent par un processus de vérification d'identité avant de rejoindre la plateforme
+                    </p>
+                </div>
+
+                <!-- Trust Item 2 -->
+                <div class="trust-item"
+                    style="text-align: center; padding: 2rem; background: white; border-radius: var(--border-radius-xl); box-shadow: var(--shadow-md); transition: var(--transition-normal);">
+                    <div class="trust-icon"
+                        style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--color-success), var(--color-success-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white; box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--color-gray-900); margin-bottom: 1rem;"
+                        data-i18n="idx_trust_t2">Paiement sécurisé</h3>
+                    <p style="color: var(--color-gray-600); line-height: 1.6;" data-i18n="idx_trust_d2">Un système de
+                        paiement sécurisé — nous assurons un environnement fiable pour toutes les transactions</p>
+                </div>
+
+                <!-- Trust Item 3 -->
+                <div class="trust-item"
+                    style="text-align: center; padding: 2rem; background: white; border-radius: var(--border-radius-xl); box-shadow: var(--shadow-md); transition: var(--transition-normal);">
+                    <div class="trust-icon"
+                        style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white; box-shadow: var(--shadow-accent);">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--color-gray-900); margin-bottom: 1rem;"
+                        data-i18n="idx_trust_t3">Assistance 24/7</h3>
+                    <p style="color: var(--color-gray-600); line-height: 1.6;" data-i18n="idx_trust_d3">Notre équipe
+                        d'assistance est disponible 24h/24 pour vous aider à tout moment</p>
+                </div>
+
+                <!-- Trust Item 4 -->
+                <div class="trust-item"
+                    style="text-align: center; padding: 2rem; background: white; border-radius: var(--border-radius-xl); box-shadow: var(--shadow-md); transition: var(--transition-normal);">
+                    <div class="trust-icon"
+                        style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white; box-shadow: var(--shadow-xl);">
+                        <i class="fas fa-undo-alt"></i>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--color-gray-900); margin-bottom: 1rem;"
+                        data-i18n="idx_trust_t4">Garantie de remboursement</h3>
+                    <p style="color: var(--color-gray-600); line-height: 1.6;" data-i18n="idx_trust_d4">Remboursement
+                        garanti sous 48 heures si vous n'êtes pas satisfait du service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Customer Reviews Section ========== -->
+    <section class="reviews-section" style="padding: 4rem 0; background: white;">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                <h2 class="section-title" style="font-size: 2rem; font-weight: 800; color: var(--color-gray-900);"
+                    data-i18n="reviews_title">
+                    <i class="fas fa-comments" style="color: var(--color-primary);"></i>
+                    Avis de nos clients
+                </h2>
+                <p class="section-subtitle" style="font-size: 1.1rem; color: var(--color-gray-600);"
+                    data-i18n="idx_rev_sub">
+                    Ce que nos clients disent de leur expérience avec notre plateforme
+                </p>
+            </div>
+
+            <div class="reviews-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <!-- Review 1 -->
+                <div class="review-card"
+                    style="background: var(--glass-bg); backdrop-filter: blur(10px); border-radius: var(--border-radius-xl); padding: 2rem; border: 1px solid var(--glass-border); box-shadow: var(--shadow-md); transition: var(--transition-normal);">
+                    <div class="review-header"
+                        style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="review-avatar"
+                            style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 3px solid var(--color-primary);">
+                            <img src="img/abdelilah.jpeg" alt="عميل"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div>
+                            <h4 style="font-weight: 700; color: var(--color-gray-900); margin-bottom: 0.25rem;">محمد
+                                أحمد</h4>
+                            <div class="stars" style="color: var(--color-accent);">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color: var(--color-gray-700); line-height: 1.6; font-style: italic;"
+                        data-i18n="idx_rev_t1">"J'ai trouvé un excellent menuisier à Casablanca, service remarquable et
+                        mobilier fabriqué avec une grande qualité. Merci pour votre superbe plateforme."</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card"
+                    style="background: var(--glass-bg); backdrop-filter: blur(10px); border-radius: var(--border-radius-xl); padding: 2rem; border: 1px solid var(--glass-border); box-shadow: var(--shadow-md); transition: var(--transition-normal);">
+                    <div class="review-header"
+                        style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="review-avatar"
+                            style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 3px solid var(--color-primary);">
+                            <img src="img/fatim zahra.jpg" alt="عميلة"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div>
+                            <h4 style="font-weight: 700; color: var(--color-gray-900); margin-bottom: 0.25rem;">فاطمة
+                                الطاهر</h4>
+                            <div class="stars" style="color: var(--color-accent);">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color: var(--color-gray-700); line-height: 1.6; font-style: italic;"
+                        data-i18n="idx_rev_t2">"L'électricien que j'ai contacté était très professionnel, il a réalisé
+                        le travail dans les délais et à des tarifs raisonnables."</p>
+                </div>
+
+
+                <!-- Review 3 -->
+                <div class="review-card"
+                    style="background: var(--glass-bg); backdrop-filter: blur(10px); border-radius: var(--border-radius-xl); padding: 2rem; border: 1px solid var(--glass-border); box-shadow: var(--shadow-md); transition: var(--transition-normal);">
+                    <div class="review-header"
+                        style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="review-avatar"
+                            style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 3px solid var(--color-primary);">
+                            <img src="img/profession.png" alt="عميل"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div>
+                            <h4 style="font-weight: 700; color: var(--color-gray-900); margin-bottom: 0.25rem;">يوسف
+                                العلماني</h4>
+                            <div class="stars" style="color: var(--color-accent);">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color: var(--color-gray-700); line-height: 1.6; font-style: italic;"
+                        data-i18n="idx_rev_t3">"Service simple et rapide, le plombier était respectueux et
+                        professionnel. Je recommande vivement."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Success Statistics Section ========== -->
+    <section class="success-stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="idx_stat_title">Statistiques de réussite</h2>
+                <p data-i18n="idx_stat_sub">Nos chiffres : votre réussite est notre fierté</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3 class="stat-number" data-count="2189" data-suffix="+">2,189+</h3>
+                    <p class="stat-label" data-i18n="stat_craftsmen">Artisans inscrits</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3 class="stat-number" data-count="15420" data-suffix="+">15,420+</h3>
+                    <p class="stat-label" data-i18n="stat_completed">Projets terminés</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fas fa-smile-beam"></i></div>
+                    <h3 class="stat-number" data-count="98" data-suffix="%">98%</h3>
+                    <p class="stat-label" data-i18n="stat_rating">Taux de satisfaction</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fas fa-city"></i></div>
+                    <h3 class="stat-number" data-count="78">78</h3>
+                    <p class="stat-label" data-i18n="stat_cities">Villes desservies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== نهاية القسم الرئيسي ========== -->
+
+    <!-- ========== بداية الفوتر ========== -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3 data-i18n="footer_logo_text">Hirafi.ma</h3>
+                    </div>
+                    <p class="footer-description" data-i18n="footer_desc">
+                        Plateforme leader mettant en relation artisans professionnels et clients à travers tout le
+                        Royaume du Maroc depuis 2026
+                    </p>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>212650032824+</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>elabdabdelilah@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-i18n="footer_contact_address">Marrakech, Maroc</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="فيسبوك">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" title="تويتر">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" title="إنستغرام">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="social-link" title="يوتيوب">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- روابط سريعة -->
+                <div class="footer-section">
+                    <h4 class="footer-title" data-i18n="footer_links_title">Liens rapides</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> <span
+                                    data-i18n="footer_home">Accueil</span></a></li>
+                        <li><a href="search.html"><i class="fas fa-chevron-left"></i> <span
+                                    data-i18n="footer_search">Rechercher un artisan</span></a></li>
+                        <li><a href="hirafi_register.html"><i class="fas fa-chevron-left"></i> <span
+                                    data-i18n="footer_register">S'inscrire en tant qu'artisan</span></a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-left"></i> <span
+                                    data-i18n="footer_contact">Contact</span></a></li>
+                        <li><a href="blog.html"><i class="fas fa-chevron-left"></i> <span
+                                    data-i18n="footer_blog">Blog</span></a></li>
+                        <li><a href="faq.html"><i class="fas fa-chevron-left"></i> <span
+                                    data-i18n="footer_faq">FAQ</span></a></li>
+                        <li><a href="admin_login.html"><i class="fas fa-user-shield"
+                                    style="font-size: xx-large; position: right;"></i> </a></li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-section">
+                    <h4 class="footer-title" data-i18n="footer_cities_title">Villes principales</h4>
+                    <ul class="footer-links">
+                        <li><a href="cities.html#casablanca"><i class="fas fa-map-marker-alt"></i> <span
+                                    data-i18n="idx_city_casablanca">Casablanca</span></a></li>
+                        <li><a href="cities.html#rabat"><i class="fas fa-map-marker-alt"></i> <span
+                                    data-i18n="idx_city_rabat">Rabat</span></a></li>
+                        <li><a href="cities.html#marrakech"><i class="fas fa-map-marker-alt"></i> <span
+                                    data-i18n="idx_city_marrakech">Marrakech</span></a></li>
+                        <li><a href="cities.html#fes"><i class="fas fa-map-marker-alt"></i> <span
+                                    data-i18n="idx_city_fes">Fès</span></a></li>
+                        <li><a href="cities.html#tangier"><i class="fas fa-map-marker-alt"></i> <span
+                                    data-i18n="idx_city_tangier">Tanger</span></a></li>
+                        <li><a href="cities.html#agadir"><i class="fas fa-map-marker-alt"></i> <span
+                                    data-i18n="idx_city_agadir">Agadir</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- النشرة البريدية -->
+                <div class="footer-section">
+
+                    <h4 class="footer-title" data-i18n="footer_newsletter_title">Newsletter</h4>
+                    <p class="newsletter-text" data-i18n="footer_newsletter_desc">
+                        Inscrivez-vous à notre newsletter pour recevoir les dernières offres et nouveautés
+                    </p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" placeholder="Votre email" data-i18n="footer_newsletter_placeholder"
+                                required>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <div class="form-notice">
+                            <i class="fas fa-shield-alt"></i>
+                            <span data-i18n="footer_newsletter_notice">Nous respectons votre vie privée. Nous ne
+                                partagerons pas votre email avec des tiers.</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- حقوق النشر -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p data-i18n="copyright_text">&copy; 2026 Service des artisans marocains. Tous droits réservés.</p>
+                    <p> technicien spécialisé en développement d'informatique: <a href="#" style="color: red;">abdelilah
+                            Elabed</a></p>
+                </div>
+                <div class="footer-legal">
+                    <a href="#" data-i18n="idx_footer_terms">Conditions d'utilisation</a>
+                    <a href="#" data-i18n="idx_footer_privacy">Politique de confidentialité</a>
+                    <a href="#" data-i18n="idx_footer_cookies">Politique des cookies</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <!-- زر العودة للأعلى -->
+        <button class="back-to-top" id="backToTop">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </footer>
+    <!-- ========== نهاية الفوتر ========== -->
+
+    <!-- ========== ربط ملف JavaScript ========== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var trustSection = document.querySelector('.trust-premium');
+            if (!trustSection || !('IntersectionObserver' in window)) return;
+
+            var observer = new IntersectionObserver(function (entries, observerRef) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        trustSection.classList.add('visible');
+                        observerRef.unobserve(trustSection);
+                    }
+                });
+            }, { threshold: 0.24 });
+
+            observer.observe(trustSection);
+        });
+    </script>
+    <!-- Premium Authentication Modals (Hero CTA Workflow) -->
+    <style id="premiumModalCSS">
+        /* Premium Modal Baseline */
+        .premium-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .premium-modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .premium-modal {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            width: 92%;
+            max-width: 480px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.02);
+            transform: translateY(40px) scale(0.96);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            max-height: 90vh;
+            /* Handle tall forms on mobile */
+            overflow-y: auto;
+        }
+
+        .premium-modal-overlay.active .premium-modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .pm-header {
+            padding: 30px 24px 20px;
+            text-align: center;
+            position: relative;
+            background: transparent;
+        }
+
+        .pm-header h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+
+        .pm-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: #f1f5f9;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 0.9rem;
+            color: #64748b;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+        }
+
+        [dir="rtl"] .pm-close {
+            right: auto;
+            left: 24px;
+        }
+
+        .pm-close:hover {
+            background: #fee2e2;
+            color: #ef4444;
+            transform: rotate(90deg);
+        }
+
+        /* Modal Tabs */
+        .pm-tabs {
+            display: flex;
+            background: #f1f5f9;
+            margin: 10px 24px 20px;
+            padding: 6px;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+            gap: 4px;
+        }
+
+        .pm-tab-btn {
+            flex: 1;
+            padding: 10px 16px;
+            border: none;
+            background: transparent;
+            font-weight: 700;
+            color: #64748b;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 9px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+        }
+
+        .pm-tab-btn.active {
+            background: #ffffff;
+            color: #1e293b;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        #artisanOverlay .pm-tab-btn.active {
+            color: #d97706;
+            /* warm amber */
+        }
+
+        #clientOverlay .pm-tab-btn.active {
+            color: #059669;
+            /* emerald */
+        }
+
+        /* Modal Body */
+        .pm-body {
+            padding: 0 24px 30px;
+            position: relative;
+        }
+
+        .pm-form-panel {
+            display: none;
+            animation: fadeInForm 0.4s ease forwards;
+        }
+
+        .pm-form-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeInForm {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pm-form-group {
+            margin-bottom: 22px;
+            text-align: left;
+            position: relative;
+        }
+
+        [dir="rtl"] .pm-form-group {
+            text-align: right;
+        }
+
+        .pm-form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #475569;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+
+        .pm-input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: #0f172a;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            outline: none;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) inset;
+        }
+        
+        .pm-input::placeholder {
+            color: #94a3b8;
+            opacity: 0.8;
+        }
+
+        .pm-input:hover {
+            border-color: #cbd5e1;
+            background: #f8fafc;
+        }
+
+        #artisanOverlay .pm-input:focus {
+            border-color: #f59e0b; /* Premium Golden/Amber */
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.12), 0 4px 12px rgba(245, 158, 11, 0.08);
+        }
+
+        #clientOverlay .pm-input:focus {
+            border-color: #10b981; /* Premium Emerald/Green */
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12), 0 4px 12px rgba(16, 185, 129, 0.08);
+        }
+
+        .pm-submit {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        #artisanOverlay .pm-submit {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+        }
+
+        #artisanOverlay .pm-submit:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #0f172a, #020617);
+            border-color: rgba(251, 191, 36, 0.5);
+            box-shadow: 0 8px 20px rgba(251, 191, 36, 0.25);
+        }
+
+        #clientOverlay .pm-submit {
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+        }
+
+        #clientOverlay .pm-submit:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #047857, #059669);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
+        }
+
+        /* Modal Footer Links */
+        .pm-footer-text {
+            margin-top: 24px;
+            font-size: 0.9rem;
+            color: #64748b;
+            text-align: center;
+        }
+
+        .pm-footer-text a {
+            color: #1d4ed8;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        #artisanOverlay .pm-footer-text a {
+            color: #d97706;
+        }
+
+        #clientOverlay .pm-footer-text a {
+            color: #059669;
+        }
+
+        .pm-footer-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <!-- Modal Artisan -->
+    <div id="artisanOverlay" class="premium-modal-overlay">
+        <div class="premium-modal">
+            <div class="pm-header">
+                <h3 data-i18n="modal_artisan_space">Espace Artisan</h3>
+                <button class="pm-close" onclick="closeModal('artisanOverlay')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="pm-body">
+                <!-- Artisan Login Alert -->
+                <div id="artisanAlert" class="pm-alert"
+                    style="padding: 12px; border-radius: 10px; margin-bottom: 18px; display: none; font-size: 0.9rem; font-weight: 600; text-align: center;">
+                </div>
+                <!-- Artisan Login -->
+                <form id="artisanLoginForm" class="pm-form-panel active">
+                    <div class="pm-form-group">
+                        <label data-i18n="modal_email">Email</label>
+                        <input type="email" name="email" class="pm-input" required>
+                    </div>
+                    <div class="pm-form-group">
+                        <label data-i18n="modal_password">Mot de passe</label>
+                        <input type="password" name="password" class="pm-input" required>
+                    </div>
+                    <button type="submit" class="pm-submit" data-i18n="modal_login_btn">Se connecter</button>
+                    <div class="pm-footer-text">
+                        <span data-i18n="login_no_account">Nouveau sur Hirafi ?</span>
+                        <a href="hirafi_register.html" data-i18n="login_signup_link">Créer un compte</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Client -->
+    <div id="clientOverlay" class="premium-modal-overlay">
+        <div class="premium-modal">
+            <div class="pm-header">
+                <h3 data-i18n="modal_client_space">Espace Client</h3>
+                <button class="pm-close" onclick="closeModal('clientOverlay')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="pm-body">
+                <!-- Client Login Alert -->
+                <div id="clientAlert" class="pm-alert"
+                    style="padding: 12px; border-radius: 10px; margin-bottom: 18px; display: none; font-size: 0.9rem; font-weight: 600; text-align: center;">
+                </div>
+                <!-- Client Login -->
+                <form id="clientLoginForm" class="pm-form-panel active">
+                    <div class="pm-form-group">
+                        <label data-i18n="modal_email">Email</label>
+                        <input type="email" name="email" class="pm-input" required>
+                    </div>
+                    <div class="pm-form-group">
+                        <label data-i18n="modal_password">Mot de passe</label>
+                        <input type="password" name="password" class="pm-input" required>
+                    </div>
+                    <button type="submit" class="pm-submit" data-i18n="modal_login_btn">Se connecter</button>
+                    <div class="pm-footer-text">
+                        <span data-i18n="login_no_account">Nouveau sur Hirafi ?</span>
+                        <a href="client_register.html" data-i18n="login_signup_link">Créer un compte</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Logic
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+
+        function switchTab(role, tab) {
+            const overlay = document.getElementById(role + 'Overlay');
+            overlay.querySelectorAll('.pm-tab-btn').forEach(b => b.classList.remove('active'));
+            overlay.querySelectorAll('.pm-form-panel').forEach(f => f.classList.remove('active'));
+
+            if (tab === 'login') {
+                overlay.querySelectorAll('.pm-tab-btn')[0].classList.add('active');
+                overlay.querySelector('#' + role + 'LoginForm').classList.add('active');
+            } else {
+                overlay.querySelectorAll('.pm-tab-btn')[1].classList.add('active');
+                overlay.querySelector('#' + role + 'RegisterForm').classList.add('active');
+            }
+            document.getElementById(role + 'Alert').className = 'pm-alert'; // Clear alert
+        }
+
+        async function handleArtisanCta() {
+            try {
+                const r = await fetch('backend/check_session.php');
+                const session = await r.json();
+                if (session.logged_in && session.user_type === 'craftsman') {
+                    window.location.href = 'backend/artisan_marketplace.php';
+                } else {
+                    openModal('artisanOverlay');
+                }
+            } catch (e) { openModal('artisanOverlay'); }
+        }
+
+        async function handleClientCta() {
+            try {
+                const r = await fetch('backend/check_session.php');
+                const session = await r.json();
+                if (session.logged_in && session.user_type === 'client') {
+                    window.location.href = 'backend/client_workspace.php';
+                } else {
+                    openModal('clientOverlay');
+                }
+            } catch (e) { openModal('clientOverlay'); }
+        }
+
+        function showAlert(role, type, msg) {
+            const el = document.getElementById(role + 'Alert');
+            el.textContent = msg;
+            el.className = `pm-alert ${type}`;
+        }
+
+        // Artisan Submit Handlers
+        document.getElementById('artisanLoginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('.pm-submit'); btn.disabled = true;
+            try {
+                const fd = new FormData(e.target);
+                const data = Object.fromEntries(fd.entries());
+                const res = await fetch('backend/login_hirafi.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+                const json = await res.json();
+                if (json.success) {
+                    showAlert('artisan', 'success', 'Connexion réussie! Redirection...');
+                    setTimeout(() => window.location.href = "backend/artisan_marketplace.php", 1000);
+                } else showAlert('artisan', 'error', json.message);
+            } catch (err) { showAlert('artisan', 'error', 'Erreur réseau'); }
+            btn.disabled = false;
+        });
+
+        // Client Submit Handlers
+        document.getElementById('clientLoginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('.pm-submit'); btn.disabled = true;
+            try {
+                const fd = new FormData(e.target);
+                const data = Object.fromEntries(fd.entries());
+                const res = await fetch('backend/client_login.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+                const json = await res.json();
+                if (json.success) {
+                    showAlert('client', 'success', 'Connexion réussie! Redirection...');
+                    setTimeout(() => window.location.href = "backend/client_workspace.php", 1000);
+                } else showAlert('client', 'error', json.message);
+            } catch (err) { showAlert('client', 'error', 'Erreur réseau'); }
+            btn.disabled = false;
+        });
+    </script>
+    <script src="lang_dict.js"></script>
+    <script src="script.js"></script>
+    <script src="script/js/password.js"></script>
+</body>
+
+</html>

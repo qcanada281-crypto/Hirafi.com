@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المدن الرئيسية - خدمة الحرفيين المغاربة</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Readex+Pro:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.jpeg">
+    <style>
+        :root {
+            --ink: #10233f;
+            --muted: #5f748d;
+            --navy: #0f1d33;
+            --blue: #1d4ed8;
+            --teal: #0f766e;
+            --gold: #d4a63a;
+            --panel: rgba(255,255,255,0.92);
+            --shadow: 0 24px 52px rgba(15, 23, 42, 0.14);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Cairo", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top right, rgba(29, 78, 216, 0.12), transparent 30%),
+                radial-gradient(circle at left 75%, rgba(15, 118, 110, 0.12), transparent 25%),
+                linear-gradient(180deg, #f8fbff 0%, #eef4fb 48%, #f4f7fb 100%);
+        }
+        .container {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 12;
+            backdrop-filter: blur(12px);
+            background: rgba(248, 251, 255, 0.84);
+            border-bottom: 1px solid rgba(255,255,255,0.64);
+        }
+        .topbar-inner {
+            min-height: 74px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--navy);
+            text-decoration: none;
+            font-family: "Readex Pro", sans-serif;
+            font-weight: 700;
+        }
+        .brand-badge {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            color: #fff;
+            background: linear-gradient(135deg, var(--blue), #0ea5e9);
+            box-shadow: 0 14px 28px rgba(29, 78, 216, 0.24);
+        }
+        .nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .nav a {
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 700;
+            padding: 10px 14px;
+            border-radius: 999px;
+            transition: 0.2s ease;
+        }
+        .nav a:hover,
+        .nav a.active {
+            color: var(--navy);
+            background: #fff;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+        }
+        h1, h2, h3 {
+            font-family: "Readex Pro", sans-serif;
+        }
+        .hero {
+            padding: 52px 0 22px;
+        }
+        .hero-card {
+            position: relative;
+            overflow: hidden;
+            padding: 34px;
+            border-radius: 30px;
+            color: #fff;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(212,166,58,0.18), transparent 26%),
+                linear-gradient(135deg, #0f1d33, #163e72 58%, #0f766e 100%);
+            box-shadow: 0 30px 58px rgba(15, 23, 42, 0.22);
+        }
+        .hero-card::after {
+            content: "";
+            position: absolute;
+            inset: auto -50px -120px auto;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 68%);
+        }
+        .eyebrow {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            font-weight: 800;
+        }
+        .hero-card h1 {
+            margin: 16px 0 12px;
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            line-height: 1.18;
+        }
+        .hero-card p {
+            margin: 0;
+            max-width: 62ch;
+            color: rgba(226,232,240,0.92);
+            line-height: 1.9;
+        }
+        .hero-stats {
+            margin-top: 22px;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+        }
+        .hero-stat {
+            padding: 16px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .hero-stat strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1.2rem;
+        }
+        .hero-stat span {
+            font-size: 0.88rem;
+            color: rgba(226,232,240,0.82);
+        }
+        .section {
+            padding: 24px 0;
+        }
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+        .section-head h2 {
+            margin: 0;
+            font-size: clamp(1.55rem, 2.2vw, 2.15rem);
+            color: var(--navy);
+        }
+        .section-head p {
+            margin: 0;
+            color: var(--muted);
+            max-width: 56ch;
+            line-height: 1.8;
+        }
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+        .city-card,
+        .city-detail {
+            background: var(--panel);
+            border: 1px solid rgba(255,255,255,0.92);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+        .city-card {
+            padding: 22px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 52px rgba(15, 23, 42, 0.16);
+        }
+        .city-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+        .city-icon {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--blue), #0ea5e9);
+            box-shadow: 0 16px 28px rgba(29, 78, 216, 0.22);
+        }
+        .city-card h3 {
+            margin: 0 0 6px;
+            color: var(--navy);
+            font-size: 1.24rem;
+        }
+        .city-card p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+        .chip-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 14px 0 18px;
+        }
+        .chip {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid rgba(148,163,184,0.22);
+            color: var(--muted);
+            font-size: 0.84rem;
+            font-weight: 700;
+        }
+        .city-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--blue);
+            font-weight: 800;
+        }
+        .city-details {
+            display: grid;
+            gap: 18px;
+        }
+        .city-detail {
+            padding: 26px;
+            scroll-margin-top: 110px;
+        }
+        .city-detail-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: start;
+            margin-bottom: 16px;
+        }
+        .city-detail-head h3 {
+            margin: 0 0 8px;
+            font-size: 1.45rem;
+            color: var(--navy);
+        }
+        .city-detail-head p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.9;
+        }
+        .city-score {
+            min-width: 150px;
+            padding: 16px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f8fbff, #edf5ff);
+            border: 1px solid rgba(191, 219, 254, 0.6);
+            text-align: center;
+        }
+        .city-score strong {
+            display: block;
+            color: var(--navy);
+            font-size: 1.35rem;
+            margin-bottom: 4px;
+        }
+        .city-score span {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .detail-box {
+            padding: 16px;
+            border-radius: 18px;
+            background: #fff;
+            border: 1px solid rgba(148,163,184,0.18);
+        }
+        .detail-box strong {
+            display: block;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+        .detail-box p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 0.92rem;
+        }
+        .cta-row {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-weight: 800;
+        }
+        .btn-primary {
+            color: #fff;
+            background: linear-gradient(135deg, var(--blue), #0284c7);
+            box-shadow: 0 16px 32px rgba(29, 78, 216, 0.22);
+        }
+        .btn-secondary {
+            color: var(--navy);
+            background: #fff;
+            border: 1px solid rgba(148,163,184,0.22);
+        }
+        .footer-lite {
+            padding: 18px 0 42px;
+        }
+        .footer-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding-top: 20px;
+            border-top: 1px solid rgba(148,163,184,0.22);
+            color: var(--muted);
+        }
+        .footer-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 700;
+        }
+        @media (max-width: 980px) {
+            .city-grid,
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+            .city-detail-head {
+                flex-direction: column;
+            }
+        }
+        @media (max-width: 760px) {
+            .topbar-inner {
+                padding: 12px 0;
+                align-items: start;
+                flex-direction: column;
+            }
+            .hero-card,
+            .city-detail {
+                padding: 22px;
+            }
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+            .section-head {
+                align-items: start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-badge"><i class="fas fa-hands-helping"></i></span>
+                <span data-i18n="cities_brand_text">خدمة الحرفيين المغاربة</span>
+            </a>
+            <nav class="nav">
+                <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+                <a href="search.html" data-i18n="nav_search">البحث عن حرفي</a>
+                <a href="hirafi_register.html" data-i18n="nav_register">تسجيل حرفي</a>
+                <a href="contact.html" data-i18n="nav_contact">اتصل بنا</a>
+                <a href="blog.html" data-i18n="nav_blog">المدونة</a>
+                <a href="faq.html" data-i18n="nav_faq">الأسئلة الشائعة</a>
+                <a class="active" href="cities.html" data-i18n="nav_cities">المدن</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-card">
+                    <span class="eyebrow"><i class="fas fa-map-location-dot"></i> تغطية محلية بطابع احترافي</span>
+                    <h1 data-i18n="cities_hero_title">مدن رئيسية، تخصصات مختلفة، وتجربة بحث أوضح حسب كل منطقة.</h1>
+                    <p data-i18n="cities_hero_subtitle">
+                        من الدار البيضاء حتى أكادير، المنصة كتركز على إبراز الحرفيين الأقرب ليك حسب المدينة والتخصص.
+                        هاد الصفحة كتعاونك تفهم طبيعة الطلب فكل مدينة وتوصل بسرعة للبحث المناسب.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <strong>6</strong>
+                            <span>مدن رئيسية</span>
+                        </div>
+                        <div class="hero-stat">
+                            <strong>بحث مفلتر</strong>
+                            <span>حسب المدينة مباشرة</span>
+                        </div>
+                        <div class="hero-stat">
+                            <strong>تخصصات متنوعة</strong>
+                            <span>نجارة، صباغة، كهرباء وأكثر</span>
+                        </div>
+                        <div class="hero-stat">
+                            <strong>واجهة واضحة</strong>
+                            <span>وصول أسرع للحرفي المناسب</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2 data-i18n="cities_section_title">نظرة سريعة على المدن</h2>
+                        <p data-i18n="cities_section_desc">كل بطاقة كتعطيك لمحة على طابع الطلب والتخصصات الأكثر حضوراً، ومن بعدها تقدر تمشي مباشرة للبحث المفلتر.</p>
+                    </div>
+                </div>
+
+                <div class="city-grid">
+                    <article class="city-card">
+                        <div class="city-top">
+                            <div>
+                                <h3>الدار البيضاء</h3>
+                                <p>سوق سريع وكثيف كيحتاج حرفيين منظمين وسريعين فالرد والتنفيذ.</p>
+                            </div>
+                            <span class="city-icon"><i class="fas fa-building"></i></span>
+                        </div>
+                        <div class="chip-row">
+                            <span class="chip">كهرباء</span>
+                            <span class="chip">صباغة</span>
+                            <span class="chip">ألمنيوم</span>
+                        </div>
+                        <a class="city-link" href="#casablanca"><i class="fas fa-arrow-left"></i> <span data-i18n="cities_discover">اكتشف المدينة</span></a>
+                    </article>
+
+                    <article class="city-card">
+                        <div class="city-top">
+                            <div>
+                                <h3>الرباط</h3>
+                                <p>طلب مركز على التشطيب النظيف، التنظيم، والدقة فالمواعيد.</p>
+                            </div>
+                            <span class="city-icon"><i class="fas fa-landmark"></i></span>
+                        </div>
+                        <div class="chip-row">
+                            <span class="chip">جبص</span>
+                            <span class="chip">نجارة</span>
+                            <span class="chip">ديكور</span>
+                        </div>
+                        <a class="city-link" href="#rabat"><i class="fas fa-arrow-left"></i> اكتشف المدينة</a>
+                    </article>
+
+                    <article class="city-card">
+                        <div class="city-top">
+                            <div>
+                                <h3>مراكش</h3>
+                                <p>الهوية الجمالية المحلية كتخلي التفاصيل الحرفية عنصر أساسي فاختيار الخدمة.</p>
+                            </div>
+                            <span class="city-icon"><i class="fas fa-mosque"></i></span>
+                        </div>
+                        <div class="chip-row">
+                            <span class="chip">زليج</span>
+                            <span class="chip">نجارة تقليدية</span>
+                            <span class="chip">صباغة</span>
+                        </div>
+                        <a class="city-link" href="#marrakech"><i class="fas fa-arrow-left"></i> اكتشف المدينة</a>
+                    </article>
+
+                    <article class="city-card">
+                        <div class="city-top">
+                            <div>
+                                <h3>فاس</h3>
+                                <p>مدينة كتعطي قيمة للحرفة الأصيلة والتشطيب اليدوي المتقن.</p>
+                            </div>
+                            <span class="city-icon"><i class="fas fa-archway"></i></span>
+                        </div>
+                        <div class="chip-row">
+                            <span class="chip">نقش</span>
+                            <span class="chip">ترميم</span>
+                            <span class="chip">زخرفة</span>
+                        </div>
+                        <a class="city-link" href="#fes"><i class="fas fa-arrow-left"></i> اكتشف المدينة</a>
+                    </article>
+
+                    <article class="city-card">
+                        <div class="city-top">
+                            <div>
+                                <h3>طنجة</h3>
+                                <p>سوق متحرك وسريع، فيه طلب قوي على الصيانة والتركيب العصري.</p>
+                            </div>
+                            <span class="city-icon"><i class="fas fa-anchor"></i></span>
+                        </div>
+                        <div class="chip-row">
+                            <span class="chip">تركيب</span>
+                            <span class="chip">تكييف</span>
+                            <span class="chip">نجارة ألمنيوم</span>
+                        </div>
+                        <a class="city-link" href="#tangier"><i class="fas fa-arrow-left"></i> اكتشف المدينة</a>
+                    </article>
+
+                    <article class="city-card">
+                        <div class="city-top">
+                            <div>
+                                <h3>أكادير</h3>
+                                <p>توازن جميل بين السرعة، الطابع العملي، والطلب على الإصلاحات المنزلية.</p>
+                            </div>
+                            <span class="city-icon"><i class="fas fa-sun"></i></span>
+                        </div>
+                        <div class="chip-row">
+                            <span class="chip">سباكة</span>
+                            <span class="chip">صيانة</span>
+                            <span class="chip">صباغة</span>
+                        </div>
+                        <a class="city-link" href="#agadir"><i class="fas fa-arrow-left"></i> اكتشف المدينة</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2>تفاصيل كل مدينة</h2>
+                        <p>محتوى مختصر يعطيك انطباع عملي على التخصصات المطلوبة، طبيعة الزبناء، وأفضل طريقة تبدأ بها البحث داخل كل مدينة.</p>
+                    </div>
+                </div>
+
+                <div class="city-details">
+                    <article class="city-detail" id="casablanca">
+                        <div class="city-detail-head">
+                            <div>
+                                <h3>الدار البيضاء</h3>
+                                <p>مدينة كتطلب السرعة والتنظيم، وكتعرف ضغط كبير على خدمات الكهرباء، الصباغة، والأشغال الداخلية المتوسطة والكبيرة.</p>
+                            </div>
+                            <div class="city-score">
+                                <strong>استجابة سريعة</strong>
+                                <span>الأولوية للوضوح والالتزام</span>
+                            </div>
+                        </div>
+                        <div class="detail-grid">
+                            <div class="detail-box"><strong>الأكثر طلباً</strong><p>كهرباء المنازل، الصباغة، الألمنيوم، تركيب المطابخ.</p></div>
+                            <div class="detail-box"><strong>ما يهم الزبون</strong><p>سرعة الرد، احترام الوقت، وتقديم عرض واضح.</p></div>
+                            <div class="detail-box"><strong>أفضل بداية</strong><p>استعمل البحث حسب المدينة ثم قارن بين أكثر من ملف.</p></div>
+                        </div>
+                        <div class="cta-row">
+                            <a class="btn btn-primary" href="search.html?city=الدار البيضاء"><i class="fas fa-magnifying-glass"></i> ابحث في الدار البيضاء</a>
+                            <a class="btn btn-secondary" href="contact.html"><i class="fas fa-headset"></i> اطلب مساعدة من الإدارة</a>
+                        </div>
+                    </article>
+
+                    <article class="city-detail" id="rabat">
+                        <div class="city-detail-head">
+                            <div>
+                                <h3>الرباط</h3>
+                                <p>الطلب هنا كيميل للجودة الهادئة والتشطيب المتقن، خصوصاً فالأعمال الداخلية والديكور الخفيف والمشاريع السكنية المرتبة.</p>
+                            </div>
+                            <div class="city-score">
+                                <strong>تشطيب نظيف</strong>
+                                <span>الدقة كتفرق بزاف</span>
+                            </div>
+                        </div>
+                        <div class="detail-grid">
+                            <div class="detail-box"><strong>الأكثر طلباً</strong><p>الجبص، النجارة، الديكور، وخدمات الإصلاح الدقيقة.</p></div>
+                            <div class="detail-box"><strong>ما يهم الزبون</strong><p>نظافة الخدمة، حسن التواصل، واحترام التفاصيل.</p></div>
+                            <div class="detail-box"><strong>أفضل بداية</strong><p>اختار ملفات عندها وصف واضح وأعمال مرتبة بصرياً.</p></div>
+                        </div>
+                        <div class="cta-row">
+                            <a class="btn btn-primary" href="search.html?city=الرباط"><i class="fas fa-magnifying-glass"></i> ابحث في الرباط</a>
+                            <a class="btn btn-secondary" href="blog.html"><i class="fas fa-feather"></i> اقرأ نصائح الاختيار</a>
+                        </div>
+                    </article>
+
+                    <article class="city-detail" id="marrakech">
+                        <div class="city-detail-head">
+                            <div>
+                                <h3>مراكش</h3>
+                                <p>الحضور الجمالي قوي بزاف، وهادشي كيخلي الأعمال التقليدية والتشطيب الزخرفي عندهم وزن خاص داخل قرار الزبون.</p>
+                            </div>
+                            <div class="city-score">
+                                <strong>طابع بصري قوي</strong>
+                                <span>الجودة كتبان من أول نظرة</span>
+                            </div>
+                        </div>
+                        <div class="detail-grid">
+                            <div class="detail-box"><strong>الأكثر طلباً</strong><p>زليج، نجارة تقليدية، صباغة زخرفية، وترميمات أنيقة.</p></div>
+                            <div class="detail-box"><strong>ما يهم الزبون</strong><p>اللمسة الجمالية، الأصالة، والتشطيب المتقن.</p></div>
+                            <div class="detail-box"><strong>أفضل بداية</strong><p>شوف الصور بعناية وركز على الأعمال القريبة من ذوقك.</p></div>
+                        </div>
+                        <div class="cta-row">
+                            <a class="btn btn-primary" href="search.html?city=مراكش"><i class="fas fa-magnifying-glass"></i> ابحث في مراكش</a>
+                            <a class="btn btn-secondary" href="faq.html"><i class="fas fa-circle-question"></i> راجع الأسئلة الشائعة</a>
+                        </div>
+                    </article>
+
+                    <article class="city-detail" id="fes">
+                        <div class="city-detail-head">
+                            <div>
+                                <h3>فاس</h3>
+                                <p>مدينة كتقدّر الحرفة المتقنة والتفاصيل اليدوية، خصوصاً فالأشغال اللي فيها طابع تقليدي أو ترميم خاص.</p>
+                            </div>
+                            <div class="city-score">
+                                <strong>حرفة أصيلة</strong>
+                                <span>القيمة فالتفاصيل الدقيقة</span>
+                            </div>
+                        </div>
+                        <div class="detail-grid">
+                            <div class="detail-box"><strong>الأكثر طلباً</strong><p>النقش، الزخرفة، الترميم، والأعمال الخشبية الدقيقة.</p></div>
+                            <div class="detail-box"><strong>ما يهم الزبون</strong><p>الأصالة، الجودة اليدوية، والصبر على التشطيب.</p></div>
+                            <div class="detail-box"><strong>أفضل بداية</strong><p>ابحث عن بروفايلات عندها أعمال سابقة مفصلة ومصوّرة جيداً.</p></div>
+                        </div>
+                        <div class="cta-row">
+                            <a class="btn btn-primary" href="search.html?city=فاس"><i class="fas fa-magnifying-glass"></i> ابحث في فاس</a>
+                            <a class="btn btn-secondary" href="contact.html"><i class="fas fa-envelope"></i> استفسر على الخدمة</a>
+                        </div>
+                    </article>
+
+                    <article class="city-detail" id="tangier">
+                        <div class="city-detail-head">
+                            <div>
+                                <h3>طنجة</h3>
+                                <p>سوق نشيط ومتجدد، والطلب فيه واضح على التركيب العصري، الصيانة، والخدمات السريعة المرتبطة بالسكن والعمل.</p>
+                            </div>
+                            <div class="city-score">
+                                <strong>مرونة وسرعة</strong>
+                                <span>الخدمة العملية هي الأساس</span>
+                            </div>
+                        </div>
+                        <div class="detail-grid">
+                            <div class="detail-box"><strong>الأكثر طلباً</strong><p>تركيب، تكييف، ألمنيوم، وخدمات صيانة متنوعة.</p></div>
+                            <div class="detail-box"><strong>ما يهم الزبون</strong><p>السرعة، التنقل، وقدرة الحرفي على التكيّف مع الطلب.</p></div>
+                            <div class="detail-box"><strong>أفضل بداية</strong><p>فلتر حسب المدينة ثم ركز على الملفات اللي عندها تواصل واضح.</p></div>
+                        </div>
+                        <div class="cta-row">
+                            <a class="btn btn-primary" href="search.html?city=طنجة"><i class="fas fa-magnifying-glass"></i> ابحث في طنجة</a>
+                            <a class="btn btn-secondary" href="blog.html"><i class="fas fa-book-open"></i> تصفح المدونة</a>
+                        </div>
+                    </article>
+
+                    <article class="city-detail" id="agadir">
+                        <div class="city-detail-head">
+                            <div>
+                                <h3>أكادير</h3>
+                                <p>الطلب كيميل للتوازن بين الخدمة العملية واللمسة المرتبة، خصوصاً فالإصلاحات المنزلية والصيانة المتكررة.</p>
+                            </div>
+                            <div class="city-score">
+                                <strong>عملية ووضوح</strong>
+                                <span>النتيجة المريحة كتربح</span>
+                            </div>
+                        </div>
+                        <div class="detail-grid">
+                            <div class="detail-box"><strong>الأكثر طلباً</strong><p>سباكة، صيانة، صباغة، وأشغال تجهيز بسيطة ومتوسطة.</p></div>
+                            <div class="detail-box"><strong>ما يهم الزبون</strong><p>الوضوح، الحضور، والتواصل السهل قبل بداية الخدمة.</p></div>
+                            <div class="detail-box"><strong>أفضل بداية</strong><p>استعمل البحث المفلتر، وقارن بين البروفايلات حسب التخصص والصور.</p></div>
+                        </div>
+                        <div class="cta-row">
+                            <a class="btn btn-primary" href="search.html?city=أكادير"><i class="fas fa-magnifying-glass"></i> ابحث في أكادير</a>
+                            <a class="btn btn-secondary" href="faq.html"><i class="fas fa-headset"></i> شوف أجوبة الأسئلة</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <footer class="footer-lite">
+        <div class="container footer-line">
+            <span data-i18n="cities_footer_text">© 2026 خدمة الحرفيين المغاربة - تغطية محلية بطابع premium.</span>
+            <div class="footer-links">
+                <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+                <a href="search.html" data-i18n="nav_search">البحث عن حرفي</a>
+                <a href="blog.html" data-i18n="nav_blog">المدونة</a>
+                <a href="faq.html" data-i18n="nav_faq">الأسئلة الشائعة</a>
+                <a href="contact.html" data-i18n="nav_contact">اتصل بنا</a>
+            </div>
+        </div>
+    </footer>
+    <script src="lang_dict.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

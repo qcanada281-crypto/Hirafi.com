@@ -1,0 +1,16 @@
+# IDE & Editor folders
+.cursor/
+.kilo/
+.kilocode/
+.vscode/
+.idea/
+
+# Temporary & cache files
+tmp/
+*.log
+*.tmp
+
+# Operating system files
+Thumbs.db
+Desktop.ini
+.DS_Store

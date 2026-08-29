@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="cr_title">إنشاء حساب عميل — حرفي</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand: #0f766e; 
+            --brand-dark: #115e59; 
+            --accent: #ea580c;
+            --bg: #0f172a; 
+            --glass: rgba(255, 255, 255, 0.05); 
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #f8fafc; 
+            --muted: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Cairo', sans-serif; 
+            background-color: var(--bg); 
+            color: var(--text);
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+            padding: 40px 15px;
+        }
+
+        /* ─ Animated Background Orbs ─ */
+        .bg-orbs { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+        .orb { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.4; animation: float 12s ease-in-out infinite alternate; }
+        .orb1 { width: 500px; height: 500px; background: radial-gradient(circle, var(--brand), transparent 70%); top: -150px; left: -150px; }
+        .orb2 { width: 350px; height: 350px; background: radial-gradient(circle, var(--accent), transparent 70%); bottom: -100px; right: -100px; animation-delay: -6s; }
+        .orb3 { width: 400px; height: 400px; background: radial-gradient(circle, #3b82f6, transparent 70%); top: 40%; left: 60%; animation-delay: -3s; opacity:0.25; }
+
+        @keyframes float { 
+            0% { transform: translateY(0) scale(1); } 
+            100% { transform: translateY(-40px) scale(1.05); } 
+        }
+
+        /* ─ Wrapper & Logo ─ */
+        .wrap { position: relative; z-index: 1; width: 100%; max-width: 580px; }
+        .logo-area { text-align: center; margin-bottom: 30px; }
+        .logo-area .brand { 
+            font-size: 2.8rem; font-weight: 900; 
+            background: linear-gradient(135deg, #2dd4bf, #f97316); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+        .logo-area p { color: var(--muted); font-size: 1.05rem; font-weight: 600; }
+
+        /* ─ Glassmorphism Card ─ */
+        .card {
+            background: var(--glass); 
+            backdrop-filter: blur(24px); 
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--border); 
+            border-radius: 28px; 
+            padding: 40px 36px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        .card h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; color: #fff; }
+        .card .sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 32px; font-weight: 500; }
+
+        /* ─ Grid & Inputs ─ */
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom:16px;}
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group.full { grid-column: 1 / -1; }
+        .form-group label { font-size: 0.85rem; font-weight: 700; color: #cbd5e1; }
+        
+        .input-wrap { position: relative; }
+        .input-wrap i.ico { position: absolute; top: 50%; transform: translateY(-50%); right: 16px; color: var(--muted); font-size: 1rem; pointer-events: none; }
+        
+        .input {
+            width: 100%; padding: 14px 44px 14px 16px; 
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--border); border-radius: 14px; 
+            color: #fff; font: inherit; font-size: 0.95rem; 
+            transition: all 0.3s ease;
+        }
+        .input:focus { 
+            outline: none; border-color: #2dd4bf; 
+            background: rgba(15, 23, 42, 0.7); 
+            box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.15); 
+        }
+        .input::placeholder { color: #64748b; }
+        
+        /* Select overrides */
+        select.input { appearance: none; cursor: pointer; }
+        select.input option { background: #1e293b; color: #fff; }
+        
+        .toggle-pw { position: absolute; top: 50%; transform: translateY(-50%); left: 16px; cursor: pointer; color: var(--muted); border: none; background: none; transition: .2s; }
+        .toggle-pw:hover { color: #fff; }
+
+        /* ─ Password Strength ─ */
+        .strength { display: flex; gap: 4px; margin-top: 8px; }
+        .strength span { flex: 1; height: 4px; border-radius: 4px; background: rgba(255,255,255,0.1); transition: background 0.3s ease; }
+        .strength.s1 span:nth-child(1) { background: #ef4444; }
+        .strength.s2 span:nth-child(-n+2) { background: #f97316; }
+        .strength.s3 span:nth-child(-n+3) { background: #eab308; }
+        .strength.s4 span { background: #22c55e; }
+
+        /* ─ Terms ─ */
+        .terms { display: flex; align-items: flex-start; gap: 12px; font-size: 0.85rem; color: #cbd5e1; margin: 24px 0; cursor: pointer; }
+        .terms input { margin-top: 4px; width: 16px; height: 16px; accent-color: var(--brand); cursor: pointer; }
+        .terms a { color: #2dd4bf; text-decoration: none; font-weight: 600; }
+
+        /* ─ Button ─ */
+        .btn-submit {
+            width: 100%; padding: 16px; 
+            background: linear-gradient(135deg, var(--brand), #0d9488);
+            border: 1px solid rgba(255,255,255,0.1); 
+            border-radius: 14px; color: #fff; 
+            font: inherit; font-size: 1.05rem; font-weight: 800;
+            cursor: pointer; transition: all 0.3s ease; 
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            box-shadow: 0 10px 25px rgba(15, 118, 110, 0.4);
+        }
+        .btn-submit:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 15px 35px rgba(15, 118, 110, 0.5); 
+            background: linear-gradient(135deg, #14b8a6, var(--brand));
+        }
+        .btn-submit:disabled { opacity: 0.7; transform: none; cursor: not-allowed; }
+
+        /* ─ Links ─ */
+        .links { text-align: center; margin-top: 24px; font-size: 0.95rem; color: #cbd5e1; }
+        .links a { color: #2dd4bf; text-decoration: none; font-weight: 700; transition: .2s; }
+        .links a:hover { color: #5eead4; text-shadow: 0 0 10px rgba(45,212,191,0.4); }
+
+        .artisan-link { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; }
+        .artisan-link a { color: var(--muted); font-size: 0.9rem; text-decoration: none; font-weight: 600; transition: .2s; }
+        .artisan-link a:hover { color: #f97316; }
+
+        /* ─ Alerts ─ */
+        .alert { padding: 14px 18px; border-radius: 12px; font-size: 0.9rem; margin-bottom: 20px; display: none; font-weight: 600; }
+        .alert.error { background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); color: #fca5a5; }
+        .alert.success { background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); color: #6ee7b7; }
+        .alert.show { display: block; animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes fadeIn { from{opacity:0; transform:translateY(-10px)} to{opacity:1; transform:translateY(0)} }
+
+        @media(max-width: 580px) {
+            .card { padding: 32px 24px; }
+            .logo-area .brand { font-size: 2.4rem; }
+            .grid2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-orbs">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+    <div class="wrap">
+        <div class="logo-area">
+            <div class="brand"><span data-i18n="cr_brand">العميل</span> <i class="fa-solid fa-rocket"></i></div>
+            <p data-i18n="cr_portal">انضم إلى آلاف العملاء الذين يثقون بـ حرفي</p>
+        </div>
+
+        <div class="card">
+            <h2 data-i18n="cr_welcome">إنشاء حساب مجاني</h2>
+            <p class="sub" data-i18n="cr_sub">أنشئ حسابك وابدأ بنشر طلباتك وإيجاد أفضل الصناع المهرة</p>
+
+            <div class="alert error" id="alertBox"></div>
+
+            <form id="regForm" novalidate>
+                <div class="grid2">
+                    <div class="form-group full">
+                        <label for="full_name" data-i18n="cr_name">الاسم الكامل *</label>
+                        <div class="input-wrap">
+                            <i class="ico fa-regular fa-user"></i>
+                            <input type="text" id="full_name" class="input" placeholder="مثال: يوسف العلوي" data-i18n-placeholder="cr_name_ph" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" data-i18n="cr_email">البريد الإلكتروني *</label>
+                        <div class="input-wrap">
+                            <i class="ico fa-regular fa-envelope"></i>
+                            <input type="email" id="email" class="input" placeholder="email@example.com" required autocomplete="email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" data-i18n="cr_phone">رقم الهاتف النشط *</label>
+                        <div class="input-wrap">
+                            <i class="ico fa-solid fa-phone"></i>
+                            <input type="tel" id="phone" class="input" placeholder="0612345678" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="city-select" data-i18n="cr_city">المدينة</label>
+                        <div class="input-wrap">
+                            <i class="ico fa-solid fa-city"></i>
+                            <select id="city-select" class="input">
+                                <option value="">اختر مدينتك</option>
+                            </select>
+                        </div>
+                        <input type="text" id="city" class="input" placeholder="أدخل اسم المدينة يدوياً" data-i18n-placeholder="cr_city_ph" style="display:none; margin-top:10px;">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" data-i18n="cr_pass">كلمة المرور *</label>
+                        <div class="input-wrap">
+                            <i class="ico fa-solid fa-lock"></i>
+                            <input type="password" id="password" class="input" placeholder="••••••••" data-i18n-placeholder="cl_pass_ph" required autocomplete="new-password" oninput="checkStrength(this.value)">
+                            <button type="button" class="toggle-pw" onclick="togglePw('password','eyeIcon1')" aria-label="Toggle password visibility"><i class="fa-regular fa-eye" id="eyeIcon1"></i></button>
+                        </div>
+                        <div class="strength" id="strengthBar">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm_password" data-i18n="cr_conf_pass">تأكيد كلمة المرور *</label>
+                        <div class="input-wrap">
+                            <i class="ico fa-solid fa-shield-halved"></i>
+                            <input type="password" id="confirm_password" class="input" placeholder="••••••••" data-i18n-placeholder="cl_pass_ph" required autocomplete="new-password">
+                            <button type="button" class="toggle-pw" onclick="togglePw('confirm_password','eyeIcon2')" aria-label="Toggle password visibility"><i class="fa-regular fa-eye" id="eyeIcon2"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="terms">
+                    <input type="checkbox" id="terms" required>
+                    <span><span data-i18n="cr_terms">قرأت وأوافق على</span> <a href="#" data-i18n="cr_terms_use">شروط الاستخدام</a> و <a href="#" data-i18n="cr_terms_privacy">سياسة الخصوصية</a> <span data-i18n="cr_terms_end">الخاصة بمنصة حرفي.</span></span>
+                </label>
+
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <span data-i18n="cr_btn">إنشاء حساب جديد</span> <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </form>
+
+            <div class="links">
+                <p><span data-i18n="cr_have_account">لديك حساب بالفعل؟</span> <a href="client_login.html" data-i18n="cr_login">تسجيل الدخول</a></p>
+            </div>
+
+            <div class="artisan-link">
+                <a href="hirafi_login.html"><i class="fa-solid fa-hard-hat"></i> <span data-i18n="cr_artisan_link">أنت مقدم خدمات (حرفي)؟ سجّل هنا</span></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="lang_dict.js"></script>
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.populateCitiesSelect) {
+                populateCitiesSelect('city-select', 'city');
+            }
+        });
+
+        function togglePw(id, icoId) {
+            const inp = document.getElementById(id);
+            const ico = document.getElementById(icoId);
+            const show = inp.type === 'password';
+            inp.type = show ? 'text' : 'password';
+            ico.className = show ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye';
+        }
+
+        function checkStrength(val) {
+            const bar = document.getElementById('strengthBar');
+            let score = 0;
+            if (val.length >= 6)  score++;
+            if (val.length >= 10) score++;
+            if (/[A-Z]/.test(val) || /[0-9]/.test(val)) score++;
+            if (/[^A-Za-z0-9]/.test(val)) score++;
+            bar.className = 'strength s' + score;
+        }
+
+        function showAlert(msg, type = 'error') {
+            const el = document.getElementById('alertBox');
+            el.textContent = msg;
+            el.className = 'alert ' + type + ' show';
+            el.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+
+        document.getElementById('regForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const name = document.getElementById('full_name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            
+            let city = document.getElementById('city-select').value;
+            if (city === "أخرى" || city === "other") {
+                city = document.getElementById('city').value.trim();
+            }
+            
+            const pass = document.getElementById('password').value;
+            const conf = document.getElementById('confirm_password').value;
+            const terms = document.getElementById('terms').checked;
+
+            if (!name)  { showAlert('يرجى إدخال الاسم الكامل'); return; }
+            if (!email) { showAlert('يرجى إدخال البريد الإلكتروني'); return; }
+            if (!phone) { showAlert('يرجى إدخال رقم الهاتف'); return; }
+            if (pass.length < 6) { showAlert('يجب أن تتكون كلمة المرور من 6 أحرف على الأقل'); return; }
+            if (pass !== conf) { showAlert('كلمتا المرور غير متطابقتين'); return; }
+            if (!terms) { showAlert('يجب الموافقة على الشروط والأحكام'); return; }
+
+            btn.disabled = true;
+            btn.innerHTML = 'جارٍ إنشاء الحساب... <i class="fa-solid fa-spinner fa-spin"></i>';
+
+            try {
+                const res = await fetch('backend/client_register.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ full_name: name, email, phone, city, password: pass, confirm_password: conf })
+                });
+                const data = await res.json();
+                
+                if (data.success) {
+                    showAlert(data.message, 'success');
+                    setTimeout(() => { window.location.href = data.redirect || 'client_login.html'; }, 1000);
+                } else {
+                    showAlert(data.message || 'حدث خطأ أثناء التسجيل');
+                    btn.disabled = false;
+                    btn.innerHTML = 'إنشاء حساب جديد <i class="fa-solid fa-arrow-left"></i>';
+                }
+            } catch (err) {
+                showAlert('خطأ في الاتصال بالخادم. يرجى المحاولة لاحقاً.');
+                btn.disabled = false;
+                btn.innerHTML = 'إنشاء حساب جديد <i class="fa-solid fa-arrow-left"></i>';
+            }
+        });
+    </script>
+</body>
+</html>

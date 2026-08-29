@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<!-- هاد صفحة HTML باللغة العربية، dir="rtl" يعني من اليمين لليسار -->
+<head>
+    <meta charset="UTF-8">
+    <!-- الترميز ديال العربية -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- تظبيط للهواتف والشاشات الصغيرة -->
+    <title>بحث عن حرفي - خدمة الحرفيين المغاربة</title>
+    <!-- العنوان اللي كيظهر فالتاب -->
+    <link rel="stylesheet" href="style.css">
+    <!-- الستايل الأساسي -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- مكتبة الأيقونات -->
+    
+      <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.jpeg">
+    <style>
+        /* خلفية القسم الرئيسي */
+        .search-hero {
+            background-image:
+                radial-gradient(circle at 20% 10%, rgba(99, 102, 241, 0.28), transparent 38%),
+                radial-gradient(circle at 80% 90%, rgba(16, 185, 129, 0.2), transparent 42%),
+                linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(30, 41, 59, 0.74)),
+                url('img/photo-craftsman.jpg');
+            /* صورة مع تأثيرات premium */
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 0 4rem;
+            color: #f8fafc;
+            position: relative;
+            overflow: hidden;
+        }
+
+          
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+        }
+
+        .nav-link:hover {
+            color: #2c5530;
+            background-color: rgba(44, 85, 48, 0.05);
+        }
+
+        .btn-login {
+            background-color: #2c5530;
+            color: white !important;
+            padding: 0.6rem 1.5rem !important;
+            border-radius: 30px;
+        }
+
+        .btn-login:hover {
+            background-color: #1e3a23;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(44, 85, 48, 0.2);
+        }    
+        /* عنوان القسم */
+        .search-hero .section-title {
+            font-size: clamp(2rem, 2.8vw, 2.5rem);
+            display: flex;
+            gap: 0.65rem;
+            align-items: center;
+            margin-bottom: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+            color: #e2e8f0;
+            text-shadow: 0 8px 22px rgba(15, 23, 42, 0.55);
+        }
+        .search-hero .section-title i {
+            color: #60a5fa;
+            font-size: 0.92em;
+        }
+
+        /* البطاقة ديال البحث */
+        .search-panel.card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(248, 250, 252, 0.88));
+            padding: 1.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            box-shadow: 0 22px 45px rgba(15, 23, 42, 0.27);
+            backdrop-filter: blur(6px);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 0.95rem;
+            align-items: end;
+            margin-top: 1rem;
+        }
+
+        /* تسمية الحقول */
+        .search-row label {
+            display: block;
+            margin-bottom: 0.38rem;
+            color: #334155;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.2px;
+        }
+
+        /* المداخل والسليكت */
+        .input-select {
+            width: 100%;
+            padding: 0.63rem 0.85rem;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            font-size: 0.92rem;
+            min-height: 40px;
+            color: #0f172a;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+        }
+        .input-select:focus {
+            outline: none;
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+            transform: translateY(-1px);
+        }
+        .manual-input {
+            margin-top: 0.7rem;
+        }
+
+        /* الأزرار */
+        .actions { display: flex; gap: 0.55rem; }
+        .btn {
+            padding: 0.62rem 0.95rem;
+            border-radius: 11px;
+            cursor: pointer;
+            border: 0;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .btn-primary {
+            background: linear-gradient(120deg, #2563eb, #06b6d4);
+            color: white;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.33);
+        }
+        .btn-primary:hover {
+            box-shadow: 0 14px 26px rgba(37, 99, 235, 0.4);
+        }
+        .btn-outline {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #1f2937;
+        }
+        .btn-outline:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+        }
+
+        /* شبكة النتائج */
+        .results-grid { 
+            margin-top:1.5rem; 
+            display:grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap:0.85rem;
+        }
+
+        .results-info {
+            grid-column: 1 / -1;
+            background: rgba(255,255,255,0.96);
+            border: 1px dashed var(--color-gray-300);
+            border-radius: 12px;
+            padding: 1rem;
+            color: var(--color-gray-700);
+            text-align: center;
+        }
+
+        /* بطاقة الحرفي البسيطة مع تحسين */
+        .craftsman-card {
+            background: #f7efe3;
+            border-radius:20px;
+            box-shadow:0 8px 25px rgba(0,0,0,0.08);
+            overflow:hidden;
+            border: 1px solid rgba(156, 113, 64, 0.18);
+            display:flex;
+            flex-direction:column;
+            padding:1.5rem;
+            gap:1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .craftsman-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #a16207, #c2410c);
+            border-radius: 20px 20px 0 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .craftsman-card:hover::before {
+            opacity: 1;
+        }
+
+        .craftsman-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+            border-color: rgba(102, 126, 234, 0.2);
+        }
+
+        .card-head {
+            width: 100%;
+            display:flex;
+            align-items:center;
+            gap:1rem;
+        }
+
+        /* صورة الحرفي محسنة */
+        .craftsman-avatar {
+            position: relative;
+        }
+
+        .craftsman-avatar img {
+            width:80px;
+            height:80px;
+            object-fit:cover; 
+            border-radius:50%;
+            border: 4px solid #f8fafc;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            transition: all 0.3s ease;
+        }
+
+        .craftsman-card:hover .craftsman-avatar img {
+            transform: scale(1.05);
+            border-color: #667eea;
+        }
+
+        /* محتوى البطاقة */
+        .card-body {
+            flex:1;
+            width:100%;
+        }
+        
+        .craftsman-name { 
+            margin:0 0 0.5rem; 
+            color:var(--color-gray-900); 
+            font-size:1.2rem; 
+            font-weight:700;
+            transition: color 0.3s ease;
+        }
+        
+        .craftsman-card:hover .craftsman-name {
+            color: #667eea;
+        }
+        
+        .meta { 
+            display:flex; 
+            gap:0.5rem; 
+            flex-wrap:wrap; 
+            margin-bottom:0.5rem; 
+        }
+        
+        .pill {
+            display:inline-flex;
+            align-items:center;
+            gap:0.4rem;
+            border:1px solid #e2e8f0;
+            border-radius:12px;
+            padding:0.3rem 0.8rem;
+            background:linear-gradient(135deg, #f8fafc, #f1f5f9);
+            font-size:0.85rem;
+            font-weight:500;
+            color: #64748b;
+            transition: all 0.3s ease;
+        }
+        
+        .craftsman-card:hover .pill {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .craftsman-excerpt {
+            margin:0;
+            color:var(--color-gray-600);
+            font-size:0.95rem;
+            line-height:1.5;
+            padding: 0.75rem;
+            background: #f8fafc;
+            border-radius:12px;
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+        }
+        
+        .craftsman-card:hover .craftsman-excerpt {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-color: #bae6fd;
+        }
+        
+        .card-footer {
+            margin-top:0.75rem;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .phone-display {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.5rem 0.8rem;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border: 1px solid #bae6fd;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .phone-display:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .small-rating {
+            padding: 0.3rem 0.6rem;
+            font-size: 0.85rem;
+        }
+        
+        .rating-box {
+            display:flex;
+            align-items:center;
+            gap:0.5rem;
+            color:#f59e0b;
+            font-weight:700;
+            font-size:0.95rem;
+            padding: 0.4rem 0.8rem;
+            background: #fffbeb;
+            border-radius:10px;
+            border: 1px solid #fed7aa;
+        }
+        
+        .card-hint {
+            color:#667eea;
+            font-size:0.9rem;
+            font-weight:600;
+            display:flex;
+            align-items:center;
+            gap:0.4rem;
+            text-decoration:none;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius:12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+        
+        .card-hint:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            color: white;
+        }
+
+        .results-summary {
+            margin: .9rem 0 0;
+            color: #475569;
+            font-size: .9rem;
+            text-align: center;
+        }
+
+        .load-more-wrap {
+            margin-top: .8rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* أفضل الحرفيين */
+        .top-craftsmen-section {
+            margin: 2rem 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid #e0e7ff;
+        }
+
+        .top-title {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+        }
+
+        .top-craftsmen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .top-craftsmen-grid .craftsman-card {
+            border: 3px solid #667eea;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+            position: relative;
+        }
+
+        .top-craftsmen-grid .craftsman-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+            z-index: 10;
+        }
+
+        .top-craftsmen-grid .craftsman-card:nth-child(1)::before { content: '👑'; }
+        .top-craftsmen-grid .craftsman-card:nth-child(2)::before { content: '🥈'; }
+        .top-craftsmen-grid .craftsman-card:nth-child(3)::before { content: '🥉'; }
+        .top-craftsmen-grid .craftsman-card:nth-child(4)::before { content: '⭐'; }
+
+        /* للموبايل */
+        @media (max-width:768px) {
+            .search-hero { padding:3.5rem 0 2.5rem; }
+            .search-panel.card { grid-template-columns: 1fr; } /* سطر واحد */
+            .results-grid { grid-template-columns: 1fr; } /* عمود واحد */
+            .top-craftsmen-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- النافبار (القائمة العلوية) -->
+    <header class="navbar">
+        <div class="container">
+            <nav class="nav-container">
+                <!-- اللوقو -->
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <img src="img/favicon.jpeg" alt="Hirafi.ma" class="logo-img">
+                    </div>
+                    <div class="logo-text">
+                        <h1 data-i18n="brand_title">خدمة الحرفيين المغاربة</h1>
+                        <p data-i18n="brand_subtitle">منصة تواصل الحرفي مع العميل</p>
+                    </div>
+                </a>
+                <!-- القائمة -->
+                <ul class="nav-menu">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="hirafi_register.html" class="nav-link btn-login">تسجيل حرفي</a></li>
+                    <li><a href="hirafi_login.html" class="nav-link btn-login">تسجيل الدخول</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <section class="search-hero">
+            <div class="container">
+                <!-- العنوان -->
+        <h2 class="section-title" data-i18n="search_hero_title"><i class="fas fa-search"></i> ابحث عن حرفي</h2>
+
+                <!-- فورم البحث -->
+                <div class="search-panel card">
+                    <!-- المهنة -->
+                    <div class="search-row">
+                        <label for="profession" data-i18n="search_skill_filter">المهنة</label>
+                        <select id="profession" class="input-select">
+                            <option value="" data-i18n="search_skill_placeholder">اختر المهارة</option>
+                            <option value="نجارة">نجارة</option>
+                            <option value="سباكة">سباكة</option>
+                            <option value="كهرباء">كهرباء</option>
+                            <option value="بناء">بناء</option>
+                            <option value="صباغة">صباغة</option> 
+                            <option value="حدادة">حدادة</option> 
+                            <option value="خياطة">خياطة</option> 
+                            <option value="تصميم">تصميم</option> 
+                            <option value="تصوير">تصوير</option>   
+                            <option value="الطبخ">الطبخ</option> 
+                            <option value="زراعة">زراعة</option> 
+                            <option value="تنظيم الحفلات">تنظيم الحفلات</option>
+                            <option value="صيانة السيارات">صيانة السيارات</option> 
+                            <option value="حرف اخرى">حرف اخرى</option> 
+                        </select>
+                        <input id="professionManual" class="input-select manual-input" type="text" placeholder="أو اكتب المهنة يدوياً" data-i18n="manual_skill_placeholder">
+                    </div>
+
+                    <!-- المدينة -->
+                    <div class="search-row">
+                        <label for="city" data-i18n="search_city_filter">المدينة</label>
+                        <select id="city" class="input-select">
+                            <option value="" data-i18n="search_city_placeholder">كل المدن</option>
+                            <option value="الدار البيضاء">الدار البيضاء</option>
+                            <option value="الرباط">الرباط</option>
+                            <option value="فاس">فاس</option>
+                            <option value="مراكش">مراكش</option>
+                            <option value="أكادير">أكادير</option>
+                            <option value="شيشاوة">شيشاوة</option>
+                            <option value="صويرة">صويرة</option>
+                            <option value="زاكورة">زاكورة</option>
+                            <option value="ورزازات">ورزازات</option>
+                            <option value="ميدلت">ميدلت</option>
+                            <option value="اسفي">اسفي</option>
+                            <option value="قنيطرة">قنيطرة</option>
+                            <option value="طنجة">طنجة</option>
+                            <option value="تطوان">تطوان</option>
+                            <option value="الجديدة">الجديدة</option> 
+                            <option value="بني ملال">بني ملال</option> 
+                            <option value="الخميسات">الخميسات</option>
+                            <option value="السمارة">السمارة</option> 
+                            <option value="الذاخلة">الذاخلة</option> 
+                            <option value="فكيك">فكيك</option> 
+                            <option value="تونات">تونات</option> 
+                            <option value="الواليدية">الواليدية</option> 
+                            <option value="سطات">سطات</option>
+                            <option value="تفراوت">تفراوت</option>
+                            <option value="مدن اخرى🌇">مدن اخرى🌇</option>
+                        </select>
+                        <input id="cityManual" class="input-select manual-input" type="text" placeholder="أو اكتب المدينة يدوياً" data-i18n="manual_city_placeholder">
+                    </div>
+
+                    <!-- التقييم -->
+                    <div class="search-row">
+                        <label for="minRating" data-i18n="search_rating_filter">أدنى تقييم</label>
+                        <select id="minRating" class="input-select">
+                            <option value="0" data-i18n="search_rating_placeholder">كل التقييمات</option>
+                            <option value="4">4★+</option>
+                            <option value="4.5">4.5★+</option>
+                            <option value="5">5★</option>
+                        </select>
+                    </div>
+
+                    <!-- أزرار البحث -->
+                    <div class="search-row actions">
+                        <button id="searchBtn" class="btn btn-primary" data-i18n="search_btn_text"><i class="fas fa-search"></i> ابحث</button>
+                        <button id="clearBtn" class="btn btn-outline" data-i18n="search_clear_filters">مسح الفلاتر</button>
+                    </div>
+                </div>
+
+                <!-- مكان النتائج -->
+                <div id="results" class="results-grid">
+                    <div class="results-info">جارٍ تحميل النتائج...</div>
+                </div>
+                <p id="resultsSummary" class="results-summary"></p>
+                <div class="load-more-wrap" id="loadMoreWrap" hidden>
+                    <button type="button" class="btn btn-outline" id="loadMoreBtn" data-i18n="load_more">عرض المزيد</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- جافاسكريبت -->
+    <script>
+        // ناخد العناصر الرئيسية
+        const searchBtn = document.getElementById('searchBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const resultsEl = document.getElementById('results');
+        const resultsSummary = document.getElementById('resultsSummary');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const loadMoreWrap = document.getElementById('loadMoreWrap');
+        const PAGE_SIZE = 10;
+        let currentCraftsmen = [];
+        let visibleCount = 0;
+
+        function escapeHtml(value) {
+            return String(value ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function normalizeAssetPath(path) {
+            const raw = String(path || '').trim();
+            if (raw === '') {
+                return 'img/default-avatar.png';
+            }
+            if (/^(https?:)?\/\//i.test(raw) || raw.startsWith('/') || raw.startsWith('data:')) {
+                return raw;
+            }
+            if (raw.startsWith('../')) {
+                return raw.slice(3);
+            }
+            return raw;
+        }
+
+        function buildStars(rating) {
+            const safe = Math.max(0, Math.min(5, Number(rating) || 0));
+            const full = Math.floor(safe);
+            const half = safe - full >= 0.5;
+            const empty = 5 - full - (half ? 1 : 0);
+            return (
+                '<i class="fas fa-star"></i>'.repeat(full) +
+                (half ? '<i class="fas fa-star-half-alt"></i>' : '') +
+                '<i class="far fa-star"></i>'.repeat(Math.max(0, empty))
+            );
+        }
+
+        // دالة لجلب النتائج من السيرفر
+        async function fetchResults(profession, city, minRating = 0) {
+            try {
+                // نعمل باراميترات البحث
+                const params = new URLSearchParams();
+                if (profession) params.append('profession', profession);
+                if (city) params.append('city', city);
+                if (minRating) params.append('minRating', minRating);
+
+                // نرسل الطلب للسيرفر
+               const res = await fetch('backend/search.php?' + params.toString());
+
+                const data = await res.json(); // ناخد الجواب كـ JSON
+
+                if (data.success) return data.craftsmen; // إذا نجح، نرجع القائمة
+                return []; // إذا ماشي، نرجع فارغة
+            } catch (e) {
+                console.error(e); // نطبعو الخطأ
+                return []; // نرجع فارغة
+            }
+        }
+
+        // دالة لعمل بطاقة حرفي بسيطة
+        function renderCard(c) {
+            const rating = Number(c.rating || 0).toFixed(1);
+            const avatar = escapeHtml(normalizeAssetPath(c.avatar));
+            const name = escapeHtml(c.name || 'حرفي');
+            const profession = escapeHtml(c.profession || 'غير محدد');
+            const city = escapeHtml(c.city || 'غير محدد');
+            const excerptRaw = String(c.excerpt || 'حرفي مسجل على المنصة.');
+            const excerpt = escapeHtml(excerptRaw.length > 80 ? `${excerptRaw.slice(0, 80)}...` : excerptRaw);
+            const reviews = Number(c.total_reviews || 0);
+            const profileUrl = 'profile.html?id=' + c.id;
+            const phone = escapeHtml(c.phone || '');
+
+            return `
+                <a href="${profileUrl}" class="craftsman-card" style="text-decoration:none;color:inherit;display:block;">
+                    <div class="card-head">
+                        <div class="craftsman-avatar">
+                            <img src="${avatar}" alt="${name}">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="craftsman-name">${name}</h3>
+                            <div class="meta">
+                                <span class="pill"><i class="fas fa-tools"></i> ${profession}</span>
+                                <span class="pill"><i class="fas fa-map-marker-alt"></i> ${city}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="craftsman-excerpt">${excerpt}</p>
+                    <div class="card-footer">
+                        <div class="contact-info">
+                            <span class="phone-display"><i class="fas fa-user"></i> عرض الملف</span>
+                        </div>
+                        <div class="rating-box small-rating">${buildStars(rating)} <span>${rating}</span> <span style="color:#64748b;font-size:.8rem">(${reviews} تقييم)</span></div>
+                    </div>
+                </a>
+            `;
+        }
+
+        // دالة بسيطة للتواصل مع الحرفي
+        function contactCraftsman(phone, name) {
+            if (phone && phone !== 'undefined') {
+                if (confirm(`هل تريد التواصل مع ${name} على الرقم: ${phone}؟`)) {
+                    window.open(`tel:${phone}`);
+                }
+            } else {
+                alert('يرجى تسجيل الدخول لعرض معلومات التواصل');
+            }
+        }
+
+        function renderVisibleResults(reset = false) {
+            if (reset) {
+                visibleCount = 0;
+                resultsEl.innerHTML = '';
+            }
+
+            const nextCount = Math.min(currentCraftsmen.length, visibleCount + PAGE_SIZE);
+            const batch = currentCraftsmen.slice(visibleCount, nextCount);
+            if (batch.length > 0) {
+                resultsEl.insertAdjacentHTML('beforeend', batch.map(renderCard).join(''));
+                visibleCount = nextCount;
+            }
+
+            if (resultsSummary) {
+                const lang = localStorage.getItem('hirafi_lang') || 'ar';
+                const tmpl = (window.translations && window.translations[lang] && window.translations[lang]['search_results_summary']) ? window.translations[lang]['search_results_summary'] : 'عرض ${count} من أصل ${total} حرفي';
+                resultsSummary.textContent = tmpl.replace('${count}', visibleCount).replace('${total}', currentCraftsmen.length);
+            }
+
+            if (loadMoreWrap) {
+                loadMoreWrap.hidden = visibleCount >= currentCraftsmen.length;
+            }
+        }
+
+        // دالة البحث الرئيسية
+        async function doSearch() {
+            // ناخد القيم من المداخل
+            const profession = document.getElementById('professionManual').value.trim() || document.getElementById('profession').value;
+            const city = document.getElementById('cityManual').value.trim() || document.getElementById('city').value;
+            const minRating = document.getElementById('minRating').value || 0;
+
+            // نعرض رسالة تحميل للنتائج العادية
+            resultsEl.innerHTML = '<div class="results-info">جارٍ البحث...</div>';
+
+            // نجلب النتائج العادية
+            const craftsmen = await fetchResults(profession, city, minRating);
+            currentCraftsmen = Array.isArray(craftsmen) ? craftsmen : [];
+
+            // إذا ماكاينش نتائج
+            if (!currentCraftsmen || currentCraftsmen.length === 0) {
+                resultsEl.innerHTML = '<div class="results-info">لم يتم العثور على حرفيين مطابقين.</div>';
+                return;
+            }
+
+            renderVisibleResults(true);
+        }
+
+        // نضيف الأفعال للأزرار
+        searchBtn.addEventListener('click', (e) => { 
+            e.preventDefault(); // مانع التسجيل العادي
+            doSearch(); // ننفذ البحث
+        });
+        
+        clearBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // نفضي الفلاتر
+            document.getElementById('profession').value = '';
+            document.getElementById('professionManual').value = '';
+            document.getElementById('city').value = '';
+            document.getElementById('cityManual').value = '';
+            document.getElementById('minRating').value = '0';
+            doSearch(); // ننفذ البحث من جديد
+        });
+
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', () => {
+                renderVisibleResults(false);
+            });
+        }
+
+        function applyFiltersFromUrl() {
+            const url = new URL(window.location.href);
+            const profession = url.searchParams.get('profession') || '';
+            const city = url.searchParams.get('city') || '';
+            const minRating = url.searchParams.get('minRating') || '';
+
+            const professionEl = document.getElementById('profession');
+            const cityEl = document.getElementById('city');
+            const minRatingEl = document.getElementById('minRating');
+
+            if (professionEl && profession) professionEl.value = profession;
+            if (cityEl && city) cityEl.value = city;
+            if (minRatingEl && minRating) minRatingEl.value = minRating;
+        }
+
+        // تهيئة الفلاتر الديناميكية
+        if (window.populateCitiesSelect) {
+            populateCitiesSelect('city', 'cityManual');
+        }
+        if (window.populateCraftsSelect) {
+            populateCraftsSelect('profession');
+        }
+
+        // ننفذ البحث الأولي عند تحميل الصفحة
+        applyFiltersFromUrl();
+        doSearch();
+    </script>
+    <script src="lang_dict.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

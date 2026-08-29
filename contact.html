@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - خدمة الحرفيين المغاربة</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Cairo", sans-serif;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(37, 99, 235, 0.16), transparent 38%),
+                radial-gradient(circle at 85% 20%, rgba(14, 165, 233, 0.12), transparent 35%),
+                linear-gradient(135deg, #eef2ff, #e2e8f0);
+            color: #0f172a;
+        }
+        .wrap {
+            max-width: 760px;
+            margin: 40px auto;
+            padding: 0 14px;
+        }
+        .contact-card {
+            background: linear-gradient(150deg, rgba(255,255,255,0.95), rgba(248,250,252,0.92));
+            border: 1px solid rgba(191, 219, 254, 0.8);
+            border-radius: 22px;
+            padding: 26px;
+            box-shadow: 0 24px 46px rgba(15, 23, 42, 0.14);
+            backdrop-filter: blur(5px);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 30px 55px rgba(15, 23, 42, 0.18);
+        }
+        .head { margin-bottom: 18px; }
+        .head h1 {
+            margin: 0 0 8px;
+            color: #1d4ed8;
+            font-size: clamp(1.8rem, 2.8vw, 2.3rem);
+        }
+        .head p {
+            margin: 0;
+            color: #475569;
+        }
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 14px;
+        }
+        .full { grid-column: 1 / -1; }
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .field label {
+            font-size: 0.85rem;
+            color: #475569;
+            font-weight: 700;
+        }
+        .field input,
+        .field select,
+        .field textarea {
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 10px;
+            font: inherit;
+            background: #fff;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+        }
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            outline: none;
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+            transform: translateY(-1px);
+        }
+        .field textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+        .status-msg {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            padding: 8px 10px;
+            border-radius: 9px;
+            display: none;
+        }
+        .status-msg.ok {
+            display: block;
+            background: #ecfdf3;
+            border: 1px solid #86efac;
+            color: #166534;
+        }
+        .status-msg.err {
+            display: block;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+        }
+        .btn {
+            border: 0;
+            border-radius: 10px;
+            padding: 10px 14px;
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+        .btn-primary {
+            background: linear-gradient(120deg, #2563eb, #0ea5e9);
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.28);
+        }
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 26px rgba(37, 99, 235, 0.34);
+        }
+        .btn-outline {
+            background: #fff;
+            border: 1px solid #cbd5e1;
+            color: #0f172a;
+        }
+        .note {
+            margin-top: 12px;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+        .quick-link {
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px dashed #cbd5e1;
+        }
+        .about-box {
+            margin-top: 16px;
+            background: linear-gradient(135deg, #f8fbff, #eef6ff);
+            border: 1px solid #dbeafe;
+            border-radius: 14px;
+            padding: 14px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .about-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.12);
+        }
+        .about-box h3 {
+            margin: 0 0 8px;
+            color: #1e3a8a;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+        .about-box p {
+            margin: 0;
+            color: #334155;
+            line-height: 1.8;
+            font-size: 0.93rem;
+        }
+        .btn-ghost {
+            background: #fff;
+            border: 1px solid #bfdbfe;
+            color: #1d4ed8;
+        }
+        .btn-ghost:hover {
+            background: #eff6ff;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="contact-card">
+            <div class="head">
+                <h1 data-i18n="contact_title"><i class="fas fa-headset"></i> اتصل بالإدارة</h1>
+                <p data-i18n="contact_subtitle">عمّر المعلومات ديالك وصيفط سؤالك، وغادي يوصلك الرد من الإدارة.</p>
+            </div>
+
+            <form id="guestContactForm" class="form-grid">
+                <div class="field">
+                    <label for="senderName" data-i18n="contact_name">الاسم الكامل</label>
+                    <input id="senderName" type="text" maxlength="120" required>
+                </div>
+                <div class="field">
+                    <label for="senderType" data-i18n="contact_type">نوعك</label>
+                    <select id="senderType">
+                        <option value="guest" data-i18n="contact_type_guest">زائر</option>
+                        <option value="craftsman" data-i18n="contact_type_craftsman">حرفي</option>
+                        <option value="client" data-i18n="contact_type_client">زبون</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="senderEmail" data-i18n="contact_email_label">Gmail</label>
+                    <input id="senderEmail" type="email" placeholder="example@gmail.com" data-i18n="contact_email_placeholder" required>
+                </div>
+                <div class="field">
+                    <label for="senderPhone" data-i18n="contact_phone">رقم الهاتف</label>
+                    <input id="senderPhone" type="text" maxlength="30" placeholder="+212..." required>
+                </div>
+                <div class="field full">
+                    <label for="senderSubject" data-i18n="contact_subject">الموضوع (اختياري)</label>
+                    <input id="senderSubject" type="text" maxlength="200">
+                </div>
+                <div class="field full">
+                    <label for="senderMessage" data-i18n="contact_message">الرسالة</label>
+                    <textarea id="senderMessage" placeholder="اكتب سؤالك أو استفسارك هنا..." data-i18n="contact_message_placeholder" required></textarea>
+                </div>
+                <div class="actions full">
+                    <button type="submit" class="btn btn-primary" id="guestSendBtn" data-i18n="contact_send_btn"><i class="fas fa-paper-plane"></i> إرسال الرسالة للإدارة</button>
+                    <a class="btn btn-outline" href="index.html" data-i18n="contact_back"><i class="fas fa-arrow-right"></i> رجوع للرئيسية</a>
+                </div>
+            </form>
+            <div id="formStatus" class="status-msg"></div>
+            <div class="quick-link actions">
+                <a class="btn btn-ghost" href="#" id="messageAdminBtn" data-i18n="contact_admin_chat"><i class="fas fa-comments"></i> دخول لشات الإدارة (للمسجلين)</a>
+            </div>
+            <div class="about-box">
+                <h3 data-i18n="contact_about_title"><i class="fas fa-circle-info"></i> من نحن</h3>
+                <p data-i18n="contact_about_text">
+                    منصة <strong>Hirafi.ma</strong> كتربط بين الحرفيين المغاربة والزوار اللي باغين خدمات موثوقة بسرعة وسهولة.
+                    الهدف ديالنا هو تنظيم التواصل بين الطرفين، إبراز الحرفيين المحترفين، وتسهيل الوصول للدعم والإدارة عبر نظام مراسلة واضح وآمن.
+                </p>
+            </div>
+        </div>
+    </div>
+ 
+    <script>
+        const messageAdminBtn = document.getElementById('messageAdminBtn');
+        const guestContactForm = document.getElementById('guestContactForm');
+        const guestSendBtn = document.getElementById('guestSendBtn');
+        const formStatus = document.getElementById('formStatus');
+
+        function getTransVal(key, defaultVal) {
+            const lang = localStorage.getItem('hirafi_lang') || 'ar';
+            if (window.translations && window.translations[lang] && window.translations[lang][key]) {
+                return window.translations[lang][key];
+            }
+            return defaultVal;
+        }
+
+        async function getSession() {
+            try {
+                const res = await fetch('backend/check_session.php');
+                return await res.json();
+            } catch (e) {
+                return { logged_in: false };
+            }
+        }
+
+        messageAdminBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const session = await getSession();
+            if (!session.logged_in) {
+                const confirmMsg = getTransVal('contact_confirm_login', 'خاصك تسجل الدخول باش تراسل الإدارة. واش نمشيو لصفحة تسجيل الدخول؟');
+                const goLogin = confirm(confirmMsg);
+                if (goLogin) {
+                    window.location.href = 'hirafi_login.html';
+                }
+                return;
+            }
+            window.location.href = 'backend/messages_center.php';
+        });
+
+        function showStatus(message, ok) {
+            formStatus.textContent = message;
+            formStatus.className = 'status-msg ' + (ok ? 'ok' : 'err');
+        }
+
+        guestContactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            showStatus('', true);
+            guestSendBtn.disabled = true;
+
+            const payload = {
+                name: document.getElementById('senderName').value.trim(),
+                sender_type: document.getElementById('senderType').value,
+                email: document.getElementById('senderEmail').value.trim(),
+                phone: document.getElementById('senderPhone').value.trim(),
+                subject: document.getElementById('senderSubject').value.trim(),
+                message: document.getElementById('senderMessage').value.trim()
+            };
+
+            try {
+                const res = await fetch('backend/contact_messages.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+
+                if (!data.success) {
+                    const errMsg = getTransVal('contact_send_error', 'فشل إرسال الرسالة');
+                    showStatus(data.message || errMsg, false);
+                    guestSendBtn.disabled = false;
+                    return;
+                }
+
+                const successMsg = getTransVal('contact_send_success', 'تم إرسال الرسالة بنجاح');
+                showStatus(data.message || successMsg, true);
+                guestContactForm.reset();
+            } catch (err) {
+                const connErrMsg = getTransVal('contact_conn_error', 'وقع مشكل فالربط، حاول مرة أخرى.');
+                showStatus(connErrMsg, false);
+            }
+
+            guestSendBtn.disabled = false;
+        });
+    </script>
+    <script src="lang_dict.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

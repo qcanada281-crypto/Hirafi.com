@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دخول الحرفي - خدمة الحرفيين المغاربة</title>
+    <meta name="description" content="سجّل دخولك إلى منصة حرفي - المنصة الرائدة للحرفيين المغاربة. إدارة مشاريعك والتواصل مع عملائك بكل سهولة.">
+    <link rel="icon" type="image/x-icon" href="img/favicon.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ================================================
+           HIRAFI LOGIN PAGE - Premium Moroccan SaaS Design
+           ================================================ */
+
+        /* ── CSS Variables ── */
+        :root {
+            --gold:          #C8925A;
+            --gold-light:    #D4A373;
+            --gold-pale:     #E8D5BF;
+            --gold-xpale:    #F5EDE3;
+            --dark:          #2F241D;
+            --dark-mid:      #4A3728;
+            --bg:            #FAF8F5;
+            --card:          #FFFFFF;
+            --text-muted:    #7A6558;
+            --border:        #EAD9C8;
+            --shadow-card:   0 20px 60px rgba(0,0,0,.08);
+            --shadow-input:  0 4px 16px rgba(200,146,90,.10);
+            --shadow-btn:    0 12px 40px rgba(200,146,90,.32);
+            --radius-card:   32px;
+            --radius-input:  18px;
+            --radius-btn:    18px;
+            --transition:    all .28s cubic-bezier(.4,0,.2,1);
+        }
+
+        /* ── Reset for this page ── */
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Tajawal', 'Cairo', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+            margin: 0;
+            overflow-x: hidden;
+            direction: rtl;
+        }
+
+        /* ══════════════════════════════════════════
+           PREMIUM NAVBAR
+        ══════════════════════════════════════════ */
+        .hl-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.88);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(200,146,90,.12);
+            box-shadow: 0 2px 24px rgba(47,36,29,.06);
+            height: 72px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hl-nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        /* Logo */
+        .hl-logo {
+            display: flex;
+            align-items: center;
+            gap: .85rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .hl-logo:hover { transform: translateY(-2px); }
+
+        .hl-logo-badge {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--gold-pale) 0%, var(--gold-xpale) 100%);
+            border: 1.5px solid rgba(200,146,90,.20);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 6px 18px rgba(200,146,90,.18);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        .hl-logo:hover .hl-logo-badge {
+            box-shadow: 0 10px 28px rgba(200,146,90,.28);
+            transform: rotate(6deg);
+        }
+
+        .hl-logo-text h1 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin: 0;
+            line-height: 1.2;
+        }
+        .hl-logo-text .hl-logo-sub {
+            font-size: .75rem;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: .02em;
+        }
+
+        /* Nav right group */
+        .hl-nav-right {
+            display: flex;
+            align-items: center;
+            gap: .85rem;
+            flex-shrink: 0;
+        }
+
+        /* Nav link */
+        .hl-nav-link {
+            font-size: .92rem;
+            font-weight: 600;
+            color: var(--dark-mid);
+            text-decoration: none;
+            padding: .45rem .85rem;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+        .hl-nav-link:hover {
+            color: var(--gold);
+            background: var(--gold-xpale);
+        }
+
+        /* Language switcher */
+        .hl-lang-wrap {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,.6);
+            border: 1px solid rgba(200,146,90,.18);
+            border-radius: 50px;
+            padding: 3px;
+            gap: 2px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 8px rgba(0,0,0,.06);
+        }
+        .hl-lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: .3rem .7rem;
+            border: none;
+            border-radius: 50px;
+            background: transparent;
+            color: var(--text-muted);
+            font-weight: 700;
+            font-size: .8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+            letter-spacing: .04em;
+        }
+        .hl-lang-btn:hover {
+            color: var(--gold);
+            background: rgba(200,146,90,.08);
+        }
+        .hl-lang-btn.active {
+            background: var(--gold);
+            color: white;
+            box-shadow: 0 3px 12px rgba(200,146,90,.35);
+        }
+
+        /* CTA button */
+        .hl-nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .5rem 1.2rem;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: #fff;
+            font-weight: 700;
+            font-size: .88rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(200,146,90,.30);
+            transition: var(--transition);
+            white-space: nowrap;
+            font-family: inherit;
+        }
+        .hl-nav-cta:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(200,146,90,.40);
+        }
+        .hl-nav-cta::after {
+            content: '←';
+            font-size: .85rem;
+            transition: transform .22s ease;
+        }
+        .hl-nav-cta:hover::after { transform: translateX(-3px); }
+
+        /* ══════════════════════════════════════════
+           PAGE WRAPPER & BACKGROUND
+        ══════════════════════════════════════════ */
+        .hl-page {
+            min-height: calc(100vh - 72px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ambient blobs */
+        .hl-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            pointer-events: none;
+            will-change: transform;
+        }
+        .hl-blob-1 {
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(200,146,90,.14) 0%, transparent 70%);
+            top: -150px; right: -100px;
+            animation: blobFloat1 12s ease-in-out infinite;
+        }
+        .hl-blob-2 {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(232,213,191,.22) 0%, transparent 70%);
+            bottom: -100px; left: -80px;
+            animation: blobFloat2 15s ease-in-out infinite;
+        }
+        .hl-blob-3 {
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(200,146,90,.08) 0%, transparent 70%);
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation: blobFloat3 18s ease-in-out infinite;
+        }
+
+        @keyframes blobFloat1 {
+            0%, 100% { transform: translate(0,0) scale(1); }
+            50% { transform: translate(-30px, 30px) scale(1.05); }
+        }
+        @keyframes blobFloat2 {
+            0%, 100% { transform: translate(0,0) scale(1); }
+            50% { transform: translate(25px,-25px) scale(1.08); }
+        }
+        @keyframes blobFloat3 {
+            0%, 100% { transform: translate(-50%,-50%) scale(1); }
+            50% { transform: translate(-52%,-48%) scale(1.12); }
+        }
+
+        /* Decorative geometric SVG pattern */
+        .hl-pattern {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: .04;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C8925A' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* ══════════════════════════════════════════
+           CENTERED LOGIN WITH ARTISAN BACKGROUND
+        ══════════════════════════════════════════ */
+        .hl-center-wrap {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 24px 64px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .hl-hero-stack {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Centered transparent artisan image */
+        .hl-bg-artisan {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(380px, 88vw);
+            height: auto;
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: 1;
+            filter: saturate(0.85);
+            user-select: none;
+        }
+
+        .hl-bg-artisan-fallback {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(320px, 80vw);
+            height: auto;
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: 1;
+            color: var(--gold);
+        }
+
+        /* LTR support (French) */
+        body.lang-ltr .hl-input-icon {
+            right: auto;
+            left: 18px;
+        }
+        body.lang-ltr .hl-input {
+            padding: 0 18px 0 48px;
+        }
+        body.lang-ltr .hl-btn-arrow {
+            transform: scaleX(-1);
+        }
+        body.lang-ltr .hl-btn:hover .hl-btn-arrow {
+            transform: scaleX(-1) translateX(-4px);
+        }
+
+        .hl-card {
+            width: 100%;
+            max-width: 520px;
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: var(--radius-card);
+            padding: 48px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(200,146,90,.14);
+            position: relative;
+            z-index: 10;
+            animation: cardEntrance .6s cubic-bezier(.22,1,.36,1) both;
+        }
+
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(24px) scale(.98); }
+            to   { opacity: 1; transform: translateY(0)   scale(1); }
+        }
+
+        /* Card top shimmer line */
+        .hl-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 48px; right: 48px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), transparent);
+            border-radius: 0 0 3px 3px;
+        }
+
+        /* Card header */
+        .hl-card-header { text-align: center; margin-bottom: 2rem; }
+
+        .hl-card-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--gold-pale), var(--gold-xpale));
+            border: 1.5px solid rgba(200,146,90,.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin: 0 auto 1.25rem;
+            box-shadow: 0 8px 24px rgba(200,146,90,.20);
+            animation: iconPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { box-shadow: 0 8px 24px rgba(200,146,90,.20); }
+            50%       { box-shadow: 0 12px 36px rgba(200,146,90,.36); }
+        }
+
+        .hl-card-title {
+            font-size: 1.75rem;
+            font-weight: 900;
+            color: var(--dark);
+            margin: 0 0 .4rem;
+            letter-spacing: -.01em;
+        }
+
+        .hl-card-subtitle {
+            font-size: .9rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ── Alert ── */
+        #alertContainer { margin-bottom: 0; }
+
+        .alert {
+            padding: 12px 16px;
+            border-radius: 14px;
+            font-size: .88rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: alertSlide .3s cubic-bezier(.22,1,.36,1);
+        }
+        @keyframes alertSlide {
+            from { opacity: 0; transform: translateY(-10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .alert-danger  { background: #FEF2F2; color: #991B1B; border: 1px solid #FECACA; }
+        .alert-success { background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; }
+
+        /* ── Visible Label Inputs ── */
+        .hl-field {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .hl-field-label {
+            display: block;
+            font-size: .88rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .hl-field-hint {
+            display: block;
+            font-size: .75rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+            font-weight: 600;
+        }
+
+        .hl-or-divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 4px 0 16px;
+            color: var(--text-muted);
+            font-size: .78rem;
+            font-weight: 700;
+        }
+        .hl-or-divider::before,
+        .hl-or-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .hl-field-inner {
+            position: relative;
+        }
+
+        .hl-input-icon {
+            position: absolute;
+            top: 50%;
+            right: 18px;
+            transform: translateY(-50%);
+            color: #C4A882;
+            pointer-events: none;
+            transition: color .22s ease;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+        }
+
+        .hl-input {
+            width: 100%;
+            height: 56px;
+            padding: 0 48px 0 18px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-input);
+            background: #FEFCF9;
+            font-size: .97rem;
+            font-family: inherit;
+            color: var(--dark);
+            outline: none;
+            transition: var(--transition);
+            box-sizing: border-box;
+            caret-color: var(--gold);
+        }
+
+        .hl-input::placeholder {
+            color: #B8A494;
+            font-weight: 500;
+        }
+
+        /* Focus state */
+        .hl-input:focus {
+            border-color: var(--gold);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(200,146,90,.12), var(--shadow-input);
+        }
+        .hl-input:focus ~ .hl-input-icon,
+        .hl-field-inner:focus-within .hl-input-icon { color: var(--gold); }
+
+        .hl-input:hover:not(:focus) {
+            border-color: var(--gold-light);
+            background: #fff;
+        }
+
+        /* ── Remember me ── */
+        .hl-extras {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 4px 0 24px;
+        }
+
+        .hl-remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: .88rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            user-select: none;
+        }
+
+        .hl-remember input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            flex-shrink: 0;
+            position: relative;
+        }
+        .hl-remember input[type="checkbox"]:checked {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+        .hl-remember input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            top: 2px; right: 5px;
+            width: 5px; height: 9px;
+            border: 2px solid #fff;
+            border-top: none; border-right: none;
+            transform: rotate(-45deg) translate(1px, -1px);
+        }
+
+        /* ── Submit Button ── */
+        .hl-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .6rem;
+            width: 100%;
+            height: 60px;
+            border: none;
+            border-radius: var(--radius-btn);
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: #fff;
+            font-size: 1.05rem;
+            font-weight: 800;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: var(--shadow-btn);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        /* Ripple shimmer on hover */
+        .hl-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.18) 50%, transparent 100%);
+            transform: translateX(-100%);
+            transition: transform .55s ease;
+        }
+        .hl-btn:hover::before { transform: translateX(100%); }
+
+        .hl-btn:hover {
+            transform: translateY(-2px) scale(1.015);
+            box-shadow: 0 18px 48px rgba(200,146,90,.42);
+        }
+        .hl-btn:active { transform: translateY(0) scale(.99); }
+
+        .hl-btn-arrow {
+            font-size: 1.15rem;
+            transition: transform .22s ease;
+        }
+        .hl-btn:hover .hl-btn-arrow { transform: translateX(-4px); }
+
+        /* ── Gmail/Social Login Button ── */
+        .hl-btn-social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .8rem;
+            width: 100%;
+            height: 60px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-btn);
+            background: #FEFCF9;
+            color: var(--dark);
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(200,146,90,.12);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .hl-btn-social:hover {
+            background: #fff;
+            border-color: var(--gold);
+            box-shadow: 0 8px 24px rgba(200,146,90,.20);
+            transform: translateY(-2px) scale(1.01);
+        }
+
+        .hl-btn-social svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        /* ── Forgot Password Link ── */
+        .hl-forgot-link {
+            color: var(--gold);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: .88rem;
+            transition: var(--transition);
+            display: inline-block;
+            padding-bottom: 2px;
+            border-bottom: 1px solid transparent;
+        }
+        .hl-forgot-link:hover {
+            color: var(--dark);
+            border-bottom-color: var(--gold);
+        }
+
+        /* ── Social Login Section ── */
+        .hl-social-section {
+            position: relative;
+            padding: 24px 0;
+        }
+
+        /* ── Divider ── */
+        .hl-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 28px 0 24px;
+        }
+        .hl-divider-line {
+            flex: 1;
+            height: 1.5px;
+            background: linear-gradient(90deg, var(--border), rgba(200,146,90,.2), var(--border));
+        }
+        .hl-divider span {
+            font-size: .85rem;
+            color: #C4A882;
+            font-weight: 700;
+            white-space: nowrap;
+            letter-spacing: .05em;
+        }
+
+        /* ── Signup link ── */
+        .hl-signup {
+            text-align: center;
+            font-size: .9rem;
+            color: var(--text-muted);
+        }
+
+        .hl-signup-link {
+            color: var(--dark);
+            font-weight: 800;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 2px;
+            transition: color .22s ease;
+        }
+        .hl-signup-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 100%; height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .28s ease;
+        }
+        .hl-signup-link:hover { color: var(--gold); }
+        .hl-signup-link:hover::after { transform: scaleX(1); }
+
+        /* ── Loading State ── */
+        .hl-loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        .hl-loading-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .75rem;
+        }
+        .hl-spinner {
+            width: 44px;
+            height: 44px;
+            border: 3.5px solid rgba(200,146,90,.15);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin .85s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .hl-loading p {
+            font-size: .92rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* ══════════════════════════════════════════
+           PAGE-LOAD ANIMATIONS
+        ══════════════════════════════════════════ */
+        .anim-fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            animation: fadeUp .65s cubic-bezier(.22,1,.36,1) forwards;
+        }
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-1 { animation-delay: .1s; }
+        .delay-2 { animation-delay: .2s; }
+        .delay-3 { animation-delay: .3s; }
+        .delay-4 { animation-delay: .4s; }
+        .delay-5 { animation-delay: .5s; }
+        .delay-6 { animation-delay: .6s; }
+        .delay-7 { animation-delay: .7s; }
+
+        /* ══════════════════════════════════════════
+           RESPONSIVE
+        ══════════════════════════════════════════ */
+        @media (max-width: 860px) {
+            .hl-center-wrap { padding: 32px 16px 48px; }
+            .hl-card  { padding: 30px 24px; }
+            .hl-bg-artisan { width: min(300px, 82vw); opacity: 0.14; }
+        }
+
+        @media (max-width: 540px) {
+            .hl-nav-link { display: none; }
+            .hl-card { padding: 26px 20px; border-radius: 24px; }
+            .hl-card-title { font-size: 1.45rem; }
+            .hl-bg-artisan { width: min(260px, 78vw); opacity: 0.12; }
+        }
+
+        @media (max-width: 380px) {
+            .hl-lang-wrap { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ══════════════════════════════════════════
+         PREMIUM NAVBAR
+    ══════════════════════════════════════════ -->
+    <nav class="hl-navbar" role="navigation" aria-label="القائمة الرئيسية">
+        <div class="hl-nav-inner">
+
+            <!-- Logo -->
+            <a href="index.html" class="hl-logo" aria-label="الصفحة الرئيسية - حرفي">
+                <div class="hl-logo-badge">🛠️</div>
+                <div class="hl-logo-text">
+                    <h1 data-i18n="login_brand">الحرفي</h1>
+                    <div class="hl-logo-sub" data-i18n="login_brand_subtitle">منصة الحرفيين</div>
+                </div>
+            </a>
+
+            <!-- Right side -->
+            <div class="hl-nav-right">
+                <!-- Language switcher -->
+                <div class="hl-lang-wrap" role="group" aria-label="اختيار اللغة">
+                    <button class="hl-lang-btn" id="btn-lang-fr" aria-label="الفرنسية" data-lang="fr">
+                        🇫🇷 FR
+                    </button>
+                    <button class="hl-lang-btn active" id="btn-lang-ar" aria-label="العربية" data-lang="ar">
+                        🇲🇦 AR
+                    </button>
+                </div>
+
+                <!-- Home link -->
+                <a href="index.html" class="hl-nav-link" data-i18n="nav_home">الرئيسية</a>
+
+                <!-- CTA -->
+                <a href="hirafi_register.html" class="hl-nav-cta" data-i18n="nav_signup">تسجيل جديد</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════════
+         MAIN PAGE
+    ══════════════════════════════════════════ -->
+    <div class="hl-page" role="main">
+
+        <!-- Ambient background blobs -->
+        <div class="hl-blob hl-blob-1" aria-hidden="true"></div>
+        <div class="hl-blob hl-blob-2" aria-hidden="true"></div>
+        <div class="hl-blob hl-blob-3" aria-hidden="true"></div>
+        <div class="hl-pattern" aria-hidden="true"></div>
+
+        <!-- ════════ CENTERED LOGIN WITH ARTISAN IMAGE ════════ -->
+        <section class="hl-center-wrap" aria-label="تسجيل الدخول">
+            <div class="hl-hero-stack">
+
+                <!-- Transparent centered artisan image -->
+                <img class="hl-bg-artisan"
+                     src="img/artisan_illustration.png"
+                     alt=""
+                     aria-hidden="true"
+                     loading="eager"
+                     onerror="this.style.display='none'; document.getElementById('hl-artisan-fallback').style.display='block';">
+                <svg class="hl-bg-artisan-fallback" id="hl-artisan-fallback" aria-hidden="true" style="display:none;" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="70" r="38" fill="currentColor" opacity="0.35"/>
+                    <rect x="72" y="108" width="56" height="70" rx="14" fill="currentColor" opacity="0.3"/>
+                    <rect x="30" y="130" width="140" height="12" rx="6" fill="currentColor" opacity="0.25" transform="rotate(-25 100 136)"/>
+                    <rect x="50" y="155" width="30" height="50" rx="6" fill="currentColor" opacity="0.28"/>
+                    <rect x="120" y="155" width="30" height="50" rx="6" fill="currentColor" opacity="0.28"/>
+                    <path d="M60 200 Q100 220 140 200" stroke="currentColor" stroke-width="8" stroke-linecap="round" opacity="0.22"/>
+                </svg>
+
+                <!-- Login card overlay -->
+                <div class="hl-card" role="main">
+
+                <!-- Card header -->
+                <header class="hl-card-header">
+                    <div class="hl-card-logo" aria-hidden="true">🛠️</div>
+                    <h2 class="hl-card-title" data-i18n="login_title">دخول الحرفي</h2>
+                    <p class="hl-card-subtitle" data-i18n="login_subtitle">قم بتسجيل الدخول للوصول إلى لوحة التحكم الخاصة بك</p>
+                </header>
+
+                <!-- Alert container (unchanged - required by JS) -->
+                <div id="alertContainer" role="alert" aria-live="polite"></div>
+
+                <!-- LOGIN FORM (all IDs & names unchanged where required by JS) -->
+                <form id="loginForm" novalidate autocomplete="on">
+
+                    <!-- Email field -->
+                    <div class="hl-field">
+                        <label class="hl-field-label" for="email" data-i18n="login_email_label">البريد الإلكتروني</label>
+                        <div class="hl-field-inner">
+                            <div class="hl-input-icon" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <input
+                                class="hl-input"
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="example@email.com"
+                                data-i18n="login_email_placeholder"
+                                autocomplete="username"
+                                aria-label="البريد الإلكتروني">
+                        </div>
+                    </div>
+
+                    <div class="hl-or-divider" aria-hidden="true"><span data-i18n="login_or">أو</span></div>
+
+                    <p class="hl-field-hint" data-i18n="login_code_hint" style="margin-top:0;margin-bottom:16px;">أدخل البريد الإلكتروني أو كود الحرفي</p>
+
+                    <!-- Craftsman code field -->
+                    <div class="hl-field">
+                        <label class="hl-field-label" for="craftsmanCode" data-i18n="login_code_label">كود الحرفي</label>
+                        <div class="hl-field-inner">
+                            <div class="hl-input-icon" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </div>
+                            <input
+                                class="hl-input"
+                                type="text"
+                                id="craftsmanCode"
+                                name="craftsmanCode"
+                                placeholder="CRAFT261549"
+                                data-i18n="login_code_placeholder"
+                                autocomplete="off"
+                                aria-label="كود الحرفي">
+                        </div>
+                    </div>
+
+                    <!-- Password field -->
+                    <div class="hl-field">
+                        <label class="hl-field-label" for="password" data-i18n="login_password_label">كلمة المرور</label>
+                        <div class="hl-field-inner">
+                            <div class="hl-input-icon" aria-hidden="true" id="password-toggle">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </div>
+                            <input
+                                class="hl-input"
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="••••••••"
+                                data-i18n="login_password_placeholder"
+                                autocomplete="current-password"
+                                aria-label="كلمة المرور">
+                        </div>
+                    </div>
+
+                    <!-- Remember me -->
+                    <div class="hl-extras">
+                        <label class="hl-remember" for="remember">
+                            <input type="checkbox" name="remember" id="remember" aria-label="تذكرني">
+                            <span data-i18n="login_remember">تذكرني</span>
+                        </label>
+                        <a href="forgot_password.html" class="hl-forgot-link" data-i18n="login_forgot">نسيت كلمة المرور؟</a>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="hl-btn" id="hl-submit-btn" aria-label="تسجيل الدخول">
+                        <span data-i18n="login_btn">دخول</span>
+                        <span class="hl-btn-arrow" aria-hidden="true">←</span>
+                    </button>
+
+                    <!-- Loading state (unchanged ID - required by JS) -->
+                    <div class="hl-loading" id="loginLoading" role="status" aria-label="جارٍ التحقق من البيانات">
+                        <div class="hl-loading-inner">
+                            <div class="hl-spinner"></div>
+                            <p data-i18n="loading_text">جارٍ التحقق من البيانات...</p>
+                        </div>
+                    </div>
+
+                    <!-- Social Login Section -->
+                    <div class="hl-social-section">
+                        <!-- Divider -->
+                        <div class="hl-divider" aria-hidden="true">
+                            <div class="hl-divider-line"></div>
+                            <span data-i18n="login_or">أو</span>
+                            <div class="hl-divider-line"></div>
+                        </div>
+
+                        <!-- Gmail/Google Sign-In Button -->
+                        <button type="button" class="hl-btn-social" id="gmail-login-btn" aria-label="الدخول عبر Gmail">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                                <path d="M1 1h22v22H1z" fill="none"/>
+                            </svg>
+                            <span data-i18n="login_gmail">الدخول عبر Gmail</span>
+                        </button>
+                    </div>
+
+                    <!-- Signup link -->
+                    <div class="hl-signup">
+                        <span data-i18n="login_no_account">ليس لديك حساب؟ </span>
+                        <a href="hirafi_register.html" class="hl-signup-link" data-i18n="login_signup_link">
+                            إنشاء حساب حرفي
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+            </div>
+        </section>
+
+    </div><!-- /.hl-page -->
+
+    <!-- ══════════════════════════════════════════
+         SCRIPTS (backend logic UNCHANGED)
+    ══════════════════════════════════════════ -->
+    <script>
+        /* ─ Language switcher UI (visual only, logic handled by lang_dict.js) ─ */
+        document.querySelectorAll('.hl-lang-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.hl-lang-btn').forEach(function (b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+            });
+        });
+
+        /* ─── AUTHENTICATION LOGIC (UNCHANGED) ─── */
+        const loginForm      = document.getElementById('loginForm');
+        const alertContainer = document.getElementById('alertContainer');
+        const loginLoading   = document.getElementById('loginLoading');
+        const gmailLoginBtn  = document.getElementById('gmail-login-btn');
+
+        function showAlert(message, type = 'info') {
+            const alertEl = document.createElement('div');
+            alertEl.className = `alert alert-${type}`;
+            alertEl.innerHTML = message;
+            alertEl.style.animation = 'fadeIn 0.3s ease';
+            alertContainer.innerHTML = '';
+            alertContainer.appendChild(alertEl);
+            if (type === 'success') {
+                setTimeout(() => alertEl.remove(), 2000);
+            } else {
+                setTimeout(() => alertEl.remove(), 5000);
+            }
+        }
+
+        function t(key, fallback) {
+            const lang = localStorage.getItem('hirafi_lang') || 'ar';
+            return (window.translations && window.translations[lang] && window.translations[lang][key])
+                ? window.translations[lang][key]
+                : fallback;
+        }
+
+        /* Gmail login handler */
+        gmailLoginBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showAlert(t('login_gmail_soon', 'سيتم تفعيل تسجيل الدخول عبر Gmail قريباً'), 'info');
+        });
+
+        /* Password visibility toggle */
+        const passwordToggle = document.getElementById('password-toggle');
+        const passwordInput = document.getElementById('password');
+        if (passwordToggle && passwordInput) {
+            passwordToggle.style.cursor = 'pointer';
+            passwordToggle.addEventListener('click', function() {
+                const isPassword = passwordInput.type === 'password';
+                passwordInput.type = isPassword ? 'text' : 'password';
+                // Update icon
+                const icon = passwordToggle.querySelector('svg');
+                if (isPassword) {
+                    icon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+                } else {
+                    icon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+                }
+            });
+        }
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email         = document.getElementById('email').value.trim();
+            const craftsmanCode = document.getElementById('craftsmanCode').value.trim();
+            const password      = document.getElementById('password').value.trim();
+            const remember      = document.getElementById('remember').checked;
+
+            if (!email && !craftsmanCode) {
+                showAlert(t('login_error_missing', 'يرجى إدخال البريد الإلكتروني أو كود الحرفي'), 'danger');
+                return;
+            }
+
+            if (!password) {
+                showAlert(t('login_error_password', 'يرجى إدخال كلمة المرور'), 'danger');
+                return;
+            }
+
+            loginLoading.style.display = 'block';
+            loginForm.style.display    = 'none';
+
+            try {
+                const response = await fetch('backend/login_hirafi.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, craftsmanCode, password, remember })
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    showAlert(t('login_success', 'تم الدخول بنجاح ✅'), 'success');
+                    setTimeout(() => { window.location.href = 'backend/artisan_dashboard.php'; }, 1500);
+                } else {
+                    showAlert(result.message || t('login_error_invalid', 'بيانات الدخول غير صحيحة'), 'danger');
+                    loginLoading.style.display = 'none';
+                    loginForm.style.display    = 'block';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showAlert(t('login_error_network', 'حدث خطأ في الاتصال. حاول مرة أخرى.'), 'danger');
+                loginLoading.style.display = 'none';
+                loginForm.style.display    = 'block';
+            }
+        });
+    </script>
+
+    <!-- External scripts (unchanged) -->
+    <script src="lang_dict.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

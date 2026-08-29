@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دخول الإدارة - خدمة الحرفيين المغاربة</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.jpeg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Cairo:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary-color: #618764;
+            --primary-light: #A5AF79;
+            --primary-dark: #4a6a4f;
+            --accent-color: #8a9e7a;
+            --glass-bg: rgba(10, 20, 10, 0.55);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #CCD67F;
+            --text-secondary: #94a3b8;
+            --text-muted: #515860;
+            --border-color: rgba(255, 255, 255, 0.1);
+             --shadow-premium: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 40px rgba(97, 135, 100, 0.18);
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+             font-family: 'Cairo', 'Tajawal', sans-serif;
+             background: linear-gradient(135deg, #0b1a0f 0%, #142e18 50%, #0f1f12 100%);
+             min-height: 100vh;
+             color: var(--text-primary);
+             position: relative;
+             overflow-x: hidden;
+         }
+
+        /* Ambient background lights */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.25;
+            mix-blend-mode: screen;
+            animation: floatBlob 25s infinite alternate ease-in-out;
+        }
+         .blob-violet {
+             background: radial-gradient(circle, #618764, transparent 70%);
+             top: -100px;
+             left: -100px;
+         }
+         .blob-pink {
+             background: radial-gradient(circle, #A5AF79, transparent 70%);
+             bottom: -150px;
+             right: -100px;
+             animation-delay: -5s;
+         }
+         .blob-blue {
+             background: radial-gradient(circle, #8a9e7a, transparent 70%);
+             top: 40%;
+             left: 50%;
+             width: 400px;
+             height: 400px;
+             animation-delay: -10s;
+         }
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33% { transform: translate(40px, -60px) scale(1.1) rotate(120deg); }
+            66% { transform: translate(-30px, 30px) scale(0.95) rotate(240deg); }
+            100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+        }
+
+         /* Navbar - matches admin dashboard glass style */
+          .navbar {
+              backdrop-filter: blur(20px);
+              background: rgba(10, 15, 10, 0.88);
+              border-bottom: 1px solid rgba(204, 214, 127, 0.08);
+              position: fixed;
+              width: 100%;
+              top: 0;
+              z-index: 10;
+              box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+              transition: var(--transition-normal);
+          }
+          .nav-container {
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 18px 24px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+          }
+           .logo h1 {
+               color: #CCD67F;
+               font-size: 1.5rem;
+               font-weight: 800;
+               background: linear-gradient(135deg, #618764, #CCD67F);
+               -webkit-background-clip: text;
+               -webkit-text-fill-color: transparent;
+           }
+          .nav-menu {
+              display: flex;
+              align-items: center;
+              gap: 1.5rem;
+              list-style: none;
+          }
+          .nav-link {
+              color: #94a3b8;
+              text-decoration: none;
+              font-weight: 700;
+              transition: var(--transition-normal);
+              font-size: 1rem;
+          }
+          .nav-link:hover {
+              color: #CCD67F;
+          }
+          .btn-login {
+              background: linear-gradient(135deg, #618764, #CCD67F);
+              color: #ffffff;
+              padding: 8px 18px;
+              border-radius: 999px;
+              border: 1px solid transparent;
+              box-shadow: 0 2px 10px rgba(97, 135, 100, 0.35);
+              font-weight: 700;
+          }
+          .btn-login:hover {
+              background: linear-gradient(135deg, #4a6a4f, #618764);
+              transform: translateY(-2px);
+              box-shadow: 0 6px 20px rgba(97, 135, 100, 0.45);
+              color: #ffffff;
+          }
+
+        /* Wrapper & Container */
+        .admin-login-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .admin-login-container {
+            max-width: 500px;
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-premium);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .admin-form-section {
+            padding: 3.5rem 2.5rem;
+            position: relative;
+        }
+        
+         .admin-form-section::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             height: 4px;
+             background: linear-gradient(90deg, #4a6a4f, #A5AF79, #618764);
+         }
+ 
+         .admin-form-section h2 {
+             font-size: 2.2rem;
+             font-weight: 800;
+             text-align: center;
+             margin-bottom: 1.5rem;
+             letter-spacing: -0.5px;
+             background: linear-gradient(135deg, #fff 30%, #A5AF79 100%);
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+         }
+
+        /* Security info panel */
+         .security-badge {
+             background: rgba(97, 135, 100, 0.12);
+             border: 1px solid rgba(97, 135, 100, 0.25);
+             border-radius: var(--radius-md);
+             padding: 1.25rem;
+             margin-bottom: 2rem;
+             text-align: center;
+             transition: all var(--transition-normal);
+         }
+         .security-badge:hover {
+             background: rgba(97, 135, 100, 0.18);
+             border-color: rgba(97, 135, 100, 0.4);
+             transform: translateY(-2px);
+         }
+         .security-badge h3 {
+             color: #A5AF79;
+             font-size: 1rem;
+             font-weight: 700;
+             margin-bottom: 0.4rem;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             gap: 8px;
+         }
+        .security-badge p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Form groups */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            color: #e2e8f0;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        /* Styled inputs with placement of icons */
+        .input-icon-wrapper,
+        .password-input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .input-icon {
+            position: absolute;
+            right: 14px;
+            color: #64748b;
+            font-size: 1.1rem;
+            pointer-events: none;
+            transition: var(--transition-normal);
+        }
+        /* LTR correction handles */
+        [dir="ltr"] .input-icon {
+            right: auto;
+            left: 14px;
+        }
+
+         .form-group input {
+             width: 100%;
+             padding: 14px 44px 14px 16px;
+             background: rgba(15, 25, 15, 0.65);
+             border: 1px solid rgba(255, 255, 255, 0.1);
+             border-radius: var(--radius-md);
+             color: #fff;
+             font-size: 0.95rem;
+             font-family: inherit;
+             transition: all var(--transition-normal);
+             outline: none;
+         }
+        [dir="ltr"] .form-group input {
+            padding: 14px 16px 14px 44px;
+        }
+        .form-group input::placeholder {
+            color: #475569;
+        }
+         .form-group input:hover {
+             border-color: rgba(97, 135, 100, 0.5);
+             background: rgba(15, 23, 42, 0.7);
+         }
+         .form-group input:focus {
+             border-color: #618764;
+             background: rgba(15, 23, 42, 0.8);
+             box-shadow: 0 0 0 3px rgba(97, 135, 100, 0.3);
+         }
+         .form-group input:focus ~ .input-icon {
+             color: #A5AF79;
+         }
+
+        /* Password container specifics */
+        .password-input-container input {
+            padding-left: 48px;
+        }
+        [dir="ltr"] .password-input-container input {
+            padding-right: 48px;
+        }
+        .password-toggle-btn {
+            position: absolute;
+            left: 10px;
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            border-radius: 8px;
+            transition: var(--transition-normal);
+        }
+        [dir="ltr"] .password-toggle-btn {
+            left: auto;
+            right: 10px;
+        }
+         .password-toggle-btn:hover {
+             color: #A5AF79;
+             background: rgba(255, 255, 255, 0.06);
+         }
+
+        /* Checkbox styling */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        .checkmark {
+            height: 20px;
+            width: 20px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-left: 10px;
+            display: inline-block;
+            position: relative;
+            transition: var(--transition-normal);
+        }
+        [dir="ltr"] .checkmark {
+            margin-left: 0;
+            margin-right: 10px;
+        }
+         .checkbox-container:hover input ~ .checkmark {
+             border-color: rgba(97, 135, 100, 0.6);
+         }
+         .checkbox-container input:checked ~ .checkmark {
+             background-color: #618764;
+             border-color: #618764;
+             box-shadow: 0 0 12px rgba(97, 135, 100, 0.45);
+         }
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .checkbox-container input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        /* Premium login button with shimmer */
+         .login-btn {
+             width: 100%;
+             padding: 14px;
+             background: linear-gradient(135deg, #618764 0%, #A5AF79 100%);
+             color: #fff;
+             border: none;
+             border-radius: var(--radius-md);
+             font-size: 1rem;
+             font-weight: 700;
+             cursor: pointer;
+             transition: all var(--transition-normal);
+             box-shadow: 0 6px 24px rgba(97, 135, 100, 0.35);
+             margin-top: 1.5rem;
+             overflow: hidden;
+             position: relative;
+         }
+         .login-btn::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: -150%;
+             width: 100%;
+             height: 100%;
+             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+             transition: left 0.6s ease;
+         }
+         .login-btn:hover {
+             transform: translateY(-2px);
+             box-shadow: 0 10px 32px rgba(97, 135, 100, 0.45);
+             background: linear-gradient(135deg, #4a6a4f 0%, #618764 100%);
+         }
+         .login-btn:hover::before {
+             left: 150%;
+         }
+         .login-btn:active {
+             transform: translateY(0);
+         }
+
+        /* Back link */
+        .back-link {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        .back-link a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition-normal);
+        }
+        .back-link a:hover {
+            color: #fff;
+        }
+
+        /* Alerts design */
+        .alert {
+            padding: 12px 18px;
+            border-radius: var(--radius-md);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: alertSlideIn 0.3s ease;
+        }
+        @keyframes alertSlideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+         .alert-success {
+             background: rgba(97, 135, 100, 0.2);
+             border: 1px solid rgba(97, 135, 100, 0.4);
+             color: #A5AF79;
+         }
+         .alert-danger {
+             background: rgba(220, 80, 80, 0.18);
+             border: 1px solid rgba(220, 80, 80, 0.35);
+             color: #f87171;
+         }
+         .alert-info {
+             background: rgba(97, 135, 100, 0.18);
+             border: 1px solid rgba(97, 135, 100, 0.35);
+             color: #A5AF79;
+         }
+
+        /* Admin features section */
+         .admin-info-section .feature {
+             background: rgba(255,255,255,0.06);
+             border: 1px solid rgba(204, 214, 127, 0.25);
+             border-radius: 18px;
+             padding: 1rem;
+             margin-bottom: 0.9rem;
+             box-shadow: 0 4px 14px rgba(15,23,42,0.06);
+             display: flex;
+             align-items: center;
+             gap: 0.9rem;
+         }
+         .admin-info-section .feature-icon {
+             width: 42px;
+             height: 42px;
+             border-radius: 50%;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             background: linear-gradient(135deg, #CCD67F, #A5AF79);
+             color: #fff;
+             font-size: 1.3rem;
+             flex-shrink: 0;
+         }
+         .admin-info-section .feature-content h3 {
+             color: #CCD67F;
+             font-size: 1rem;
+             font-weight: 700;
+             margin-bottom: 0.2rem;
+         }
+         .admin-info-section .feature-content p {
+             color: var(--text-secondary);
+             font-size: 0.85rem;
+         }
+
+        /* Hide admin info section */
+        .admin-info-section {
+            display: none;
+        }
+
+        /* Responsive */
+        @media(max-width: 540px) {
+            .admin-form-section {
+                padding: 2.5rem 1.75rem;
+            }
+            .admin-form-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Ambient background lights -->
+    <div class="ambient-bg">
+        <div class="blob blob-violet"></div>
+        <div class="blob blob-pink"></div>
+        <div class="blob blob-blue"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1 class="admin-brand" data-i18n="admin_brand_title">🔧 لوحة التحكم</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link" data-i18n="nav_home">الرئيسية</a></li>
+                <li><a href="hirafi_login.html" class="nav-link btn-login" data-i18n="nav_login">دخول الحرفي</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Admin Login Section -->
+    <div class="admin-login-wrapper">
+        <div class="admin-login-container">
+            <div class="admin-form-section">
+                <h2 data-i18n="admin_login_title">🔐 دخول الإدارة</h2>
+
+                <div class="security-badge">
+                    <h3 data-i18n="admin_login_badge_title">🔒 منطقة محمية</h3>
+                    <p data-i18n="admin_login_badge_desc">وصول آمن حصراً على مدير النظام</p>
+                </div>
+
+                <div id="alertContainer"></div>
+
+                <form id="adminLoginForm">
+                    <div class="form-group">
+                        <label for="email" data-i18n="admin_login_email">البريد الإلكتروني</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="email" name="email" placeholder="admin@hirafi.ma" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" data-i18n="admin_login_password">كلمة المرور</label>
+                        <div class="password-input-container">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" data-i18n="login_password_placeholder" required>
+                            <button type="button" class="password-toggle-btn" onclick="togglePassword()">
+                                <i class="fas fa-eye" id="passwordIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="remember" id="remember">
+                            <span class="checkmark"></span>
+                            <span data-i18n="admin_login_remember">تذكرني على هذا الجهاز</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="login-btn" data-i18n="admin_login_btn">دخول آمن</button>
+
+                    <div class="back-link">
+                        <a href="index.html" data-i18n="contact_back"><span style="color:#CCD67F;">←</span> العودة للرئيسية</a>
+                    </div>
+                </form>
+            </div>
+
+            <div class="admin-info-section">
+                <h2 data-i18n="admin_dashboard_title">لوحة التحكم</h2>
+                
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <div class="feature-content">
+                        <h3 data-i18n="admin_feat1_title">إدارة الحرفيين</h3>
+                        <p data-i18n="admin_feat1_desc">إضافة وتعديل وحذف بيانات الحرفيين</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+                    <div class="feature-content">
+                        <h3 data-i18n="admin_feat2_title">إدارة النقاط</h3>
+                        <p data-i18n="admin_feat2_desc">إدخال النقاط والتقارير الأكاديمية</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <div class="feature-content">
+                        <h3 data-i18n="admin_feat3_title">إدارة الدروس</h3>
+                        <p data-i18n="admin_feat3_desc">إضافة ومراقبة الدروس والمحاضرات</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="feature-content">
+                        <h3 data-i18n="admin_feat4_title">التقارير والإحصائيات</h3>
+                        <p data-i18n="admin_feat4_desc">عرض تقارير مفصلة وإحصائيات شاملة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const adminLoginForm = document.getElementById('adminLoginForm');
+        const alertContainer = document.getElementById('alertContainer');
+
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const passwordIcon = document.getElementById('passwordIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordIcon.classList.remove('fa-eye');
+                passwordIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                passwordIcon.classList.remove('fa-eye-slash');
+                passwordIcon.classList.add('fa-eye');
+            }
+        }
+
+        function showAlert(message, type = 'info') {
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+            alert.style.animation = 'slideIn 0.3s ease';
+            alertContainer.innerHTML = '';
+            alertContainer.appendChild(alert);
+            
+            if (type === 'success') {
+                setTimeout(() => alert.remove(), 2000);
+            } else {
+                setTimeout(() => alert.remove(), 5000);
+            }
+        }
+
+        adminLoginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const remember = document.getElementById('remember').checked;
+
+            // Client-side validation
+            if (!email || !password) {
+                showAlert('يرجى ملء جميع الحقول', 'danger');
+                return;
+            }
+
+            if (password.length < 6) {
+                showAlert('كلمة المرور غير صحيحة', 'danger');
+                return;
+            }
+
+            try {
+                const response = await fetch('backend/login_admin.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password,
+                        remember: remember
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showAlert('تم الدخول بنجاح', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'backend/admin_dashboard.php';
+                    }, 1500);
+                } else {
+                    showAlert(result.message || 'البيانات غير صحيحة', 'danger');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showAlert('حدث خطأ في الاتصال. حاول مرة أخرى.', 'danger');
+            }
+        });
+    </script>
+    <script src="lang_dict.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
